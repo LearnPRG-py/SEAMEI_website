@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- TO FIX ASPECT RATIO ISSUES-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SEAMEI MUN</title>
+        
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+        <div id="profile-card-root"></div>
+
+        <!-- working on this -->
+        <link rel="stylesheet" href="profilecard.css">
+        <script src="profilecard.js"></script>
+
+    </head>
+    <body>
+        <div id="first-bg-image"></div>
+        <!-- Sresht - add your topnav here -->
+        <nav class="topnav">
+            <a href="#">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Comitees</a>
+            <a href="#">Conference details</a>
+            <a href="#">Prizes</a>
+        </nav>
+        <!-- animated css script for hero and some animations -->
+        <header class="hero" style="text-align:center; margin: 64px 0 32px 0;">
+            <h1 class="animate__animated animate__fadeInDown" style="font-size:2.8rem; font-weight:700; letter-spacing:1px; line-height:1.2; transition: all 0.4s cubic-bezier(.4,0,.2,1);">
+                SEAMEI MUN
+            </h1>
+            <p class="animate__animated animate__fadeInUp" style="font-size:1.3rem; font-weight:400; letter-spacing:0.5px; margin-top:18px; line-height:1.5; transition: all 0.4s cubic-bezier(.4,0,.2,1);">
+                [insert text here]
+            </p>
+        </header>
+        <div class="spacer1">
+
+        </div>
+        <div class="container">
+            <section class="content">
+                <h2>About SEAMEI MUN</h2>
+                <p>[insert text here]</p>
+                <p>[insert text here]</p>
+            </section>
+            <div class="letter-row">
+                <section class="letter-from-sec-gen">
+                    <h2>Letter from the Secretary-General</h2>
+                    <p>Dear Delegates,</p>
+                    <p>[insert text here]</p>
+                    <p>[insert text here]</p>
+                    <p>[insert text here]</p>
+                    <p>[insert text here]</p>
+                    <p>[insert text here]</p>
+                    <p>Sincerely,</p>
+                    <p style="padding-left: 4em;">Soumyajit</p>
+                </section>
+                <div class="letter-side-content">
+                    <!-- add profile card later -->
+                    <div id="profile-card-root"></div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>&copy; 2025 SEAMEI MUN. All rights reserved.</p>
+            <p>Contact us at: 
+                <a href="mailto:aryankrishnan4b@gmail.com">email_here</a>
+            </p>
+            <p>School webpage: 
+                <a href="https://www.oakridge.in" target="_blank">www.oakridge.in</a>
+            </p>
+            <p>Follow us on 
+                <a href="https://www.facebook.com/handlehere" target="_blank"><i class="fab fa-facebook"></i></a> 
+                <a href="https://www.twitter.com/handlehere" target="_blank"><i class="fab fa-twitter"></i></a>
+            </p>
+        </footer>
+        <script src="script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            if (typeof renderProfileCard === 'function') {
+              renderProfileCard({
+                rootId: 'profile-card-root',
+                name: "Javi A. Torres",
+                title: "Software Engineer",
+                handle: "javicodes",
+                status: "Online",
+                contactText: "Contact Me",
+                avatarUrl: "/path/to/avatar.jpg",
+                showUserInfo: true,
+                enableTilt: true,
+                onContactClick: function() { console.log('Contact clicked'); }
+              });
+            }
+          });
+        </script>
+    </body>
+</html>
