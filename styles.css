@@ -1,6 +1,6 @@
 body {
-    background: #000;
-    color: #fff;
+    background: var(--bg2);
+    color: var(--font-color);
     font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -12,7 +12,7 @@ body {
     margin-bottom: 120%;
 }
 .topnav {
-    background-color: #121212;
+    background-color: var(--bg1);
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -25,7 +25,7 @@ body {
 }
 
 .topnav a {
-    color: #fff;
+    color: var(--font-color);
     text-align: center;
     padding: 16px 24px;
     text-decoration: none;
@@ -34,33 +34,32 @@ body {
 }
 
 .topnav a:hover {
-    background-color: #131313;
-    color: #ffd700;
+    background-color: var(--bg1);
+    color: var(--accent-gold);
 }
 
 h1, h2, h3, h4, h5, h6, p, a {
-    color: #fff;
+    color: var(--font-color);
 }
 
 footer {
-    background: #121212;
-    color: #fff;
+    background: var(--bg1);
+    color: var(--font-color);
     text-align: center;
     padding: 20px 0;
 }
 
 footer a {
-    color: #ffd700;
+    color: var(--accent-gold);
     margin: 0 8px;
     text-decoration: none;
     transition: color 0.2s;
 }
 
 footer a:hover {
-    color: #fff;
+    color: var(--font-color);
 }
 
-/* Carousel background container styles */
 #first-bg-image {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -123,4 +122,10 @@ footer a:hover {
     border-radius: 18px;
     padding: 32px 24px;
     box-shadow: 0 4px 24px 0 rgba(0,0,0,0.10);
+}
+:root {
+    --accent-gold: #ffd700;
+    --font-color: #fff;
+    --bg1: #121212;
+    --bg2: #000;
 }
