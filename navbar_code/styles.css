@@ -49,6 +49,7 @@ body {
     left: 0;
     right: 0;
     width: 30%;
+    min-width: fit-content;
     height: 70px;
     margin: 0 auto;
     padding: 0rem 1.5rem;

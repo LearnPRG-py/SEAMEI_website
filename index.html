@@ -12,8 +12,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
-        <div id="profile-card-root"></div>
+        <link rel="stylesheet" href="navbar_code/styles.css">
 
         <!-- working on this -->
         <link rel="stylesheet" href="profilecard.css">
@@ -21,16 +20,20 @@
 
     </head>
     <body>
+        <div class="topmar" style="height: 2px;"></div>
+        <div id="sentinel" style="height:0px;"></div>
+            <header class="navbar" id="navbar">
+                <div class="nav-inner" id="navInner">
+                    <ul>
+                        <li><a href="home-link">Home</a></li>
+                        <li><a href="about-us-link">About Us</a></li>
+                        <li><a href="committees-link">Committees</a></li>
+                        <li><a href="conference-details-link">Conference Details</a></li>
+                        <li><a href="prizes-link">Prizes</a></li>
+                    </ul>
+                </div>
+            </header>
         <div id="first-bg-image"></div>
-        <!-- Sresht - add your topnav here -->
-        <nav class="topnav">
-            <a href="#">Home</a>
-            <a href="#">About Us</a>
-            <a href="#">Comitees</a>
-            <a href="#">Conference details</a>
-            <a href="#">Prizes</a>
-        </nav>
-        <!-- animated css script for hero and some animations -->
         <header class="hero" style="text-align:center; margin: 64px 0 32px 0;">
             <h1 class="animate__animated animate__fadeInDown" style="font-size:2.8rem; font-weight:700; letter-spacing:1px; line-height:1.2; transition: all 0.4s cubic-bezier(.4,0,.2,1);">
                 SEAMEI MUN
@@ -39,7 +42,28 @@
                 [insert text here]
             </p>
         </header>
-        <div class="spacer1">
+        <div class="spacer1"></div>
+        <div id="countdown-container" style="display:flex; justify-content:center; align-items:center; margin: 48px 0;">
+            <div id="countdown" style="background:rgba(18,18,18,0.85); border-radius:20px; padding:32px 48px; box-shadow:0 4px 32px 0 rgba(0,0,0,0.18); display:flex; gap:32px; font-family:'Montserrat',sans-serif;">
+                <div style="text-align:center;">
+                    <span id="cd-days" style="font-size:3rem; font-weight:700; color:#fff;">0</span><br>
+                    <span style="font-size:1.1rem; color:#fff; opacity:0.7;">Days</span>
+                </div>
+                <div style="text-align:center;">
+                    <span id="cd-hours" style="font-size:3rem; font-weight:700; color:#fff;">0</span><br>
+                    <span style="font-size:1.1rem; color:#fff; opacity:0.7;">Hours</span>
+                </div>
+                <div style="text-align:center;">
+                    <span id="cd-mins" style="font-size:3rem; font-weight:700; color:#fff;">0</span><br>
+                    <span style="font-size:1.1rem; color:#fff; opacity:0.7;">Minutes</span>
+                </div>
+                <div style="text-align:center;">
+                    <span id="cd-secs" style="font-size:3rem; font-weight:700; color:#fff;">0</span><br>
+                    <span style="font-size:1.1rem; color:#fff; opacity:0.7;">Seconds</span>
+                </div>
+            </div>
+        </div>
+        <div class="spacer2" id="spacer2" >
 
         </div>
         <div class="container">
@@ -83,6 +107,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="navbar_code/script.js"></script>
         <script>
           document.addEventListener('DOMContentLoaded', function() {
             if (typeof renderProfileCard === 'function') {

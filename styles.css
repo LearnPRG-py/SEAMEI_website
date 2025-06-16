@@ -9,7 +9,10 @@ body {
 }
 
 .spacer1{
-    margin-bottom: 120%;
+    margin-bottom: 20%;
+}
+.spacer2{
+    margin-bottom: 80%;
 }
 .topnav {
     background-color: var(--bg1);
@@ -34,12 +37,8 @@ body {
 }
 
 .topnav a:hover {
-    background-color: var(--bg1);
+    background-color: #131313;
     color: var(--accent-gold);
-}
-
-h1, h2, h3, h4, h5, h6, p, a {
-    color: var(--font-color);
 }
 
 footer {
@@ -75,6 +74,10 @@ footer a:hover {
     overflow: hidden;
     transform: scale(1);
     transform-origin: center center;
+    max-height: 100vw;
+    aspect-ratio: 16/9;
+    mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
 }
 #carousel-bg {
     display: none !important;
@@ -128,4 +131,39 @@ footer a:hover {
     --font-color: #fff;
     --bg1: #121212;
     --bg2: #000;
+}
+@media (min-aspect-ratio: 21/9) {
+    .container, .content, .letter-row, .letter-from-sec-gen, .letter-side-content {
+        max-width: 70vw;
+        padding-left: 8vw;
+        padding-right: 8vw;
+    }
+    .hero h1 {
+        font-size: 4rem !important;
+    }
+    .hero p {
+        font-size: 2rem !important;
+    }
+    #countdown {
+        font-size: 1.5rem;
+        gap: 48px;
+        padding: 40px 80px;
+    }
+}
+@media (max-aspect-ratio: 3/4) {
+    .container, .content, .letter-row, .letter-from-sec-gen, .letter-side-content {
+        padding-left: 1vw;
+        padding-right: 1vw;
+    }
+    .hero h1 {
+        font-size: 1.5rem !important;
+    }
+    .hero p {
+        font-size: 0.9rem !important;
+    }
+    #countdown {
+        font-size: 0.9rem;
+        gap: 12px;
+        padding: 16px 8px;
+    }
 }
