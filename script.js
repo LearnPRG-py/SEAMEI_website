@@ -1,4 +1,20 @@
-window.addEventListener('scroll', function() {
+const navbar = document.getElementById('navbar');
+const sentinel = document.getElementById('sentinel');
+
+new IntersectionObserver(
+    ([e]) => {
+        if (!e.isIntersecting) {
+            navbar.classList.add('dock');
+        } else {
+            navbar.classList.remove('dock');
+        }
+    },
+    { root: null, threshold: 0 }
+).observe(sentinel);
+
+//////////////////////
+
+window.addEventListener('scroll', function () {
     const scrollY = window.scrollY;
     const vh = window.innerHeight;
     const aspect = window.innerWidth / window.innerHeight;
@@ -10,7 +26,7 @@ window.addEventListener('scroll', function() {
     const contentTop = rect.top + window.scrollY;
     stage1End = 0.3 * contentTop;
     stage2End = 0.5 * contentTop;
-    
+
 
     let firstBg = document.getElementById('first-bg-image');
     if (!firstBg) {
@@ -60,7 +76,7 @@ window.addEventListener('scroll', function() {
     firstBg.style.pointerEvents = 'none';
     firstBg.style.overflow = 'hidden';
 });
-(function() {
+(function () {
     function updateCountdown() {
         const target = new Date('2025-09-05T00:00:00');
         const now = new Date();
