@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why SEAMEI MUN</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    canvas#bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    header.navbar {
+      background-color: #181818;
+      padding: 20px 10vw;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      padding: 0;
+      margin: 0;
+    }
+
+    .navbar ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 16px;
+      transition: color 0.3s;
+    }
+
+    .navbar ul li a:hover {
+      color: #5cc6ff;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 3rem;
+      margin-top: 60px;
+      margin-bottom: 40px;
+      font-weight: 700;
+      color: #ffffff;
+      text-shadow: 0 0 10px #5cc6ff, 0 0 20px #5cc6ff;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 100px;
+      padding: 0 10vw;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 40px;
+      width: 4px;
+      height: 100%;
+      background-color: #5cc6ff;
+      opacity: 0.3;
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 32px;
+      opacity: 0;
+      transform: translateY(80px) scale(0.95);
+      transition: all 0.8s cubic-bezier(0.5, 1.6, 0.4, 1);
+    }
+
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .timeline-image {
+      min-width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      border: 4px solid #5cc6ff;
+      box-shadow: 0 0 12px #5cc6ff;
+    }
+
+    .timeline-content {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 24px 32px;
+      border-radius: 12px;
+      border-left: 4px solid #5cc6ff;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      max-width: 700px;
+      backdrop-filter: blur(4px);
+    }
+
+    .timeline-content h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.7rem;
+      color: #ffffff;
+    }
+
+    .timeline-content p {
+      margin: 0;
+      color: #cccccc;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .feature-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      padding: 100px 10vw;
+    }
+
+    .feature {
+      flex: 1 1 400px;
+      text-align: center;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .feature img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    }
+
+    .feature h3 {
+      margin-top: 20px;
+      color: #5cc6ff;
+      font-size: 1.8rem;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 10vw;
+      background: #181818;
+      color: #aaa;
+      margin-top: 100px;
+    }
+
+    footer a {
+      color: #5cc6ff;
+      text-decoration: none;
+      margin: 0 6px;
+
+      
+    }
+    .feature {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .feature.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .timeline::before,
+  .timeline::after {
+    display: none;
+  }
+
+  .timeline::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 40px;
+    width: 4px;
+    height: 100%;
+    background-color: #5cc6ff;
+    opacity: 0.3;
+  }
+  </style>
+</head>
+
+<body>
+  <canvas id="bg"></canvas>
+
+  <header class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about-us.html">About Us</a></li>
+      <li><a href="committees.html">Committees</a></li>
+      <li><a href="conference-details.html">Conference Details</a></li>
+      <li><a href="why-seamei.html">Why SEAMEI</a></li>
+    </ul>
+  </header>
+
+  <h1 class="section-title">Why Oak SEAMEI MUN?</h1>
+  <section class="timeline">
+<section class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-image" style="background-image: url('images/global.png');"></div>
+        <div class="timeline-content">
+          <h3>Global Network, Local Impact</h3>
+          <p>SEAMEI MUN is a launchpad for student diplomats across Southeast Asia to tackle real-world problems with bold, creative diplomacy.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-image" style="background-image: url('images/leadership.png');"></div>
+        <div class="timeline-content">
+          <h3>Visionary Leadership</h3>
+          <p>Led by a youth-driven executive team with international circuit experience, we create a meaningful and inclusive MUN experience.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-image" style="background-image: url('images/innovation.png');"></div>
+        <div class="timeline-content">
+          <h3>Innovation in Debate</h3>
+          <p>Expect crisis simulations, interdisciplinary committees, and never-before-seen agenda topics crafted to challenge conventional thinking.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-image" style="background-image: url('images/oakridge.png');"></div>
+        <div class="timeline-content">
+          <h3>Oakridge Quality</h3>
+          <p>Hosted by one of the top international schools in the region, the conference promises academic excellence and organizational precision.</p>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <h1 class="section-title">Awards & Prizes</h1>
+  <section class="prizes-section">
+    <div class="prize-card pop-left">
+      <h3 class="prize-title">🏅 Best Delegate</h3>
+      <p class="prize-desc">Awarded to the top-performing delegate in each committee, showcasing leadership, diplomacy, and innovation.</p>
+    </div>
+    <div class="prize-card pop-right alt">
+      <h3 class="prize-title">🎖 Outstanding Delegate</h3>
+      <p class="prize-desc">Recognizes consistent engagement, analytical skill, and respectful discourse throughout the sessions.</p>
+    </div>
+    <div class="prize-card pop-left">
+      <h3 class="prize-title">🌟 Commendable Delegate</h3>
+      <p class="prize-desc">Given to rising stars who bring unique perspectives and collaborative spirit to the debate.</p>
+    </div>
+    <div class="prize-card pop-right alt">
+      <h3 class="prize-title">📜 Special Mention</h3>
+      <p class="prize-desc">Chosen by the Executive Board, this prize honors delegates with outstanding creativity and initiative.</p>
+    </div>
+  </section>
+
+  <style>
+    .prizes-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      padding: 80px 10vw;
+    }
+
+    .prize-card {
+      background: #1b1b1b;
+      border-left: 5px solid #5cc6ff;
+      box-shadow: 0 0 15px rgba(92, 198, 255, 0.4);
+      border-radius: 10px;
+      padding: 24px 32px;
+      width: 100%;
+      max-width: 700px;
+      transition: transform 0.8s ease, background 0.6s ease;
+      opacity: 0;
+      transform: translateY(40px) scale(0.95);
+    }
+
+    .prize-card.alt {
+      background: #222b3d;
+      border-left-color: #ffffff;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+
+    .prize-card.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .prize-title {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    .prize-desc {
+      font-size: 1.05rem;
+      color: #cccccc;
+    }
+  </style>
+
+  <script>
+    const prizeObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          entry.target.style.transitionDelay = `${i * 0.15}s`;
+        }
+      });
+    }, { threshold: 0.25 });
+
+    document.querySelectorAll('.prize-card').forEach(card => {
+      prizeObserver.observe(card);
+    });
+  </script>
+  <h1 class="section-title">Beyond the Conference</h1>
+  <section class="feature-section">
+    <div class="feature">
+      <img src="images/social-event.jpg" alt="Social pic">
+      <h3>Unwind at socials!</h3>
+    </div>
+    <div class="feature">
+      <img src="images/other.jpg" alt="other stuff pic">
+      <h3>Participate (other stuff</h3>
+    </div>
+    <div class="feature">
+      <img src="images/showcase.jpg" alt="Delegates pic">
+      <h3>Talk to delegates from across the world!</h3>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 SEAMEI MUN. All rights reserved.</p>
+    <p>Contact us at: <a href="mailto:example@oakridge.in">example@oakridge.in</a></p>
+    <p>School Website: <a href="https://www.oakridge.in" target="_blank">www.oakridge.in</a></p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          entry.target.style.transitionDelay = `${index * 0.1}s`;
+        } else {
+          entry.target.classList.remove('visible');
+          entry.target.style.transitionDelay = `0s`;
+        }
+      });
+    }, { threshold: 0.25 });
+
+    document.querySelectorAll('.timeline-item').forEach((item) => {
+      observer.observe(item);
+    });
+
+    const canvas = document.getElementById('bg');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particlesArray = [];
+    for (let i = 0; i < 100; i++) {
+      particlesArray.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 2 + 1,
+        speedX: Math.random() * 0.5 - 0.25,
+        speedY: Math.random() * 0.5 - 0.25,
+      });
+    }
+
+    function handleParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particlesArray.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(92, 198, 255, 0.7)';
+        ctx.fill();
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        if (p.x > canvas.width || p.x < 0) p.speedX *= -1;
+        if (p.y > canvas.height || p.y < 0) p.speedY *= -1;
+      });
+      requestAnimationFrame(handleParticles);
+    }
+
+    handleParticles();
+
+    const featureObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        entry.target.style.transitionDelay = `${i * 0.1}s`;
+      } else {
+        entry.target.classList.remove('visible');
+        entry.target.style.transitionDelay = `0s`;
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.feature').forEach((feature) => {
+    featureObserver.observe(feature);
+  });
+  </script>
+</body>
+</html>
