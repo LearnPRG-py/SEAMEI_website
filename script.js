@@ -36,9 +36,17 @@ window.addEventListener('scroll', function () {
     }
 
     // Opacity and saturation
-    let opacity = 0.7;
-    let saturation = 0.7;
-    // Zoom
+    let opacity = 0.2;
+    let saturation = 0.2;
+    if (scrollY < stage1End) {
+        const t = scrollY / stage1End;
+        opacity = 0.2 + t * (0.7 - 0.2);
+        saturation = opacity;
+    } else {
+        opacity = 0.7;
+        saturation = 0.7;
+    }
+    Zoom
     let scale = 1;
     if (scrollY > stage1End && scrollY < stage2End) {
         const t = (scrollY - stage1End) / (stage2End - stage1End);
