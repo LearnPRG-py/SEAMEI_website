@@ -14,7 +14,15 @@ body {
     padding: 0;
     overflow-x: hidden;
 }
-
+.headtxt {
+    color:var(--accent-teal);
+}
+.context{
+    color:#FAF5ED;
+}
+.subtxt{
+    color: #FFCB00;
+}
 .spacer1 {
     margin-bottom: 20%;
 }
@@ -149,6 +157,7 @@ footer a:hover {
 .content {
     max-width: 700px;
     text-align: center;
+    color: #FAF5ED;
 }
 
 .letter-row {
