@@ -12,7 +12,6 @@ new IntersectionObserver(
     { root: null, threshold: 0 }
 ).observe(sentinel);
 
-//////////////////////
 
 window.addEventListener('scroll', function () {
     const scrollY = window.scrollY;
@@ -46,7 +45,6 @@ window.addEventListener('scroll', function () {
         opacity = 0.7;
         saturation = 0.7;
     }
-    // Zoom
     let scale = 1;
     if (scrollY > stage1End && scrollY < stage2End) {
         const t = (scrollY - stage1End) / (stage2End - stage1End);
@@ -98,3 +96,73 @@ window.addEventListener('scroll', function () {
         setInterval(updateCountdown, 1000);
     }
 })();
+
+const canvas = document.getElementById('canvas'); // your canvas id
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particlesArray = [];
+for (let i = 0; i < 100; i++) {
+  particlesArray.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    size: Math.random() * 2 + 1,
+    speedX: Math.random() * 0.5 - 0.25,
+    speedY: Math.random() * 0.5 - 0.25,
+    color: 'rgba(92, 198, 255, 0.7)' 
+  });
+}
+
+let bgParticlesArray = [];
+for (let i = 0; i < 50; i++) {
+  bgParticlesArray.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    size: Math.random() * 6 + 4, 
+    speedX: Math.random() * 0.1 - 0.05,
+    speedY: Math.random() * 0.1 - 0.05,
+    color: 'rgba(0, 238, 255, 0.4)' 
+  });
+}
+
+function drawParticles(arr) {
+  arr.forEach(p => {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fillStyle = p.color;
+    ctx.fill();
+
+    p.x += p.speedX;
+    p.y += p.speedY;
+
+    if (p.x > canvas.width || p.x < 0) p.speedX *= -1;
+    if (p.y > canvas.height || p.y < 0) p.speedY *= -1;
+  });
+}
+
+function handleParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  drawParticles(bgParticlesArray);     
+  drawParticles(particlesArray);       
+
+  requestAnimationFrame(handleParticles);
+}
+
+function resizeCanvas() {
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+
+  canvas.width = width;                  
+  canvas.height = height;
+
+  canvas.style.width = width + "px";    
+  canvas.style.height = height + "px";
+}
+
+resizeCanvas();
+
+window.addEventListener('resize', resizeCanvas);
+handleParticles();
