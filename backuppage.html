@@ -8,116 +8,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
-  margin: 0;
-  font-family: 'Source Sans Pro', sans-serif;
-  overflow-x: hidden;
-  transition: background-color 0.4s ease, color 0.4s ease;
-}
-
-/* LIGHT THEME */
-.theme-light {
-  background-color: #FAF5ED;
-  color: #003057;
-}
-
-.theme-light .navbar {
-  background-color: #ffffff;
-}
-
-.theme-light .section-title {
-  color: #003057;
-  text-shadow: none;
-  border-bottom: 3px solid #30CDD7;
-}
-
-.theme-light .timeline-content {
-  background-color: #ffffff;
-  color: #003057;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  border-left: 4px solid #30CDD7;
-}
-
-.theme-light .timeline-content h3 {
-  color: #003057;
-}
-
-.theme-light .timeline-content p {
-  color: #333333;
-}
-
-.theme-light .timeline-image {
-  border-color: #30CDD7;
-  box-shadow: 0 0 10px rgba(48, 205, 215, 0.4);
-}
-
-.theme-light .prize-card {
-  background-color: #ffffff;
-  color: #003057;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-  border-left: 4px solid #30CDD7;
-}
-
-.theme-light .prize-card.alt {
-  background-color: #E4EBF5;
-  border-left-color: #003057;
-}
-
-.theme-light .prize-title {
-  color: #003057;
-}
-
-.theme-light .prize-desc {
-  color: #333333;
-}
-
-.theme-light .feature h3 {
-  color: #003057;
-}
-
-.theme-light footer {
-  background-color: #ffffff;
-  color: #003057;
-}
-
-.theme-light footer a {
-  color: #30CDD7;
-}
-
-/* Optional: soften toggle contrast */
-.theme-light .slider {
-  background-color: #cccccc;
-}
-
-.theme-light input:checked + .slider {
-  background-color: #30CDD7;
-}
-
-/* DARK THEME */
-.theme-dark {
-  background-color: #121212;
-  color: #ffffff;
-}
-.theme-dark .navbar {
-  background-color: #181818;
-}
-.theme-dark .section-title {
-  color: #ffffff;
-  text-shadow: 0 0 10px #5cc6ff, 0 0 20px #5cc6ff;
-}
-.theme-dark .timeline-content,
-.theme-dark .prize-card,
-.theme-dark footer {
-  background-color: rgba(255, 255, 255, 0.05);
-  color: #ffffff;
-}
-.theme-dark .prize-card.alt {
-  background-color: #222b3d;
-  border-left-color: #ffffff;
-}
-.theme-dark .feature h3 {
-  color: #5cc6ff;
-}
-
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
 
     canvas#bg {
       position: fixed;
@@ -316,12 +212,6 @@
   <canvas id="bg"></canvas>
 
   <header class="navbar">
-    <div style="text-align: right; padding: 10px 10vw;">
-  <button id="themeToggle" style="padding: 8px 16px; border-radius: 6px; background: #5cc6ff; color: white; border: none; cursor: pointer;">
-    Toggle Theme
-  </button>
-</div>
-
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about-us.html">About Us</a></li>
@@ -443,27 +333,6 @@
     document.querySelectorAll('.prize-card').forEach(card => {
       prizeObserver.observe(card);
     });
-
-    // Theme Toggle
-const toggleButton = document.getElementById("themeToggle");
-const root = document.documentElement;
-
-function setTheme(theme) {
-  document.body.classList.remove("theme-dark", "theme-light");
-  document.body.classList.add(theme);
-  localStorage.setItem("theme", theme);
-}
-
-// Load stored theme or default to dark
-const savedTheme = localStorage.getItem("theme") || "theme-dark";
-setTheme(savedTheme);
-
-// Toggle on click
-toggleButton.addEventListener("click", () => {
-  const newTheme = document.body.classList.contains("theme-dark") ? "theme-light" : "theme-dark";
-  setTheme(newTheme);
-});
-
   </script>
   <h1 class="section-title">Beyond the Conference</h1>
   <section class="feature-section">
@@ -520,32 +389,21 @@ toggleButton.addEventListener("click", () => {
       });
     }
 
-function handleParticles() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+    function handleParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particlesArray.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(92, 198, 255, 0.7)';
+        ctx.fill();
+        p.x += p.speedX;
+        p.y += p.speedY;
 
-  particlesArray.forEach(p => {
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-
-    // Theme-based color
-    ctx.fillStyle = document.body.classList.contains('theme-light')
-      ? 'rgba(0, 48, 87, 0.15)'    // Light mode: subtle navy
-      : 'rgba(92, 198, 255, 0.7)'; // Dark mode: bright teal
-
-    ctx.fill();
-
-    // Update position
-    p.x += p.speedX;
-    p.y += p.speedY;
-
-    // Bounce off edges
-    if (p.x > canvas.width || p.x < 0) p.speedX *= -1;
-    if (p.y > canvas.height || p.y < 0) p.speedY *= -1;
-  });
-
-  requestAnimationFrame(handleParticles);
-}
-
+        if (p.x > canvas.width || p.x < 0) p.speedX *= -1;
+        if (p.y > canvas.height || p.y < 0) p.speedY *= -1;
+      });
+      requestAnimationFrame(handleParticles);
+    }
 
     handleParticles();
 
