@@ -22,37 +22,36 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 1000);
 
-    const letterCardsWrapper = document.querySelector('.letter-cards-wrapper');
-    const leftArrow = document.querySelector('.carousel-arrow.left-arrow');
-    const rightArrow = document.querySelector('.carousel-arrow.right-arrow');
-    const cardWidth = 300 + 30;
-
     const lazyScrollingContainer = document.querySelector('.lazy-scrolling-container');
-    let scrollInterval;
-    let scrollDirection = 1;
+    const carousel = lazyScrollingContainer.querySelector('.carousel');
+
+    carousel.innerHTML += carousel.innerHTML;
+
+    let scrollPosition = 0;
+    const scrollSpeed = 1;
+    const resetPoint = carousel.scrollWidth / 2;
 
     const startAutoScroll = () => {
         scrollInterval = setInterval(() => {
-            if (scrollDirection === 1) {
-                lazyScrollingContainer.scrollLeft += 1;
-                if (lazyScrollingContainer.scrollLeft >= (lazyScrollingContainer.scrollWidth - lazyScrollingContainer.clientWidth - 5)) {
-                    scrollDirection = -1;
-                }
-            } else {
-                lazyScrollingContainer.scrollLeft -= 1;
-                if (lazyScrollingContainer.scrollLeft <= 5) {
-                    scrollDirection = 1;
-                }
+            lazyScrollingContainer.scrollLeft += scrollSpeed;
+            scrollPosition += scrollSpeed;
+
+            if (scrollPosition >= resetPoint) {
+                lazyScrollingContainer.scrollLeft = 0;
+                scrollPosition = 0;
             }
-        }, 30);
-    };
 
-    const stopAutoScroll = () => {
+        }, 16);
+    };
+    lazyScrollingContainer.addEventListener("mouseenter", () => {
         clearInterval(scrollInterval);
-    };
+    });
 
-    lazyScrollingContainer.addEventListener('mouseenter', stopAutoScroll);
-    lazyScrollingContainer.addEventListener('mouseleave', startAutoScroll);
+    lazyScrollingContainer.addEventListener("mouseleave", () => {
+        startAutoScroll();
+    });
+
+
 
     startAutoScroll();
 

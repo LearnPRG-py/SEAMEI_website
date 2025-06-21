@@ -3,12 +3,18 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 :root {
     --bg-color: #FAF5ED;
     --accent-color: #FFCB00;
     --light-teal: #B4EBF5;
     --dark-teal: #1E96A5;
-    --navy: #003057;
+    --sec-bg: #003057;
+}
+
+.sentinel {
+    height: 0;
+    width: 0;
 }
 
 .navbar {
@@ -24,7 +30,7 @@
     transform: translateX(-50%);
     width: 100%;
     height: 60px;
-    background-color: #003057;
+    background-color: var(--sec-bg);
     padding: 0 2rem;
     display: flex;
     justify-content: center;
@@ -42,7 +48,7 @@
 
 .navbar.dock .nav-inner {
     top: 15px;
-    width: 31%;
+    width: 40%;
     min-width: fit-content;
     height: 70px;
     padding: 0 1.5rem;
@@ -69,20 +75,26 @@
 .nav-inner a:hover {
     color: #30cdd7;
 }
+
 body {
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     background-color: var(--bg-color);
-    color: var(--navy);
+    color: var(--sec-bg);
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color: var(--navy);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--sec-bg);
     margin-bottom: 0.5em;
 }
 
 p {
-    color: var(--navy);
+    color: var(--sec-bg);
     margin-bottom: 1em;
 }
 
@@ -130,7 +142,7 @@ section:nth-child(odd) {
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 20px;
-    color: var(--navy);
+    color: var(--sec-bg);
 }
 
 .hero-content p {
@@ -139,13 +151,13 @@ section:nth-child(odd) {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 60px;
-    color: var(--navy);
+    color: var(--sec-bg);
 }
 
 .circular-image-bubble {
     border-radius: 50%;
     overflow: hidden;
-    border: 4px solid var(--navy);
+    border: 4px solid var(--sec-bg);
     background-color: var(--light-teal);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     display: flex;
@@ -193,18 +205,57 @@ section:nth-child(odd) {
 }
 
 @media (max-width: 1200px) {
-    .bubble-1 { top: 10%; right: 10%; width: 130px; height: 130px; }
-    .bubble-2 { top: 30%; right: 0%; width: 200px; height: 200px; }
-    .bubble-3 { bottom: 10%; left: 5%; width: 100px; height: 100px; }
+    .bubble-1 {
+        top: 10%;
+        right: 10%;
+        width: 130px;
+        height: 130px;
+    }
+
+    .bubble-2 {
+        top: 30%;
+        right: 0%;
+        width: 200px;
+        height: 200px;
+    }
+
+    .bubble-3 {
+        bottom: 10%;
+        left: 5%;
+        width: 100px;
+        height: 100px;
+    }
 }
 
 @media (max-width: 992px) {
-    .hero-content h1 { font-size: 3.2em; }
-    .hero-content p { font-size: 1.2em; }
+    .hero-content h1 {
+        font-size: 3.2em;
+    }
 
-    .bubble-1 { top: 5%; right: 5%; width: 100px; height: 100px; }
-    .bubble-2 { top: 25%; right: -5%; width: 180px; height: 180px; }
-    .bubble-3 { bottom: 5%; left: 5%; width: 80px; height: 80px; }
+    .hero-content p {
+        font-size: 1.2em;
+    }
+
+    .bubble-1 {
+        top: 5%;
+        right: 5%;
+        width: 100px;
+        height: 100px;
+    }
+
+    .bubble-2 {
+        top: 25%;
+        right: -5%;
+        width: 180px;
+        height: 180px;
+    }
+
+    .bubble-3 {
+        bottom: 5%;
+        left: 5%;
+        width: 80px;
+        height: 80px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -212,10 +263,19 @@ section:nth-child(odd) {
         min-height: 450px;
         padding: 60px 15px;
     }
-    .hero-content h1 { font-size: 2.5em; }
-    .hero-content p { font-size: 1.1em; margin-bottom: 30px; }
 
-    .bubble-1, .bubble-2, .bubble-3 {
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-content p {
+        font-size: 1.1em;
+        margin-bottom: 30px;
+    }
+
+    .bubble-1,
+    .bubble-2,
+    .bubble-3 {
         display: none;
     }
 }
@@ -225,24 +285,34 @@ section:nth-child(odd) {
         min-height: 400px;
         padding: 40px 10px;
     }
-    .hero-content h1 { font-size: 2em; }
-    .hero-content p { font-size: 1em; margin-bottom: 20px; }
 
-    .bubble-1, .bubble-2, .bubble-3 {
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
+
+    .bubble-1,
+    .bubble-2,
+    .bubble-3 {
         display: none;
     }
 }
+
 .countdown-section {
     background-color: var(--bg-color);
     padding: 60px 20px;
-    border-top: 2px solid var(--navy);
-    border-bottom: 2px solid var(--navy);
+    border-top: 2px solid var(--sec-bg);
+    border-bottom: 2px solid var(--sec-bg);
 }
 
 .countdown-section h2 {
     font-size: 2.5em;
     margin-bottom: 30px;
-    color: var(--navy);
+    color: var(--sec-bg);
 }
 
 #countdown-timer {
@@ -251,7 +321,7 @@ section:nth-child(odd) {
     gap: 30px;
     font-size: 3em;
     font-weight: bold;
-    color: var(--navy);
+    color: var(--sec-bg);
 }
 
 .time-unit {
@@ -266,14 +336,14 @@ section:nth-child(odd) {
 
 .time-unit span {
     font-size: 1.5em;
-    color: var(--navy);
+    color: var(--sec-bg);
     margin-bottom: 5px;
 }
 
 .time-unit label {
     font-size: 0.5em;
     font-weight: normal;
-    color: var(--navy);
+    color: var(--sec-bg);
     text-transform: uppercase;
 }
 
@@ -285,7 +355,7 @@ section:nth-child(odd) {
 .sg-dg-letter-section h2 {
     font-size: 2.5em;
     margin-bottom: 40px;
-    color: var(--navy);
+    color: var(--sec-bg);
 }
 
 .carousel-container {
@@ -296,6 +366,11 @@ section:nth-child(odd) {
     margin: 0 auto;
 }
 
+.carousel {
+    display: flex;
+    width: max-content;
+}
+
 .carousel-arrow {
     background-color: var(--accent-color);
     border: none;
@@ -303,7 +378,7 @@ section:nth-child(odd) {
     font-size: 2em;
     cursor: pointer;
     border-radius: 5px;
-    color: var(--navy);
+    color: var(--sec-bg);
     transition: background-color 0.3s ease;
     flex-shrink: 0;
     margin: 0 15px;
@@ -327,7 +402,7 @@ section:nth-child(odd) {
     min-width: 300px;
     max-width: 300px;
     background-color: var(--bg-color);
-    border: 2px solid var(--navy);
+    border: 2px solid var(--sec-bg);
     border-radius: 10px;
     padding: 30px;
     text-align: left;
@@ -338,12 +413,12 @@ section:nth-child(odd) {
 .letter-card h3 {
     font-size: 1.5em;
     margin-bottom: 10px;
-    color: var(--navy);
+    color: var(--sec-bg);
 }
 
 .letter-card p {
     font-size: 1em;
-    color: var(--navy);
+    color: var(--sec-bg);
 }
 
 .reviews-section {
@@ -359,7 +434,7 @@ section:nth-child(odd) {
     font-size: 2.5em;
     margin-bottom: 40px;
     width: 100%;
-    color: var(--navy);
+    color: var(--sec-bg);
 }
 
 .reviews-main-content {
@@ -370,17 +445,33 @@ section:nth-child(odd) {
 }
 
 .lazy-scrolling-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
     display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding-bottom: 20px;
+    padding: 0 30px;
+}
+
+
+.carousel {
+    display: flex;
+    width: max-content;
     gap: 30px;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    animation: scroll-left 40s linear infinite;
 }
-.lazy-scrolling-container::-webkit-scrollbar {
-    display: none;
+
+@keyframes scroll-left {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
 }
+
+
+
 
 .review-card {
     flex: 0 0 auto;
@@ -388,30 +479,36 @@ section:nth-child(odd) {
     background-color: var(--bg-color);
     border: 2px solid var(--light-teal);
     border-radius: 10px;
-    padding: 30px;
+    padding: 30px 20px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .review-card .stars {
     font-size: 1.8em;
     margin-bottom: 15px;
-    color: var(--navy);
+    color: var(--sec-bg);
 }
 
 .review-card p {
     font-style: italic;
     margin-bottom: 20px;
     min-height: 60px;
-    color: var(--navy);
+    color: var(--sec-bg);
 }
 
 .review-image-placeholder {
     width: 100px;
     height: 100px;
     background-color: var(--light-teal);
-    border: 2px dashed var(--navy);
-    color: var(--navy);
+    border: 2px dashed var(--sec-bg);
+    color: var(--sec-bg);
     margin: 0 auto 20px auto;
     display: flex;
     justify-content: center;
@@ -421,7 +518,7 @@ section:nth-child(odd) {
 
 .review-btn {
     background-color: var(--dark-teal);
-    color: var(--navy);
+    color: var(--sec-bg);
     border: none;
     padding: 12px 25px;
     border-radius: 5px;
@@ -449,18 +546,19 @@ section:nth-child(odd) {
 .potential-review-page h3 {
     font-size: 1.8em;
     margin-bottom: 15px;
-    color: var(--navy);
+    color: var(--sec-bg);
 }
+
 
 .potential-review-page p {
     font-size: 0.95em;
     margin-bottom: 25px;
-    color: var(--navy);
+    color: var(--sec-bg);
 }
 
 .review-submit-btn {
     background-color: var(--accent-color);
-    color: var(--navy);
+    color: var(--sec-bg);
     border: none;
     padding: 15px 30px;
     border-radius: 8px;
@@ -474,16 +572,17 @@ section:nth-child(odd) {
     background-color: var(--dark-teal);
 }
 
+
 .find-out-more-section {
     background-color: var(--bg-color);
     padding: 80px 20px;
-    border-top: 2px solid var(--navy);
+    border-top: 2px solid var(--sec-bg);
 }
 
 .find-out-more-section h2 {
     font-size: 2.5em;
     margin-bottom: 50px;
-    color: var(--navy);
+    color: var(--sec-bg);
 }
 
 .circle-options {
@@ -497,9 +596,9 @@ section:nth-child(odd) {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    border: 3px solid var(--navy);
+    border: 3px solid var(--sec-bg);
     background-color: var(--light-teal);
-    color: var(--navy);
+    color: var(--sec-bg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -517,14 +616,14 @@ section:nth-child(odd) {
 .contact-section {
     background-color: var(--bg-color);
     padding: 80px 20px;
-    border-top: 2px solid var(--navy);
+    border-top: 2px solid var(--sec-bg);
     padding-bottom: 100px;
 }
 
 .contact-section h2 {
     font-size: 2.5em;
     margin-bottom: 40px;
-    color: var(--navy);
+    color: var(--sec-bg);
 }
 
 .email-signup {
@@ -545,21 +644,21 @@ section:nth-child(odd) {
     font-weight: bold;
     align-self: flex-start;
     margin-left: 5px;
-    color: var(--navy);
+    color: var(--sec-bg);
 }
 
 .email-signup input[type="email"] {
     width: 100%;
     padding: 15px;
-    border: 2px solid var(--navy);
+    border: 2px solid var(--sec-bg);
     border-radius: 8px;
     font-size: 1em;
     background-color: var(--bg-color);
-    color: var(--navy);
+    color: var(--sec-bg);
 }
 
 .email-signup input[type="email"]::placeholder {
-    color: var(--navy);
+    color: var(--sec-bg);
 }
 
 .email-signup input[type="email"]:focus {
@@ -569,7 +668,7 @@ section:nth-child(odd) {
 
 .subscribe-btn {
     background-color: var(--accent-color);
-    color: var(--navy);
+    color: var(--sec-bg);
     border: none;
     padding: 15px 30px;
     border-radius: 8px;
@@ -587,9 +686,180 @@ section:nth-child(odd) {
 .info-text {
     margin-top: 30px;
     font-size: 0.95em;
-    color: var(--navy);
+    color: var(--sec-bg);
 }
+
 .letters {
+    padding: 6rem 0;
+    background: var(--bg-color);
+}
+
+.letters-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.letter {
+    background: var(--bg-color);
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 48, 87, 0.1);
+    border-top: 4px solid var(--dark-teal);
+}
+
+.letter h3 {
+    color: var(--sec-bg);
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.letter p {
+    margin-bottom: 1.2rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: var(--sec-bg);
+}
+
+.letter-signature {
+    margin-top: 2rem;
+    font-style: italic;
+    color: var(--dark-teal);
+    text-align: right;
+    border-top: 1px solid var(--light-teal);
+    padding-top: 1rem;
+}
+
+@media (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 2.8em;
+    }
+
+    .img-placeholder {
+        width: 120px;
+        height: 120px;
+    }
+
+    .reviews-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .reviews-main-content,
+    .potential-review-page {
+        min-width: unset;
+        width: 90%;
+        max-width: 600px;
+    }
+
+    .potential-review-page {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 60px 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+
+    .hero-images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .img-placeholder {
+        width: 100px;
+        height: 100px;
+    }
+
+    #countdown-timer {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .time-unit {
+        padding: 15px 20px;
+    }
+
+    .letter-cards-wrapper,
+    .lazy-scrolling-container {
+        justify-content: flex-start;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .carousel-arrow {
+        font-size: 1.5em;
+        padding: 10px 15px;
+    }
+
+    .review-card {
+        width: 300px;
+    }
+
+    .circle-options {
+        gap: 20px;
+    }
+
+    .circle {
+        width: 120px;
+        height: 120px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.8em;
+    }
+
+    .countdown-section h2,
+    .sg-dg-letter-section h2,
+    .reviews-section h2,
+    .find-out-more-section h2,
+    .contact-section h2 {
+        font-size: 1.8em;
+    }
+
+    #countdown-timer {
+        font-size: 2em;
+        gap: 15px;
+    }
+
+    .time-unit span {
+        font-size: 1.2em;
+    }
+
+    .time-unit label {
+        font-size: 0.4em;
+    }
+
+    .letter-card {
+        min-width: 250px;
+        max-width: 250px;
+    }
+
+    .review-card {
+        width: 90%;
+    }
+
+    .circle {
+        width: 100px;
+        height: 100px;
+        font-size: 0.9em;
+    }
+
+    .email-signup {
+        padding: 15px;
+    }
+
+    .letters {
         padding: 6rem 0;
         background: var(--bg-color);
     }
@@ -610,7 +880,7 @@ section:nth-child(odd) {
     }
 
     .letter h3 {
-        color: var(--navy);
+        color: var(--sec-bg);
         margin-bottom: 2rem;
         font-size: 1.4rem;
         text-align: center;
@@ -620,7 +890,7 @@ section:nth-child(odd) {
         margin-bottom: 1.2rem;
         line-height: 1.7;
         font-size: 1rem;
-        color: var(--navy);
+        color: var(--sec-bg);
     }
 
     .letter-signature {
@@ -631,147 +901,6 @@ section:nth-child(odd) {
         border-top: 1px solid var(--light-teal);
         padding-top: 1rem;
     }
-
-@media (max-width: 992px) {
-    .hero-content h1 {
-        font-size: 2.8em;
-    }
-    .img-placeholder {
-        width: 120px;
-        height: 120px;
-    }
-    .reviews-section {
-        flex-direction: column;
-        align-items: center;
-    }
-    .reviews-main-content, .potential-review-page {
-        min-width: unset;
-        width: 90%;
-        max-width: 600px;
-    }
-    .potential-review-page {
-        margin-top: 40px;
-    }
-}
-
-@media (max-width: 768px) {
-    section {
-        padding: 60px 15px;
-    }
-    .hero-content h1 {
-        font-size: 2.2em;
-    }
-    .hero-images {
-        flex-direction: column;
-        align-items: center;
-    }
-    .img-placeholder {
-        width: 100px;
-        height: 100px;
-    }
-    #countdown-timer {
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-    .time-unit {
-        padding: 15px 20px;
-    }
-    .letter-cards-wrapper, .lazy-scrolling-container {
-        justify-content: flex-start;
-        width: 100%;
-        overflow-x: auto;
-    }
-    .carousel-arrow {
-        font-size: 1.5em;
-        padding: 10px 15px;
-    }
-    .review-card {
-        width: 300px;
-    }
-    .circle-options {
-        gap: 20px;
-    }
-    .circle {
-        width: 120px;
-        height: 120px;
-        font-size: 1em;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 1.8em;
-    }
-    .countdown-section h2, .sg-dg-letter-section h2, .reviews-section h2, .find-out-more-section h2, .contact-section h2 {
-        font-size: 1.8em;
-    }
-    #countdown-timer {
-        font-size: 2em;
-        gap: 15px;
-    }
-    .time-unit span {
-        font-size: 1.2em;
-    }
-    .time-unit label {
-        font-size: 0.4em;
-    }
-    .letter-card {
-        min-width: 250px;
-        max-width: 250px;
-    }
-    .review-card {
-        width: 90%;
-    }
-    .circle {
-        width: 100px;
-        height: 100px;
-        font-size: 0.9em;
-    }
-    .email-signup {
-        padding: 15px;
-    }
-    .letters {
-            padding: 6rem 0;
-            background: var(--bg-color);
-        }
-
-        .letters-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .letter {
-            background: var(--bg-color);
-            padding: 3rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 48, 87, 0.1);
-            border-top: 4px solid var(--dark-teal);
-        }
-
-        .letter h3 {
-            color: var(--navy);
-            margin-bottom: 2rem;
-            font-size: 1.4rem;
-            text-align: center;
-        }
-
-        .letter p {
-            margin-bottom: 1.2rem;
-            line-height: 1.7;
-            font-size: 1rem;
-            color: var(--navy);
-        }
-
-        .letter-signature {
-            margin-top: 2rem;
-            font-style: italic;
-            color: var(--dark-teal);
-            text-align: right;
-            border-top: 1px solid var(--light-teal);
-            padding-top: 1rem;
-        }
 }
 
 .contact-links {
@@ -780,6 +909,7 @@ section:nth-child(odd) {
     gap: 2rem;
     margin: 2rem 0 1.5rem 0;
 }
+
 .contact-link {
     display: flex;
     align-items: center;
@@ -787,28 +917,33 @@ section:nth-child(odd) {
     font-weight: 600;
     font-size: 1.1rem;
     text-decoration: none;
-    color: var(--navy);
+    color: var(--sec-bg);
     background: none;
     border-radius: 8px;
     padding: 0.5rem 1.2rem;
     transition: background 0.2s, color 0.2s;
 }
+
 .contact-link.email .icon {
     background: var(--accent-color);
     border-radius: 6px;
 }
+
 .contact-link.twitter .icon {
     background: var(--dark-teal);
     border-radius: 6px;
 }
+
 .contact-link.facebook .icon {
-    background: var(--navy);
+    background: var(--sec-bg);
     border-radius: 6px;
 }
+
 .contact-link:hover {
     background: var(--accent-color);
-    color: var(--navy);
+    color: var(--sec-bg);
 }
+
 .contact-link .icon {
     display: inline-block;
     vertical-align: middle;
