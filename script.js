@@ -55,6 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     startAutoScroll();
 
+
+
 });
 
 const circle1 = document.getElementById('bubble-1');
@@ -69,17 +71,17 @@ let angle3 = 0;
 let delay = 0;
 function animate() {
     const bobAmount = 10;
-    const bobSpeed = 0.015;
+    const bobSpeed = 0.040;
 
     const offsetY1 = Math.sin(angle1) * bobAmount;
     circle1.style.top = `${initialTop1 + offsetY1}px`;
     angle1 += bobSpeed;
-    if (delay >= 0.5) {
+    if (delay >= 0.3) {
         const offsetY2 = Math.sin(angle2) * bobAmount;
         circle2.style.top = `${initialTop2 + offsetY2}px`;
         angle2 += bobSpeed;
     }
-    if (delay >= 1) {
+    if (delay >= 0.6) {
         const offsetY3 = Math.sin(angle3) * bobAmount;
         circle3.style.top = `${initialTop3 + offsetY3}px`;
         angle3 += bobSpeed;
@@ -102,3 +104,53 @@ new IntersectionObserver(
     },
     { root: null, threshold: 0 }
 ).observe(sentinel);
+
+
+
+function setCookie(name, value, days) {
+    const expires = new Date(Date.now() + days * 864e5).toUTCString();
+    document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
+}
+
+function getCookie(name) {
+    return document.cookie.split('; ').reduce((acc, cookie) => {
+        const [key, val] = cookie.split('=');
+        return key === name ? decodeURIComponent(val) : acc;
+    }, '');
+}
+
+function applyTheme(theme) {
+    const root = document.documentElement;
+
+    if (theme === 'light') {
+        root.style.setProperty('--bg-color', '#FAF5ED');
+        root.style.setProperty('--sec-bg', '#003057');
+        root.style.setProperty('--accent-color', '#1E96A5');
+        root.style.setProperty('--sec-accent-color', '#FFCB00');
+        root.style.setProperty('--tert-bg', '#B4EBF5');
+        root.style.setProperty('--text-color', 'black');
+    } else {
+        root.style.setProperty('--bg-color', 'rgb(0, 0, 0)');
+        root.style.setProperty('--sec-bg', 'rgb(53, 53, 53)');
+        root.style.setProperty('--accent-color', '#1E96A5');
+        root.style.setProperty('--sec-accent-color', '#FFCB00');
+        root.style.setProperty('--tert-bg', '#002F52');
+        root.style.setProperty('--text-color', '#F7F2EC');
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = getCookie('theme') || 'dark';
+    applyTheme(savedTheme);
+
+    const dropdown = document.getElementById('theme-toggle');
+    if (dropdown) {
+        dropdown.value = savedTheme;
+
+        dropdown.addEventListener('change', () => {
+            const selectedTheme = dropdown.value;
+            applyTheme(selectedTheme);
+            setCookie('theme', selectedTheme, 30);
+        });
+    }
+});

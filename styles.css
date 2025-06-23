@@ -5,11 +5,14 @@
 }
 
 :root {
-    --bg-color: #FAF5ED;
-    --accent-color: #FFCB00;
-    --light-teal: #B4EBF5;
-    --dark-teal: #1E96A5;
-    --sec-bg: #003057;
+    --bg-color: rgb(0, 0, 0);
+    --sec-bg: rgb(53, 53, 53);
+    --accent-color: #1E96A5;
+    --sec-accent-color: #FFCB00;
+    --tert-bg: #002F52;
+    --text-color: #F7F2EC;
+
+
 }
 
 .sentinel {
@@ -80,7 +83,20 @@ body {
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     background-color: var(--bg-color);
-    color: var(--sec-bg);
+    color: var(--text-color);
+}
+
+.theme-dropdown {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 5px;
+    font-size: 0.8rem;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--bg-color);
+    border-radius: 5px;
+    z-index: 3;
 }
 
 h1,
@@ -89,12 +105,12 @@ h3,
 h4,
 h5,
 h6 {
-    color: var(--sec-bg);
+    color: var(--text-color);
     margin-bottom: 0.5em;
 }
 
 p {
-    color: var(--sec-bg);
+    color: var(--text-color);
     margin-bottom: 1em;
 }
 
@@ -110,11 +126,11 @@ section {
 }
 
 section:nth-child(even) {
-    background-color: #FAF5ED;
+    background-color: var(--bg-color);
 }
 
 section:nth-child(odd) {
-    background-color: #FAF5ED;
+    background-color: var(--bg-color);
 }
 
 .hero-section {
@@ -142,7 +158,7 @@ section:nth-child(odd) {
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 20px;
-    color: var(--sec-bg);
+    color: var(--text-color);
 }
 
 .hero-content p {
@@ -151,14 +167,14 @@ section:nth-child(odd) {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 60px;
-    color: var(--sec-bg);
+    color: var(--text-color);
 }
 
 .circular-image-bubble {
     border-radius: 50%;
     overflow: hidden;
     border: 4px solid var(--sec-bg);
-    background-color: var(--light-teal);
+    background-color: var(--tert-bg);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     display: flex;
     justify-content: center;
@@ -312,7 +328,7 @@ section:nth-child(odd) {
 .countdown-section h2 {
     font-size: 2.5em;
     margin-bottom: 30px;
-    color: var(--sec-bg);
+    color: var(--text-color);
 }
 
 #countdown-timer {
@@ -321,14 +337,14 @@ section:nth-child(odd) {
     gap: 30px;
     font-size: 3em;
     font-weight: bold;
-    color: var(--sec-bg);
+    color: var(--text-color);
 }
 
 .time-unit {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--light-teal);
+    background-color: var(--tert-bg);
     padding: 20px 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -336,14 +352,14 @@ section:nth-child(odd) {
 
 .time-unit span {
     font-size: 1.5em;
-    color: var(--sec-bg);
+    color: var(--text-color);
     margin-bottom: 5px;
 }
 
 .time-unit label {
     font-size: 0.5em;
     font-weight: normal;
-    color: var(--sec-bg);
+    color: var(--text-color);
     text-transform: uppercase;
 }
 
@@ -355,7 +371,7 @@ section:nth-child(odd) {
 .sg-dg-letter-section h2 {
     font-size: 2.5em;
     margin-bottom: 40px;
-    color: var(--sec-bg);
+    color: var(--text-color);
 }
 
 .carousel-container {
@@ -378,14 +394,14 @@ section:nth-child(odd) {
     font-size: 2em;
     cursor: pointer;
     border-radius: 5px;
-    color: var(--sec-bg);
+    color: var(--text-color);
     transition: background-color 0.3s ease;
     flex-shrink: 0;
     margin: 0 15px;
 }
 
 .carousel-arrow:hover {
-    background-color: var(--dark-teal);
+    background-color: var(--sec-accent-color);
 }
 
 .letter-cards-wrapper {
@@ -402,23 +418,23 @@ section:nth-child(odd) {
     min-width: 300px;
     max-width: 300px;
     background-color: var(--bg-color);
-    border: 2px solid var(--sec-bg);
+    border: 2px solid var(--accent-color);
     border-radius: 10px;
     padding: 30px;
     text-align: left;
     flex-shrink: 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px var(--accent-color);
 }
 
 .letter-card h3 {
     font-size: 1.5em;
     margin-bottom: 10px;
-    color: var(--sec-bg);
+    color: var(--text-color);
 }
 
 .letter-card p {
     font-size: 1em;
-    color: var(--sec-bg);
+    color: var(--text-color);
 }
 
 .reviews-section {
@@ -434,7 +450,7 @@ section:nth-child(odd) {
     font-size: 2.5em;
     margin-bottom: 40px;
     width: 100%;
-    color: var(--sec-bg);
+    color: var(--text-color);
 }
 
 .reviews-main-content {
@@ -477,7 +493,7 @@ section:nth-child(odd) {
     flex: 0 0 auto;
     width: 350px;
     background-color: var(--bg-color);
-    border: 2px solid var(--light-teal);
+    border: 2px solid var(--accent-color);
     border-radius: 10px;
     padding: 30px 20px;
     text-align: center;
@@ -493,20 +509,20 @@ section:nth-child(odd) {
 .review-card .stars {
     font-size: 1.8em;
     margin-bottom: 15px;
-    color: var(--sec-bg);
+    color: var(--text-color);
 }
 
 .review-card p {
     font-style: italic;
     margin-bottom: 20px;
     min-height: 60px;
-    color: var(--sec-bg);
+    color: var(--text-color);
 }
 
 .review-image-placeholder {
     width: 100px;
     height: 100px;
-    background-color: var(--light-teal);
+    background-color: var(--accent-color);
     border: 2px dashed var(--sec-bg);
     color: var(--sec-bg);
     margin: 0 auto 20px auto;
@@ -517,7 +533,7 @@ section:nth-child(odd) {
 }
 
 .review-btn {
-    background-color: var(--dark-teal);
+    background-color: var(--sec-accent-color);
     color: var(--sec-bg);
     border: none;
     padding: 12px 25px;
@@ -535,7 +551,7 @@ section:nth-child(odd) {
     flex: 1;
     min-width: 280px;
     max-width: 350px;
-    background-color: var(--light-teal);
+    background-color: var(--accent-color);
     border-radius: 10px;
     padding: 30px;
     text-align: center;
@@ -546,19 +562,19 @@ section:nth-child(odd) {
 .potential-review-page h3 {
     font-size: 1.8em;
     margin-bottom: 15px;
-    color: var(--sec-bg);
+    color: var(--text-color);
 }
 
 
 .potential-review-page p {
     font-size: 0.95em;
     margin-bottom: 25px;
-    color: var(--sec-bg);
+    color: var(--text-color);
 }
 
 .review-submit-btn {
     background-color: var(--accent-color);
-    color: var(--sec-bg);
+    color: var(--text-color);
     border: none;
     padding: 15px 30px;
     border-radius: 8px;
@@ -569,7 +585,7 @@ section:nth-child(odd) {
 }
 
 .review-submit-btn:hover {
-    background-color: var(--dark-teal);
+    background-color: var(--sec-accent-color);
 }
 
 
@@ -582,7 +598,7 @@ section:nth-child(odd) {
 .find-out-more-section h2 {
     font-size: 2.5em;
     margin-bottom: 50px;
-    color: var(--sec-bg);
+    color: var(--text-color);
 }
 
 .circle-options {
@@ -597,8 +613,8 @@ section:nth-child(odd) {
     height: 150px;
     border-radius: 50%;
     border: 3px solid var(--sec-bg);
-    background-color: var(--light-teal);
-    color: var(--sec-bg);
+    background-color: var(--tert-bg);
+    color: var(--text-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -623,7 +639,7 @@ section:nth-child(odd) {
 .contact-section h2 {
     font-size: 2.5em;
     margin-bottom: 40px;
-    color: var(--sec-bg);
+    color: var(--text-color);
 }
 
 .email-signup {
@@ -634,7 +650,7 @@ section:nth-child(odd) {
     max-width: 500px;
     margin: 0 auto;
     padding: 20px;
-    border: 2px solid var(--dark-teal);
+    border: 2px solid var(--sec-accent-color);
     border-radius: 10px;
     background-color: var(--bg-color);
 }
@@ -644,7 +660,7 @@ section:nth-child(odd) {
     font-weight: bold;
     align-self: flex-start;
     margin-left: 5px;
-    color: var(--sec-bg);
+    color: var(--text-color);
 }
 
 .email-signup input[type="email"] {
@@ -654,11 +670,11 @@ section:nth-child(odd) {
     border-radius: 8px;
     font-size: 1em;
     background-color: var(--bg-color);
-    color: var(--sec-bg);
+    color: var(--text-color);
 }
 
 .email-signup input[type="email"]::placeholder {
-    color: var(--sec-bg);
+    color: var(--text-color);
 }
 
 .email-signup input[type="email"]:focus {
@@ -668,7 +684,7 @@ section:nth-child(odd) {
 
 .subscribe-btn {
     background-color: var(--accent-color);
-    color: var(--sec-bg);
+    color: var(--text-color);
     border: none;
     padding: 15px 30px;
     border-radius: 8px;
@@ -680,18 +696,18 @@ section:nth-child(odd) {
 }
 
 .subscribe-btn:hover {
-    background-color: var(--dark-teal);
+    background-color: var(--sec-accent-color);
 }
 
 .info-text {
     margin-top: 30px;
     font-size: 0.95em;
-    color: var(--sec-bg);
+    color: var(--text-color);
 }
 
 .letters {
     padding: 6rem 0;
-    background: var(--bg-color);
+    background: var(--sec-bg);
 }
 
 .letters-container {
@@ -705,12 +721,11 @@ section:nth-child(odd) {
     background: var(--bg-color);
     padding: 3rem;
     border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 48, 87, 0.1);
-    border-top: 4px solid var(--dark-teal);
+    border: 4px solid var(--accent-color);
 }
 
 .letter h3 {
-    color: var(--sec-bg);
+    color: var(--text-color);
     margin-bottom: 2rem;
     font-size: 1.4rem;
     text-align: center;
@@ -720,15 +735,15 @@ section:nth-child(odd) {
     margin-bottom: 1.2rem;
     line-height: 1.7;
     font-size: 1rem;
-    color: var(--sec-bg);
+    color: var(--text-color);
 }
 
 .letter-signature {
     margin-top: 2rem;
     font-style: italic;
-    color: var(--dark-teal);
+    color: var(--accent-color);
     text-align: right;
-    border-top: 1px solid var(--light-teal);
+    border-top: 1px solid var(--tert-bg);
     padding-top: 1rem;
 }
 
@@ -876,7 +891,7 @@ section:nth-child(odd) {
         padding: 3rem;
         border-radius: 10px;
         box-shadow: 0 5px 20px rgba(0, 48, 87, 0.1);
-        border-top: 4px solid var(--dark-teal);
+        border-top: 4px solid var(--sec-accent-color);
     }
 
     .letter h3 {
@@ -896,9 +911,9 @@ section:nth-child(odd) {
     .letter-signature {
         margin-top: 2rem;
         font-style: italic;
-        color: var(--dark-teal);
+        color: var(--sec-accent-color);
         text-align: right;
-        border-top: 1px solid var(--light-teal);
+        border-top: 1px solid var(--tert-bg);
         padding-top: 1rem;
     }
 }
@@ -930,7 +945,7 @@ section:nth-child(odd) {
 }
 
 .contact-link.twitter .icon {
-    background: var(--dark-teal);
+    background: var(--sec-accent-color);
     border-radius: 6px;
 }
 
@@ -940,7 +955,7 @@ section:nth-child(odd) {
 }
 
 .contact-link:hover {
-    background: var(--accent-color);
+    background: var(--sec-accent-color);
     color: var(--sec-bg);
 }
 
