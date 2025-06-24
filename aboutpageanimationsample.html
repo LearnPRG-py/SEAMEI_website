@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us Team Section</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --card-base-width: 400px;
+            --card-expanded-width: 500px;
+            --card-height: 500px;
+            --main-bg-color: #f9f9f9;
+            --card-bg-color: #ffffff;
+            --text-color: #333;
+            --light-text-color: #777;
+            --accent-color: #007bff; 
+            --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.1);
+            --transition-speed: 0.3s ease-in-out;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: var(--main-bg-color);
+            color: var(--text-color);
+        }
+
+        .about-us-section {
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            width: 100%;
+        }
+        .about-us-vertical {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .team-container {
+            display: flex;
+            justify-content: center; 
+            gap: 30px;
+            max-width: 80%;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+        .profile-card {
+            background-color: var(--card-bg-color);
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            width: var(--card-base-width);
+            height: var(--card-height);
+            box-sizing: border-box;
+            transition: width var(--transition-speed),
+                        transform var(--transition-speed),
+                        box-shadow var(--transition-speed),
+                        margin var(--transition-speed); 
+            flex-shrink: 0; 
+        }
+
+        .profile-card-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid var(--accent-color);
+        }
+
+        .profile-card-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .profile-card-role {
+            font-size: 0.9rem;
+            color: var(--light-text-color);
+        }
+
+        
+        .profile-card:hover {
+            width: var(--card-expanded-width); 
+            transform: translateY(-8px); 
+            box-shadow: var(--shadow-hover); 
+        }
+
+        .profile-card2 {
+            background-color: var(--card-bg-color);
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            width: calc(var(--card-base-width) - 100px);
+            height: calc(var(--card-height) - 100px);
+            box-sizing: border-box;
+            transition: width var(--transition-speed),
+                        transform var(--transition-speed),
+                        box-shadow var(--transition-speed),
+                        margin var(--transition-speed); 
+            flex-shrink: 0; 
+        }
+
+        .profile-card-image2 {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid var(--accent-color);
+        }
+
+        .profile-card-name2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .profile-card-role2 {
+            font-size: 0.9rem;
+            color: var(--light-text-color);
+        }
+
+
+        .profile-card2:hover {
+            width: calc(var(--card-expanded-width) - 100px);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+        .spacer {
+
+            width: 100%;
+            height: 50px;
+        }
+    </style>
+    <section class="about-us-section">
+        <div class="about-us-vertical">
+            <div class="team-container">
+                <div class="profile-card">
+                    <img src="https://via.placeholder.com/120/007bff/FFFFFF?text=JD" alt="Profile of Jane Doe" class="profile-card-image">
+                    <h3 class="profile-card-name">Soumyajit Sur Roy</h3>
+                    <p class="profile-card-role">Secretary General</p>
+                </div>
+
+                <div class="profile-card">
+                    <img src="https://via.placeholder.com/120/007bff/FFFFFF?text=MS" alt="Profile of Mark Smith" class="profile-card-image">
+                    <h3 class="profile-card-name">Akshat Shanker Gupta</h3>
+                    <p class="profile-card-role">Director General</p>
+                </div>
+
+                <div class="profile-card">
+                    <img src="https://via.placeholder.com/120/007bff/FFFFFF?text=AS" alt="Profile of Anna Sharma" class="profile-card-image">
+                    <h3 class="profile-card-name">Rishita Borah</h3>
+                    <p class="profile-card-role">Director General</p>
+                </div>
+            </div>
+            <div class="spacer"></div>
+            <div class="team-container">
+                <div class="profile-card2">
+                    <img src="https://via.placeholder.com/120/007bff/FFFFFF?text=JD" alt="Profile of Jane Doe" class="profile-card-image2">
+                    <h3 class="profile-card-name2">Sahasra Reddy</h3>
+                    <p class="profile-card-role2">USG of Marketing</p>
+                </div>
+
+                <div class="profile-card2">
+                    <img src="https://via.placeholder.com/120/007bff/FFFFFF?text=MS" alt="Profile of Mark Smith" class="profile-card-image2">
+                    <h3 class="profile-card-name2">Raina</h3>
+                    <p class="profile-card-role2">USG of Marketing</p>
+                </div>
+                <div class="profile-card2">
+                    <img src="https://via.placeholder.com/120/007bff/FFFFFF?text=AS" alt="Profile of Anna Sharma" class="profile-card-image2">
+                    <h3 class="profile-card-name2">Rishita Borah</h3>
+                    <p class="profile-card-role2">USG of Marketing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    </section>
+
+</body>
+</html>
