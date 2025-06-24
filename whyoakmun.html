@@ -314,22 +314,9 @@
 
 <body>
   <canvas id="bg"></canvas>
-
-  <header class="navbar">
-    <div style="text-align: right; padding: 10px 10vw;">
   <button id="themeToggle" style="padding: 8px 16px; border-radius: 6px; background: #5cc6ff; color: white; border: none; cursor: pointer;">
     Toggle Theme
   </button>
-</div>
-
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about-us.html">About Us</a></li>
-      <li><a href="committees.html">Committees</a></li>
-      <li><a href="conference-details.html">Conference Details</a></li>
-      <li><a href="why-seamei.html">Why SEAMEI</a></li>
-    </ul>
-  </header>
 
   <h1 class="section-title">Why Oak SEAMEI MUN?</h1>
   <section class="timeline">
@@ -368,19 +355,19 @@
   <h1 class="section-title">Awards & Prizes</h1>
   <section class="prizes-section">
     <div class="prize-card pop-left">
-      <h3 class="prize-title">🏅 Best Delegate</h3>
+      <h3 class="prize-title">Best Delegate</h3>
       <p class="prize-desc">Awarded to the top-performing delegate in each committee, showcasing leadership, diplomacy, and innovation.</p>
     </div>
     <div class="prize-card pop-right alt">
-      <h3 class="prize-title">🎖 Outstanding Delegate</h3>
+      <h3 class="prize-title">Outstanding Delegate</h3>
       <p class="prize-desc">Recognizes consistent engagement, analytical skill, and respectful discourse throughout the sessions.</p>
     </div>
     <div class="prize-card pop-left">
-      <h3 class="prize-title">🌟 Commendable Delegate</h3>
+      <h3 class="prize-title">Commendable Delegate</h3>
       <p class="prize-desc">Given to rising stars who bring unique perspectives and collaborative spirit to the debate.</p>
     </div>
     <div class="prize-card pop-right alt">
-      <h3 class="prize-title">📜 Special Mention</h3>
+      <h3 class="prize-title">Special Mention</h3>
       <p class="prize-desc">Chosen by the Executive Board, this prize honors delegates with outstanding creativity and initiative.</p>
     </div>
   </section>
@@ -394,18 +381,19 @@
       padding: 80px 10vw;
     }
 
-    .prize-card {
-      background: #1b1b1b;
-      border-left: 5px solid #5cc6ff;
-      box-shadow: 0 0 15px rgba(92, 198, 255, 0.4);
-      border-radius: 10px;
-      padding: 24px 32px;
-      width: 100%;
-      max-width: 700px;
-      transition: transform 0.8s ease, background 0.6s ease;
-      opacity: 0;
-      transform: translateY(40px) scale(0.95);
-    }
+.prize-card {
+  background: var(--card-bg); /* Use the CSS variable or replace with a neutral color like #ffffff or #111111 */
+  border-left: 5px solid var(--accent-color); /* Optional: or use a neutral/dark accent */
+  box-shadow: none; /* Remove the glow */
+  border-radius: 10px;
+  padding: 24px 32px;
+  width: 100%;
+  max-width: 700px;
+  transition: transform 0.8s ease, background 0.6s ease;
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+}
+
 
     .prize-card.alt {
       background: #222b3d;
@@ -428,6 +416,124 @@
       font-size: 1.05rem;
       color: #cccccc;
     }
+
+    .contact-section {
+    background-color: var(--bg-color);
+    padding: 80px 20px;
+    border-top: 2px solid var(--sec-bg);
+    padding-bottom: 100px;
+}
+
+.contact-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: var(--text-color);
+}
+
+.email-signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid var(--sec-accent-color);
+    border-radius: 10px;
+    background-color: var(--bg-color);
+}
+
+.email-signup label {
+    font-size: 1.1em;
+    font-weight: bold;
+    align-self: flex-start;
+    margin-left: 5px;
+    color: var(--text-color);
+}
+
+.email-signup input[type="email"] {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid var(--sec-bg);
+    border-radius: 8px;
+    font-size: 1em;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.email-signup input[type="email"]::placeholder {
+    color: var(--text-color);
+}
+
+.email-signup input[type="email"]:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.subscribe-btn {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.subscribe-btn:hover {
+    background-color: var(--sec-accent-color);
+}
+
+.info-text {
+    margin-top: 30px;
+    font-size: 0.95em;
+    color: var(--text-color);
+}
+
+.letters {
+    padding: 6rem 0;
+    background: var(--sec-bg);
+}
+
+.letters-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.letter {
+    background: var(--bg-color);
+    padding: 3rem;
+    border-radius: 10px;
+    border: 4px solid var(--accent-color);
+}
+
+.letter h3 {
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.letter p {
+    margin-bottom: 1.2rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.letter-signature {
+    margin-top: 2rem;
+    font-style: italic;
+    color: var(--accent-color);
+    text-align: right;
+    border-top: 1px solid var(--tert-bg);
+    padding-top: 1rem;
+}
   </style>
 
   <script>
@@ -547,7 +653,6 @@ function handleParticles() {
 }
 
 
-    handleParticles();
 
     const featureObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
@@ -565,5 +670,41 @@ function handleParticles() {
     featureObserver.observe(feature);
   });
   </script>
+
+  <section class="contact-section">
+        <h2>Contact Us!</h2>
+        <div class="contact-links">
+            <a class="contact-link email" href="mailto:aryankrishnan4b@gmail.com" title="Email" target="_blank">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" width="28" height="28">
+                    <rect width="24" height="24" rx="6" fill="var(--accent-color)" />
+                    <path d="M6 8.5V16h12V8.5l-6 4.5-6-4.5zM18 7H6l6 4.5L18 7z" fill="var(--navy)" />
+                </svg>
+                Email us!
+            </a>
+            <a class="contact-link twitter" href="https://twitter.com/yourhandle" title="Twitter/X" target="_blank">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" width="28" height="28">
+                    <rect width="24" height="24" rx="6" fill="var(--dark-teal)" />
+                    <path d="M17.5 7.5l-7 9m0-9l7 9" stroke="var(--bg-color)" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                Twitter/X
+            </a>
+            <a class="contact-link facebook" href="https://facebook.com/yourpage" title="Facebook" target="_blank">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" width="28" height="28">
+                    <rect width="24" height="24" rx="6" fill="var(--navy)" />
+                    <path d="M15.5 8.5H14V7.5c0-.4.3-.5.5-.5h1V5h-2c-1.1 0-2 .9-2 2v1.5H9v2h2V19h3v-5.5h2l.5-2z"
+                        fill="var(--accent-color)" />
+                </svg>
+                Facebook
+            </a>
+        </div>
+        <form class="email-signup" action="#" method="post">
+            <label for="newsletter-email">Subscribe to our newsletter:</label>
+            <input type="email" id="newsletter-email" name="newsletter-email" placeholder="Enter your email address"
+                required>
+            <button type="submit" class="subscribe-btn">Subscribe</button>
+        </form>
+        <p class="info-text">Receive the latest news and updates directly in your inbox.</p>
+    </section>
+    </main>
 </body>
 </html>
