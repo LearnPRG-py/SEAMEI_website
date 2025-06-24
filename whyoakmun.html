@@ -20,8 +20,88 @@
   color: #003057;
 }
 
-.theme-light .navbar {
-  background-color: #ffffff;
+:root {
+  --bg-color: rgb(0, 0, 0);
+  --sec-bg: rgb(53, 53, 53);
+  --accent-color: #1E96A5;
+  --sec-accent-color: #FFCB00;
+  --tert-bg: #002F52;
+  --text-color: #F7F2EC;
+}
+
+.navbar {
+  height: 70px;
+  position: relative;
+  z-index: 1000;
+}
+
+.nav-inner {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 60px;
+  background-color: var(--sec-bg);
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:
+    top 0.4s ease,
+    width 0.4s ease,
+    height 0.4s ease,
+    padding 0.4s ease,
+    box-shadow 0.4s ease,
+    border-radius 0.4s ease,
+    transform 0.4s ease;
+  box-shadow: none;
+}
+
+.navbar.dock .nav-inner {
+  top: 15px;
+  width: 40%;
+  min-width: fit-content;
+  height: 70px;
+  padding: 0 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  transform: translateX(-50%) scale(1);
+}
+
+.nav-inner ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-inner a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-inner a:hover {
+  color: var(--accent-color);
+}
+/* Light Theme Navbar */
+.theme-light .nav-inner {
+  background-color: #003057;
+}
+
+/* Dark Theme Navbar */
+.theme-dark .nav-inner {
+  background-color: #181818;
+}
+.theme-light .nav-inner a:hover {
+  color: #30CDD7; /* light blue accent */
+}
+
+.theme-dark .nav-inner a:hover {
+  color: #5cc6ff; /* already used */
 }
 
 .theme-light .section-title {
@@ -97,9 +177,6 @@
   background-color: #121212;
   color: #ffffff;
 }
-.theme-dark .navbar {
-  background-color: #181818;
-}
 .theme-dark .section-title {
   color: #ffffff;
   text-shadow: 0 0 10px #5cc6ff, 0 0 20px #5cc6ff;
@@ -126,33 +203,8 @@
       z-index: -1;
     }
 
-    header.navbar {
-      background-color: #181818;
-      padding: 20px 10vw;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    }
 
-    .navbar ul {
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      padding: 0;
-      margin: 0;
-    }
 
-    .navbar ul li a {
-      color: #fff;
-      text-decoration: none;
-      padding: 8px 16px;
-      transition: color 0.3s;
-    }
-
-    .navbar ul li a:hover {
-      color: #5cc6ff;
-    }
 
     .section-title {
       text-align: center;
@@ -187,14 +239,7 @@
       display: flex;
       align-items: flex-start;
       gap: 32px;
-      opacity: 0;
-      transform: translateY(80px) scale(0.95);
       transition: all 0.8s cubic-bezier(0.5, 1.6, 0.4, 1);
-    }
-
-    .timeline-item.visible {
-      opacity: 1;
-      transform: translateY(0) scale(1);
     }
 
     .timeline-image {
@@ -258,16 +303,6 @@
       font-size: 1.8rem;
     }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
 
     footer {
       text-align: center;
@@ -285,14 +320,9 @@
       
     }
     .feature {
-    opacity: 0;
-    transform: translateY(40px) scale(0.9);
     transition: opacity 0.8s ease, transform 0.8s ease;
   }
-  .feature.visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+
 
   .timeline::before,
   .timeline::after {
@@ -314,9 +344,34 @@
 
 <body>
   <canvas id="bg"></canvas>
-  <button id="themeToggle" style="padding: 8px 16px; border-radius: 6px; background: #5cc6ff; color: white; border: none; cursor: pointer;">
-    Toggle Theme
-  </button>
+<canvas id="bg"></canvas>
+
+<!-- NAVBAR START -->
+<!-- NEW NAVBAR START -->
+<div id="sentinel" style="height: 0px;"></div>
+<header class="navbar" id="navbar">
+  <div class="nav-inner" id="navInner">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="why-seamei.html">Why SEAMEI</a></li>
+      <li><a href="committees.html">Committees</a></li>
+      <li><a href="awards.html">Awards</a></li>
+      <li><a href="registration.html">Registration</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+<!-- NEW NAVBAR END -->
+
+<!-- NAVBAR END -->
+
+<select id="theme-toggle" class="theme-dropdown">
+  <option value="dark" selected>Dark Mode</option>
+  <option value="light">Light Mode</option>
+</select>
+
+
+
 
   <h1 class="section-title">Why Oak SEAMEI MUN?</h1>
   <section class="timeline">
@@ -390,8 +445,6 @@
   width: 100%;
   max-width: 700px;
   transition: transform 0.8s ease, background 0.6s ease;
-  opacity: 0;
-  transform: translateY(40px) scale(0.95);
 }
 
 
@@ -399,11 +452,6 @@
       background: #222b3d;
       border-left-color: #ffffff;
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-    }
-
-    .prize-card.visible {
-      opacity: 1;
-      transform: translateY(0) scale(1);
     }
 
     .prize-title {
@@ -416,159 +464,48 @@
       font-size: 1.05rem;
       color: #cccccc;
     }
-
-    .contact-section {
-    background-color: var(--bg-color);
-    padding: 80px 20px;
-    border-top: 2px solid var(--sec-bg);
-    padding-bottom: 100px;
-}
-
-.contact-section h2 {
-    font-size: 2.5em;
-    margin-bottom: 40px;
-    color: var(--text-color);
-}
-
-.email-signup {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 2px solid var(--sec-accent-color);
-    border-radius: 10px;
-    background-color: var(--bg-color);
-}
-
-.email-signup label {
-    font-size: 1.1em;
-    font-weight: bold;
-    align-self: flex-start;
-    margin-left: 5px;
-    color: var(--text-color);
-}
-
-.email-signup input[type="email"] {
-    width: 100%;
-    padding: 15px;
-    border: 2px solid var(--sec-bg);
-    border-radius: 8px;
-    font-size: 1em;
+.theme-dropdown {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 5px;
+    font-size: 0.8rem;
     background-color: var(--bg-color);
     color: var(--text-color);
+    border: 1px solid var(--bg-color);
+    border-radius: 5px;
+    z-index: 3;
 }
 
-.email-signup input[type="email"]::placeholder {
-    color: var(--text-color);
-}
-
-.email-signup input[type="email"]:focus {
-    outline: none;
-    border-color: var(--accent-color);
-}
-
-.subscribe-btn {
-    background-color: var(--accent-color);
-    color: var(--text-color);
-    border: none;
-    padding: 15px 30px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.1em;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    width: 100%;
-}
-
-.subscribe-btn:hover {
-    background-color: var(--sec-accent-color);
-}
-
-.info-text {
-    margin-top: 30px;
-    font-size: 0.95em;
-    color: var(--text-color);
-}
-
-.letters {
-    padding: 6rem 0;
-    background: var(--sec-bg);
-}
-
-.letters-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    margin-top: 3rem;
-}
-
-.letter {
-    background: var(--bg-color);
-    padding: 3rem;
-    border-radius: 10px;
-    border: 4px solid var(--accent-color);
-}
-
-.letter h3 {
-    color: var(--text-color);
-    margin-bottom: 2rem;
-    font-size: 1.4rem;
-    text-align: center;
-}
-
-.letter p {
-    margin-bottom: 1.2rem;
-    line-height: 1.7;
-    font-size: 1rem;
-    color: var(--text-color);
-}
-
-.letter-signature {
-    margin-top: 2rem;
-    font-style: italic;
-    color: var(--accent-color);
-    text-align: right;
-    border-top: 1px solid var(--tert-bg);
-    padding-top: 1rem;
-}
   </style>
 
   <script>
-    const prizeObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          entry.target.style.transitionDelay = `${i * 0.15}s`;
-        }
-      });
-    }, { threshold: 0.25 });
-
-    document.querySelectorAll('.prize-card').forEach(card => {
-      prizeObserver.observe(card);
-    });
 
     // Theme Toggle
-const toggleButton = document.getElementById("themeToggle");
-const root = document.documentElement;
+ document.body.classList.add("theme-dark");
 
-function setTheme(theme) {
-  document.body.classList.remove("theme-dark", "theme-light");
-  document.body.classList.add(theme);
-  localStorage.setItem("theme", theme);
-}
+  const themeDropdown = document.getElementById("theme-toggle");
 
-// Load stored theme or default to dark
-const savedTheme = localStorage.getItem("theme") || "theme-dark";
-setTheme(savedTheme);
+  // Apply theme when dropdown changes
+  themeDropdown.addEventListener("change", () => {
+    const selectedTheme = themeDropdown.value;
+    document.body.classList.remove("theme-light", "theme-dark");
+    document.body.classList.add(`theme-${selectedTheme}`);
+  });
 
-// Toggle on click
-toggleButton.addEventListener("click", () => {
-  const newTheme = document.body.classList.contains("theme-dark") ? "theme-light" : "theme-dark";
-  setTheme(newTheme);
-});
+  const navbar = document.getElementById('navbar');
+  const sentinel = document.getElementById('sentinel');
+
+  new IntersectionObserver(
+    ([e]) => {
+      if (!e.isIntersecting) {
+        navbar.classList.add('dock');
+      } else {
+        navbar.classList.remove('dock');
+      }
+    },
+    { root: null, threshold: 0 }
+  ).observe(sentinel);
 
   </script>
   <h1 class="section-title">Beyond the Conference</h1>
@@ -592,84 +529,6 @@ toggleButton.addEventListener("click", () => {
     <p>Contact us at: <a href="mailto:example@oakridge.in">example@oakridge.in</a></p>
     <p>School Website: <a href="https://www.oakridge.in" target="_blank">www.oakridge.in</a></p>
   </footer>
-
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          entry.target.style.transitionDelay = `${index * 0.1}s`;
-        } else {
-          entry.target.classList.remove('visible');
-          entry.target.style.transitionDelay = `0s`;
-        }
-      });
-    }, { threshold: 0.25 });
-
-    document.querySelectorAll('.timeline-item').forEach((item) => {
-      observer.observe(item);
-    });
-
-    const canvas = document.getElementById('bg');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    let particlesArray = [];
-    for (let i = 0; i < 100; i++) {
-      particlesArray.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 2 + 1,
-        speedX: Math.random() * 0.5 - 0.25,
-        speedY: Math.random() * 0.5 - 0.25,
-      });
-    }
-
-function handleParticles() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  particlesArray.forEach(p => {
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-
-    // Theme-based color
-    ctx.fillStyle = document.body.classList.contains('theme-light')
-      ? 'rgba(0, 48, 87, 0.15)'    // Light mode: subtle navy
-      : 'rgba(92, 198, 255, 0.7)'; // Dark mode: bright teal
-
-    ctx.fill();
-
-    // Update position
-    p.x += p.speedX;
-    p.y += p.speedY;
-
-    // Bounce off edges
-    if (p.x > canvas.width || p.x < 0) p.speedX *= -1;
-    if (p.y > canvas.height || p.y < 0) p.speedY *= -1;
-  });
-
-  requestAnimationFrame(handleParticles);
-}
-
-
-
-    const featureObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        entry.target.style.transitionDelay = `${i * 0.1}s`;
-      } else {
-        entry.target.classList.remove('visible');
-        entry.target.style.transitionDelay = `0s`;
-      }
-    });
-  }, { threshold: 0.3 });
-
-  document.querySelectorAll('.feature').forEach((feature) => {
-    featureObserver.observe(feature);
-  });
-  </script>
 
   <section class="contact-section">
         <h2>Contact Us!</h2>
