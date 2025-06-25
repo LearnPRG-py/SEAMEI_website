@@ -84,6 +84,7 @@ body {
     background-color: var(--bg-color);
     font-family: 'Montserrat', sans-serif;
     color: var(--text-color);
+    line-height: 1.6;
 }
 
 .mission-vision-section {
