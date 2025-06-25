@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,192 +9,200 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
-  margin: 0;
-  font-family: 'Source Sans Pro', sans-serif;
-  overflow-x: hidden;
-  transition: background-color 0.4s ease, color 0.4s ease;
-}
+      margin: 0;
+      font-family: 'Source Sans Pro', sans-serif;
+      overflow-x: hidden;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
 
-/* LIGHT THEME */
-.theme-light {
-  background-color: #FAF5ED;
-  color: #003057;
-}
+    /* LIGHT THEME */
+    .theme-light {
+      background-color: #FAF5ED;
+      color: #003057;
+    }
 
-:root {
-  --bg-color: rgb(0, 0, 0);
-  --sec-bg: rgb(53, 53, 53);
-  --accent-color: #1E96A5;
-  --sec-accent-color: #FFCB00;
-  --tert-bg: #002F52;
-  --text-color: #F7F2EC;
-}
+    :root {
+      --bg-color: rgb(0, 0, 0);
+      --sec-bg: rgb(53, 53, 53);
+      --accent-color: #1E96A5;
+      --sec-accent-color: #FFCB00;
+      --tert-bg: #002F52;
+      --text-color: #F7F2EC;
+    }
 
-.navbar {
-  height: 70px;
-  position: relative;
-  z-index: 1000;
-}
+    .navbar {
+      height: 70px;
+      position: relative;
+      z-index: 1000;
+    }
 
-.nav-inner {
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  height: 60px;
-  background-color: var(--sec-bg);
-  padding: 0 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition:
-    top 0.4s ease,
-    width 0.4s ease,
-    height 0.4s ease,
-    padding 0.4s ease,
-    box-shadow 0.4s ease,
-    border-radius 0.4s ease,
-    transform 0.4s ease;
-  box-shadow: none;
-}
+    .nav-inner {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 60px;
+      background-color: var(--sec-bg);
+      padding: 0 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition:
+        top 0.4s ease,
+        width 0.4s ease,
+        height 0.4s ease,
+        padding 0.4s ease,
+        box-shadow 0.4s ease,
+        border-radius 0.4s ease,
+        transform 0.4s ease;
+      box-shadow: none;
+    }
 
-.navbar.dock .nav-inner {
-  top: 15px;
-  width: 40%;
-  min-width: fit-content;
-  height: 70px;
-  padding: 0 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  border-radius: 1rem;
-  transform: translateX(-50%) scale(1);
-}
+    .navbar.dock .nav-inner {
+      top: 15px;
+      width: 40%;
+      min-width: fit-content;
+      height: 70px;
+      padding: 0 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      border-radius: 1rem;
+      transform: translateX(-50%) scale(1);
+    }
 
-.nav-inner ul {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-  padding: 0;
-  margin: 0;
-}
+    .nav-inner ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      padding: 0;
+      margin: 0;
+    }
 
-.nav-inner a {
-  color: var(--text-color);
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
+    .nav-inner a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
 
-.nav-inner a:hover {
-  color: var(--accent-color);
-}
-/* Light Theme Navbar */
-.theme-light .nav-inner {
-  background-color: #003057;
-}
+    .nav-inner a:hover {
+      color: var(--accent-color);
+    }
 
-/* Dark Theme Navbar */
-.theme-dark .nav-inner {
-  background-color: #181818;
-}
-.theme-light .nav-inner a:hover {
-  color: #30CDD7; /* light blue accent */
-}
+    /* Light Theme Navbar */
+    .theme-light .nav-inner {
+      background-color: #003057;
+    }
 
-.theme-dark .nav-inner a:hover {
-  color: #5cc6ff; /* already used */
-}
+    /* Dark Theme Navbar */
+    .theme-dark .nav-inner {
+      background-color: #181818;
+    }
 
-.theme-light .section-title {
-  color: #003057;
-  text-shadow: none;
-  border-bottom: 3px solid #30CDD7;
-}
+    .theme-light .nav-inner a:hover {
+      color: #30CDD7;
+      /* light blue accent */
+    }
 
-.theme-light .timeline-content {
-  background-color: #ffffff;
-  color: #003057;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  border-left: 4px solid #30CDD7;
-}
+    .theme-dark .nav-inner a:hover {
+      color: #5cc6ff;
+      /* already used */
+    }
 
-.theme-light .timeline-content h3 {
-  color: #003057;
-}
+    .theme-light .section-title {
+      color: #003057;
+      text-shadow: none;
+      border-bottom: 3px solid #30CDD7;
+    }
 
-.theme-light .timeline-content p {
-  color: #333333;
-}
+    .theme-light .timeline-content {
+      background-color: #ffffff;
+      color: #003057;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border-left: 4px solid #30CDD7;
+    }
 
-.theme-light .timeline-image {
-  border-color: #30CDD7;
-  box-shadow: 0 0 10px rgba(48, 205, 215, 0.4);
-}
+    .theme-light .timeline-content h3 {
+      color: #003057;
+    }
 
-.theme-light .prize-card {
-  background-color: #ffffff;
-  color: #003057;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-  border-left: 4px solid #30CDD7;
-}
+    .theme-light .timeline-content p {
+      color: #333333;
+    }
 
-.theme-light .prize-card.alt {
-  background-color: #E4EBF5;
-  border-left-color: #003057;
-}
+    .theme-light .timeline-image {
+      border-color: #30CDD7;
+      box-shadow: 0 0 10px rgba(48, 205, 215, 0.4);
+    }
 
-.theme-light .prize-title {
-  color: #003057;
-}
+    .theme-light .prize-card {
+      background-color: #ffffff;
+      color: #003057;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      border-left: 4px solid #30CDD7;
+    }
 
-.theme-light .prize-desc {
-  color: #333333;
-}
+    .theme-light .prize-card.alt {
+      background-color: #E4EBF5;
+      border-left-color: #003057;
+    }
 
-.theme-light .feature h3 {
-  color: #003057;
-}
+    .theme-light .prize-title {
+      color: #003057;
+    }
 
-.theme-light footer {
-  background-color: #ffffff;
-  color: #003057;
-}
+    .theme-light .prize-desc {
+      color: #333333;
+    }
 
-.theme-light footer a {
-  color: #30CDD7;
-}
+    .theme-light .feature h3 {
+      color: #003057;
+    }
 
-/* Optional: soften toggle contrast */
-.theme-light .slider {
-  background-color: #cccccc;
-}
+    .theme-light footer {
+      background-color: #ffffff;
+      color: #003057;
+    }
 
-.theme-light input:checked + .slider {
-  background-color: #30CDD7;
-}
+    .theme-light footer a {
+      color: #30CDD7;
+    }
 
-/* DARK THEME */
-.theme-dark {
-  background-color: #121212;
-  color: #ffffff;
-}
-.theme-dark .section-title {
-  color: #ffffff;
-  text-shadow: 0 0 10px #5cc6ff, 0 0 20px #5cc6ff;
-}
-.theme-dark .timeline-content,
-.theme-dark .prize-card,
-.theme-dark footer {
-  background-color: rgba(255, 255, 255, 0.05);
-  color: #ffffff;
-}
-.theme-dark .prize-card.alt {
-  background-color: #222b3d;
-  border-left-color: #ffffff;
-}
-.theme-dark .feature h3 {
-  color: #5cc6ff;
-}
+    /* Optional: soften toggle contrast */
+    .theme-light .slider {
+      background-color: #cccccc;
+    }
+
+    .theme-light input:checked+.slider {
+      background-color: #30CDD7;
+    }
+
+    /* DARK THEME */
+    .theme-dark {
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    .theme-dark .section-title {
+      color: #ffffff;
+      text-shadow: 0 0 10px #5cc6ff, 0 0 20px #5cc6ff;
+    }
+
+    .theme-dark .timeline-content,
+    .theme-dark .prize-card,
+    .theme-dark footer {
+      background-color: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+    }
+
+    .theme-dark .prize-card.alt {
+      background-color: #222b3d;
+      border-left-color: #ffffff;
+    }
+
+    .theme-dark .feature h3 {
+      color: #5cc6ff;
+    }
 
 
     canvas#bg {
@@ -317,90 +326,95 @@
       text-decoration: none;
       margin: 0 6px;
 
-      
+
     }
+
     .feature {
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
 
 
-  .timeline::before,
-  .timeline::after {
-    display: none;
-  }
+    .timeline::before,
+    .timeline::after {
+      display: none;
+    }
 
-  .timeline::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 40px;
-    width: 4px;
-    height: 100%;
-    background-color: #5cc6ff;
-    opacity: 0.3;
-  }
+    .timeline::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 40px;
+      width: 4px;
+      height: 100%;
+      background-color: #5cc6ff;
+      opacity: 0.3;
+    }
   </style>
 </head>
 
 <body>
   <canvas id="bg"></canvas>
-<canvas id="bg"></canvas>
+  <canvas id="bg"></canvas>
 
-<!-- NAVBAR START -->
-<!-- NEW NAVBAR START -->
-<div id="sentinel" style="height: 0px;"></div>
-<header class="navbar" id="navbar">
-  <div class="nav-inner" id="navInner">
-<ul>
-                <li><a href="home-link">Home</a></li>
-                <li><a href="about-us-link">About Us</a></li>
-                <li><a href="committees-link">Committees</a></li>
-                <li><a href="conference-details-link">Conference Details</a></li>
-                <li><a href="prizes-link">Prizes</a></li>
-            </ul>
-  </div>
-</header>
-<!-- NEW NAVBAR END -->
+  <!-- NAVBAR START -->
+  <!-- NEW NAVBAR START -->
+  <div id="sentinel" style="height: 0px;"></div>
+  <header class="navbar" id="navbar">
+    <div class="nav-inner" id="navInner">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about-us-link">About Us</a></li>
+        <li><a href="committees-link">Committees</a></li>
+        <li><a href="conference-details-link">Conference Details</a></li>
+        <li><a href="prizes-link">Prizes</a></li>
+      </ul>
+    </div>
+  </header>
+  <!-- NEW NAVBAR END -->
 
-<!-- NAVBAR END -->
+  <!-- NAVBAR END -->
 
-<select id="theme-toggle" class="theme-dropdown">
-  <option value="dark" selected>Dark Mode</option>
-  <option value="light">Light Mode</option>
-</select>
+  <select id="theme-toggle" class="theme-dropdown">
+    <option value="dark" selected>Dark Mode</option>
+    <option value="light">Light Mode</option>
+  </select>
 
 
 
 
   <h1 class="section-title">Why Oak SEAMEI MUN?</h1>
   <section class="timeline">
-<section class="timeline">
+    <section class="timeline">
       <div class="timeline-item">
         <div class="timeline-image" style="background-image: url('images/global.png');"></div>
         <div class="timeline-content">
           <h3>Global Network, Local Impact</h3>
-          <p>SEAMEI MUN is a launchpad for student diplomats across Southeast Asia to tackle real-world problems with bold, creative diplomacy.</p>
+          <p>SEAMEI MUN is a launchpad for student diplomats across Southeast Asia to tackle real-world problems with
+            bold, creative diplomacy.</p>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-image" style="background-image: url('images/leadership.png');"></div>
         <div class="timeline-content">
           <h3>Visionary Leadership</h3>
-          <p>Led by a youth-driven executive team with international circuit experience, we create a meaningful and inclusive MUN experience.</p>
+          <p>Led by a youth-driven executive team with international circuit experience, we create a meaningful and
+            inclusive MUN experience.</p>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-image" style="background-image: url('images/innovation.png');"></div>
         <div class="timeline-content">
           <h3>Innovation in Debate</h3>
-          <p>Expect crisis simulations, interdisciplinary committees, and never-before-seen agenda topics crafted to challenge conventional thinking.</p>
+          <p>Expect crisis simulations, interdisciplinary committees, and never-before-seen agenda topics crafted to
+            challenge conventional thinking.</p>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-image" style="background-image: url('images/oakridge.png');"></div>
         <div class="timeline-content">
           <h3>Oakridge Quality</h3>
-          <p>Hosted by one of the top international schools in the region, the conference promises academic excellence and organizational precision.</p>
+          <p>Hosted by one of the top international schools in the region, the conference promises academic excellence
+            and organizational precision.</p>
         </div>
       </div>
     </section>
@@ -410,19 +424,23 @@
   <section class="prizes-section">
     <div class="prize-card pop-left">
       <h3 class="prize-title">Best Delegate</h3>
-      <p class="prize-desc">Awarded to the top-performing delegate in each committee, showcasing leadership, diplomacy, and innovation.</p>
+      <p class="prize-desc">Awarded to the top-performing delegate in each committee, showcasing leadership, diplomacy,
+        and innovation.</p>
     </div>
     <div class="prize-card pop-right alt">
       <h3 class="prize-title">Outstanding Delegate</h3>
-      <p class="prize-desc">Recognizes consistent engagement, analytical skill, and respectful discourse throughout the sessions.</p>
+      <p class="prize-desc">Recognizes consistent engagement, analytical skill, and respectful discourse throughout the
+        sessions.</p>
     </div>
     <div class="prize-card pop-left">
       <h3 class="prize-title">Commendable Delegate</h3>
-      <p class="prize-desc">Given to rising stars who bring unique perspectives and collaborative spirit to the debate.</p>
+      <p class="prize-desc">Given to rising stars who bring unique perspectives and collaborative spirit to the debate.
+      </p>
     </div>
     <div class="prize-card pop-right alt">
       <h3 class="prize-title">Special Mention</h3>
-      <p class="prize-desc">Chosen by the Executive Board, this prize honors delegates with outstanding creativity and initiative.</p>
+      <p class="prize-desc">Chosen by the Executive Board, this prize honors delegates with outstanding creativity and
+        initiative.</p>
     </div>
   </section>
 
@@ -435,16 +453,19 @@
       padding: 80px 10vw;
     }
 
-.prize-card {
-  background: var(--card-bg); /* Use the CSS variable or replace with a neutral color like #ffffff or #111111 */
-  border-left: 5px solid var(--accent-color); /* Optional: or use a neutral/dark accent */
-  box-shadow: none; /* Remove the glow */
-  border-radius: 10px;
-  padding: 24px 32px;
-  width: 100%;
-  max-width: 700px;
-  transition: transform 0.8s ease, background 0.6s ease;
-}
+    .prize-card {
+      background: var(--card-bg);
+      /* Use the CSS variable or replace with a neutral color like #ffffff or #111111 */
+      border-left: 5px solid var(--accent-color);
+      /* Optional: or use a neutral/dark accent */
+      box-shadow: none;
+      /* Remove the glow */
+      border-radius: 10px;
+      padding: 24px 32px;
+      width: 100%;
+      max-width: 700px;
+      transition: transform 0.8s ease, background 0.6s ease;
+    }
 
 
     .prize-card.alt {
@@ -463,48 +484,48 @@
       font-size: 1.05rem;
       color: #cccccc;
     }
-.theme-dropdown {
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    padding: 5px;
-    font-size: 0.8rem;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    border: 1px solid var(--bg-color);
-    border-radius: 5px;
-    z-index: 3;
-}
 
+    .theme-dropdown {
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      padding: 5px;
+      font-size: 0.8rem;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      border: 1px solid var(--bg-color);
+      border-radius: 5px;
+      z-index: 3;
+    }
   </style>
 
   <script>
 
     // Theme Toggle
- document.body.classList.add("theme-dark");
+    document.body.classList.add("theme-dark");
 
-  const themeDropdown = document.getElementById("theme-toggle");
+    const themeDropdown = document.getElementById("theme-toggle");
 
-  // Apply theme when dropdown changes
-  themeDropdown.addEventListener("change", () => {
-    const selectedTheme = themeDropdown.value;
-    document.body.classList.remove("theme-light", "theme-dark");
-    document.body.classList.add(`theme-${selectedTheme}`);
-  });
+    // Apply theme when dropdown changes
+    themeDropdown.addEventListener("change", () => {
+      const selectedTheme = themeDropdown.value;
+      document.body.classList.remove("theme-light", "theme-dark");
+      document.body.classList.add(`theme-${selectedTheme}`);
+    });
 
-  const navbar = document.getElementById('navbar');
-  const sentinel = document.getElementById('sentinel');
+    const navbar = document.getElementById('navbar');
+    const sentinel = document.getElementById('sentinel');
 
-  new IntersectionObserver(
-    ([e]) => {
-      if (!e.isIntersecting) {
-        navbar.classList.add('dock');
-      } else {
-        navbar.classList.remove('dock');
-      }
-    },
-    { root: null, threshold: 0 }
-  ).observe(sentinel);
+    new IntersectionObserver(
+      ([e]) => {
+        if (!e.isIntersecting) {
+          navbar.classList.add('dock');
+        } else {
+          navbar.classList.remove('dock');
+        }
+      },
+      { root: null, threshold: 0 }
+    ).observe(sentinel);
 
   </script>
   <h1 class="section-title">Beyond the Conference</h1>
@@ -530,39 +551,39 @@
   </footer>
 
   <section class="contact-section">
-        <h2>Contact Us!</h2>
-        <div class="contact-links">
-            <a class="contact-link email" href="mailto:aryankrishnan4b@gmail.com" title="Email" target="_blank">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" width="28" height="28">
-                    <rect width="24" height="24" rx="6" fill="var(--accent-color)" />
-                    <path d="M6 8.5V16h12V8.5l-6 4.5-6-4.5zM18 7H6l6 4.5L18 7z" fill="var(--navy)" />
-                </svg>
-                Email us!
-            </a>
-            <a class="contact-link twitter" href="https://twitter.com/yourhandle" title="Twitter/X" target="_blank">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" width="28" height="28">
-                    <rect width="24" height="24" rx="6" fill="var(--dark-teal)" />
-                    <path d="M17.5 7.5l-7 9m0-9l7 9" stroke="var(--bg-color)" stroke-width="2" stroke-linecap="round" />
-                </svg>
-                Twitter/X
-            </a>
-            <a class="contact-link facebook" href="https://facebook.com/yourpage" title="Facebook" target="_blank">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" width="28" height="28">
-                    <rect width="24" height="24" rx="6" fill="var(--navy)" />
-                    <path d="M15.5 8.5H14V7.5c0-.4.3-.5.5-.5h1V5h-2c-1.1 0-2 .9-2 2v1.5H9v2h2V19h3v-5.5h2l.5-2z"
-                        fill="var(--accent-color)" />
-                </svg>
-                Facebook
-            </a>
-        </div>
-        <form class="email-signup" action="#" method="post">
-            <label for="newsletter-email">Subscribe to our newsletter:</label>
-            <input type="email" id="newsletter-email" name="newsletter-email" placeholder="Enter your email address"
-                required>
-            <button type="submit" class="subscribe-btn">Subscribe</button>
-        </form>
-        <p class="info-text">Receive the latest news and updates directly in your inbox.</p>
-    </section>
-    </main>
+    <h2>Contact Us!</h2>
+    <div class="contact-links">
+      <a class="contact-link email" href="mailto:aryankrishnan4b@gmail.com" title="Email" target="_blank">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" width="28" height="28">
+          <rect width="24" height="24" rx="6" fill="var(--accent-color)" />
+          <path d="M6 8.5V16h12V8.5l-6 4.5-6-4.5zM18 7H6l6 4.5L18 7z" fill="var(--navy)" />
+        </svg>
+        Email us!
+      </a>
+      <a class="contact-link twitter" href="https://twitter.com/yourhandle" title="Twitter/X" target="_blank">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" width="28" height="28">
+          <rect width="24" height="24" rx="6" fill="var(--dark-teal)" />
+          <path d="M17.5 7.5l-7 9m0-9l7 9" stroke="var(--bg-color)" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        Twitter/X
+      </a>
+      <a class="contact-link facebook" href="https://facebook.com/yourpage" title="Facebook" target="_blank">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" width="28" height="28">
+          <rect width="24" height="24" rx="6" fill="var(--navy)" />
+          <path d="M15.5 8.5H14V7.5c0-.4.3-.5.5-.5h1V5h-2c-1.1 0-2 .9-2 2v1.5H9v2h2V19h3v-5.5h2l.5-2z"
+            fill="var(--accent-color)" />
+        </svg>
+        Facebook
+      </a>
+    </div>
+    <form class="email-signup" action="#" method="post">
+      <label for="newsletter-email">Subscribe to our newsletter:</label>
+      <input type="email" id="newsletter-email" name="newsletter-email" placeholder="Enter your email address" required>
+      <button type="submit" class="subscribe-btn">Subscribe</button>
+    </form>
+    <p class="info-text">Receive the latest news and updates directly in your inbox.</p>
+  </section>
+  </main>
 </body>
+
 </html>

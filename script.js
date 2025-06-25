@@ -130,7 +130,7 @@ function applyTheme(theme) {
         root.style.setProperty('--tert-bg', '#B4EBF5');
         root.style.setProperty('--text-color', 'black');
     } else {
-        root.style.setProperty('--bg-color', 'rgb(0, 0, 0)');
+        root.style.setProperty('--bg-color', 'rgb(17, 17, 17)');
         root.style.setProperty('--sec-bg', 'rgb(53, 53, 53)');
         root.style.setProperty('--accent-color', '#1E96A5');
         root.style.setProperty('--sec-accent-color', '#FFCB00');

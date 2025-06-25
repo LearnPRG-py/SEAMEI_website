@@ -1,8 +1,7 @@
-html,
-body {
+* {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    box-sizing: border-box;
 }
 
 :root {
@@ -78,4 +77,24 @@ body {
 
 .nav-inner a:hover {
     color: #30cdd7;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.theme-dropdown {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 5px;
+    font-size: 0.8rem;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--bg-color);
+    border-radius: 5px;
+    z-index: 3;
 }
