@@ -15,71 +15,6 @@
 
 }
 
-.sentinel {
-    height: 0;
-    width: 0;
-}
-
-.navbar {
-    height: 70px;
-    position: relative;
-    z-index: 1000;
-}
-
-.nav-inner {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    height: 60px;
-    background-color: var(--sec-bg);
-    padding: 0 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition:
-        top 0.4s ease,
-        width 0.4s ease,
-        height 0.4s ease,
-        padding 0.4s ease,
-        box-shadow 0.4s ease,
-        border-radius 0.4s ease,
-        transform 0.4s ease;
-    box-shadow: none;
-}
-
-.navbar.dock .nav-inner {
-    top: 15px;
-    width: 40%;
-    min-width: fit-content;
-    height: 70px;
-    padding: 0 1.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    border-radius: 1rem;
-    transform: translateX(-50%) scale(1);
-}
-
-
-.nav-inner ul {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-    padding: 0;
-    margin: 0;
-}
-
-.nav-inner a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.nav-inner a:hover {
-    color: #30cdd7;
-}
-
-
 body {
     background-color: var(--bg-color);
     font-family: 'Montserrat', sans-serif;
@@ -87,27 +22,41 @@ body {
     line-height: 1.6;
 }
 
+.hero-section {
+    background-color: var(--tert-bg);
+    color: var(--text-color);
+    text-align: center;
+    padding: 100px 30px;
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: var(--sec-accent-color);
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Mission & Vision Redesign */
 .mission-vision-section {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 100px 60px;
-    background-color: var(--sec-bg);
+    align-items: flex-start;
     flex-wrap: wrap;
+    padding: 80px 40px;
+    background-color: var(--sec-bg);
     gap: 40px;
-}
-
-.mission-vision-text-container {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    flex: 2;
-    min-width: 300px;
 }
 
 .mission-vision-text {
+    flex: 2;
+    min-width: 300px;
     background-color: var(--bg-color);
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
@@ -118,14 +67,9 @@ body {
     color: var(--sec-accent-color);
 }
 
-.mission-vision-text p {
-    font-size: 1em;
-    line-height: 1.8;
-}
-
 .mission-vision-image {
     flex: 1;
-    min-width: 300px;
+    min-width: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -133,10 +77,89 @@ body {
 
 .mission-vision-image img {
     max-width: 100%;
-    max-height: 400px;
-    border-radius: 15px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
+
+/* What is SEAMEI MUN */
+.what-is-section {
+    background-color: var(--bg-color);
+    padding: 80px 40px;
+}
+
+.what-is-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.what-is-text {
+    flex: 2;
+    min-width: 300px;
+    font-size: 1.2em;
+    line-height: 1.8;
+}
+
+.what-is-image {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.what-is-image img {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.benefits-section {
+    background-color: var(--sec-bg);
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.benefit-card {
+    background-color: var(--bg-color);
+    border-radius: 20px;
+    padding: 30px 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-10px);
+}
+
+.benefit-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--sec-accent-color);
+}
+
+.benefit-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.benefit-text {
+    font-size: 1em;
+    color: var(--text-color);
+    opacity: 0.85;
+}
+
 
 .about-us-section {
     padding: 60px 20px;
@@ -213,4 +236,45 @@ body {
 .profile-card-role2 {
     color: var(--sec-accent-color);
     font-size: 1em;
+}
+
+.oakridge-section {
+    background-color: var(--bg-color);
+    padding: 80px 40px;
+}
+
+.oakridge-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.oakridge-text {
+    flex: 2;
+    min-width: 300px;
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+.oakridge-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: var(--sec-accent-color);
+}
+
+.oakridge-image {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.oakridge-image img {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
