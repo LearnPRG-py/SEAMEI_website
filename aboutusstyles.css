@@ -11,7 +11,8 @@
     --sec-accent-color: #FFCB00;
     --tert-bg: #002F52;
     --text-color: #F7F2EC;
-
+    --ppl-list-color: rgb(53, 53, 53);
+    --contact-us-color: #1e96a5;
 
 }
 
@@ -190,7 +191,7 @@ body {
 
 .profile-card,
 .profile-card2 {
-    background-color: var(--sec-bg);
+    background-color: var(--ppl-list-color);
     border-radius: 20px;
     padding: 25px;
     text-align: center;
