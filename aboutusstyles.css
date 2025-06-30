@@ -13,11 +13,13 @@
     --text-color: #F7F2EC;
     --ppl-list-color: rgb(53, 53, 53);
     --contact-us-color: #1e96a5;
+    --section-dark: #1f1f1f;
+    --section-highlight-dark: #632525;
 
 }
 
 body {
-    background-color: var(--bg-color);
+    /* background-color: var(--bg-color); */
     font-family: 'Montserrat', sans-serif;
     color: var(--text-color);
     line-height: 1.6;
@@ -49,14 +51,14 @@ body {
     align-items: flex-start;
     flex-wrap: wrap;
     padding: 80px 40px;
-    background-color: var(--sec-bg);
+    /* background-color: var(--sec-bg); */
     gap: 40px;
 }
 
 .mission-vision-text {
     flex: 2;
     min-width: 300px;
-    background-color: var(--bg-color);
+    /* background-color: var(--bg-color); */
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
@@ -84,7 +86,7 @@ body {
 
 /* What is SEAMEI MUN */
 .what-is-section {
-    background-color: var(--bg-color);
+    /* background-color: var(--bg-color); */
     padding: 80px 40px;
 }
 
@@ -118,7 +120,7 @@ body {
 }
 
 .benefits-section {
-    background-color: var(--sec-bg);
+    /* background-color: var(--sec-bg); */
     padding: 80px 40px;
     text-align: center;
 }
@@ -131,7 +133,7 @@ body {
 }
 
 .benefit-card {
-    background-color: var(--bg-color);
+    /* background-color: var(--bg-color); */
     border-radius: 20px;
     padding: 30px 20px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
@@ -164,7 +166,7 @@ body {
 
 .about-us-section {
     padding: 60px 20px;
-    background-color: var(--bg-color);
+    /* background-color: var(--bg-color); */
     text-align: center;
 }
 
@@ -240,7 +242,7 @@ body {
 }
 
 .oakridge-section {
-    background-color: var(--bg-color);
+    /* background-color: var(--bg-color); */
     padding: 80px 40px;
 }
 
@@ -278,4 +280,34 @@ body {
     max-width: 100%;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+section {
+    padding: 100px 40px;
+    transition: background-color 0.3s ease;
+}
+
+/* Alternate backgrounds for separation */
+.hero-section {
+    background-color: var(--tert-bg);
+}
+
+.mission-vision-section {
+    background-color: var(--section-dark);
+}
+
+.what-is-section {
+    background-color: var(--section-highlight-dark);
+}
+
+.benefits-section {
+    background-color: var(--section-dark);
+}
+
+.oakridge-section {
+    background-color: var(--section-highlight-dark);
+}
+
+.about-us-section {
+    background-color: var(--section-dark);
 }

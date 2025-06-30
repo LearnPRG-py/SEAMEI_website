@@ -88,15 +88,29 @@ body {
 
 .theme-dropdown {
     position: absolute;
-    top: 60px;
-    right: 20px;
-    padding: 5px;
+    top: 6vh;
+    right: 0vh;
+    padding: 5px 30px 5px 10px;
+    /* extra right padding for the arrow */
     font-size: 0.8rem;
     background-color: var(--bg-color);
     color: var(--text-color);
     border: 1px solid var(--bg-color);
     border-radius: 5px;
     z-index: 3;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    outline: none;
+    box-shadow: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%23ccc' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border 0.3s ease;
 }
 
 h1,
@@ -125,13 +139,13 @@ section {
     text-align: center;
 }
 
-section:nth-child(even) {
+/* section:nth-child(even) {
     background-color: var(--bg-color);
 }
 
 section:nth-child(odd) {
     background-color: var(--bg-color);
-}
+} */
 
 .hero-section {
     position: relative;
@@ -707,7 +721,7 @@ section:nth-child(odd) {
 
 .letters {
     padding: 6rem 0;
-    background: var(--sec-bg);
+    background: var(--bg-color);
 }
 
 .letters-container {
