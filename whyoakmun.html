@@ -29,178 +29,302 @@
       --tert-bg: #002F52;
       --text-color: #F7F2EC;
     }
-:root {
-  --bg-color: rgb(0, 0, 0);
-  --sec-bg: rgb(53, 53, 53);
-  --accent-color: #1E96A5;
-  --sec-accent-color: #FFCB00;
-  --tert-bg: #002F52;
-  --text-color: #F7F2EC;
-}
-/* ───────────────────────────────
+
+    :root {
+      --bg-color: rgb(0, 0, 0);
+      --sec-bg: rgb(53, 53, 53);
+      --accent-color: #1E96A5;
+      --sec-accent-color: #FFCB00;
+      --tert-bg: #002F52;
+      --text-color: #F7F2EC;
+    }
+
+    /* ───────────────────────────────
    RESET & DESIGN TOKENS
    ─────────────────────────────── */
-*{margin:0;padding:0;box-sizing:border-box;}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-:root{
-  --bg-color:#000;                 /* page background (dark)          */
-  --sec-bg:#353535;                /* dark grey                       */
-  --accent-color:#1E96A5;          /* teal                            */
-  --sec-accent-color:#FFCB00;      /* yellow                          */
-  --tert-bg:#002F52;               /* navy blue                       */
-  --text-light:#F7F2EC;            /* off-white text in dark mode     */
-}
+    :root {
+      --bg-color: #000;
+      /* page background (dark)          */
+      --sec-bg: #353535;
+      /* dark grey                       */
+      --accent-color: #1E96A5;
+      /* teal                            */
+      --sec-accent-color: #FFCB00;
+      /* yellow                          */
+      --tert-bg: #002F52;
+      /* navy blue                       */
+      --text-light: #F7F2EC;
+      /* off-white text in dark mode     */
+    }
 
-/* ───────────────────────────────
+    /* ───────────────────────────────
    LAYOUT BASICS
    ─────────────────────────────── */
-body{
-  font-family:'Montserrat',sans-serif;
-  line-height:1.6;
-  background:var(--bg-color);
-  color:var(--text-light);
-}
+    body {
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      background: var(--bg-color);
+      color: var(--text-light);
+    }
 
-/* sentinel is used only for the navbar docking JS */
-.sentinel{height:0;width:0;}
+    /* sentinel is used only for the navbar docking JS */
+    .sentinel {
+      height: 0;
+      width: 0;
+    }
 
-/* ───────────────────────────────
+    /* ───────────────────────────────
    NAVBAR (unchanged)
    ─────────────────────────────── */
-.navbar{height:70px;position:relative;z-index:1000;}
-.nav-inner{
-  position:fixed;top:0;left:50%;transform:translateX(-50%);
-  width:100%;height:60px;padding:0 2rem;
-  background:var(--sec-bg);
-  display:flex;justify-content:center;align-items:center;
-  transition:top .4s,width .4s,height .4s,padding .4s,
-             box-shadow .4s,border-radius .4s,transform .4s;
-  box-shadow:none;
-}
-.navbar.dock .nav-inner{
-  top:15px;width:40%;min-width:fit-content;height:70px;
-  padding:0 1.5rem;border-radius:1rem;
-  box-shadow:0 4px 12px rgba(0,0,0,.2);transform:translateX(-50%) scale(1);
-}
-.nav-inner ul{display:flex;list-style:none;gap:2rem;}
-.nav-inner a{color:#fff;text-decoration:none;font-weight:bold;}
-.nav-inner a:hover{color:#30cdd7;}
+    .navbar {
+      height: 70px;
+      position: relative;
+      z-index: 1000;
+    }
 
-/* ───────────────────────────────
+    .nav-inner {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 60px;
+      padding: 0 2rem;
+      background: var(--sec-bg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: top .4s, width .4s, height .4s, padding .4s,
+        box-shadow .4s, border-radius .4s, transform .4s;
+      box-shadow: none;
+    }
+
+    .navbar.dock .nav-inner {
+      top: 15px;
+      width: 40%;
+      min-width: fit-content;
+      height: 70px;
+      padding: 0 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
+      transform: translateX(-50%) scale(1);
+    }
+
+    .nav-inner ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-inner a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav-inner a:hover {
+      color: #30cdd7;
+    }
+
+    /* ───────────────────────────────
    THEME DROPDOWN
    ─────────────────────────────── */
-.theme-dropdown{
-  position:absolute;top:60px;right:20px;
-  padding:5px;font-size:.8rem;
-  background:var(--bg-color);color:var(--text-light);
-  border:1px solid var(--bg-color);border-radius:5px;z-index:3;
-}
+    .theme-dropdown {
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      padding: 5px;
+      font-size: .8rem;
+      background: var(--bg-color);
+      color: var(--text-light);
+      border: 1px solid var(--bg-color);
+      border-radius: 5px;
+      z-index: 3;
+    }
 
-/* ───────────────────────────────
+    /* ───────────────────────────────
    HERO, LETTERS, REVIEWS …  (unchanged)
    only the contact section is modified below
    ─────────────────────────────── */
 
-/* ───────────────────────────────
+    /* ───────────────────────────────
    CONTACT SECTION
    ─────────────────────────────── */
-.contact-section{
-  padding:80px 20px;
-  background:var(--bg-color);
-  text-align:center;
-}
-.contact-section h2{
-  font-size:2.5rem;font-weight:700;margin-bottom:40px;
-  color:var(--text-light);
-}
+    .contact-section {
+      padding: 80px 20px;
+      background: var(--bg-color);
+      text-align: center;
+    }
 
-/* 1️⃣  Social-link row  */
-.contact-links{
-  display:flex;
-  justify-content:center;
-  gap:24px;
-  flex-wrap:wrap;
-  margin-bottom:50px;
-}
-.contact-link{
-  display:flex;align-items:center;gap:12px;
-  padding:.7rem 1.6rem;                       /* bigger bar like reference */
-  border-radius:10px;
-  background:none;
-  font-size:1.2rem;font-weight:600;
-  color:#444;
-  text-decoration:none;
-  transition:background .25s,color .25s,transform .2s;
-  opacity:.9;
-}
-.contact-link .icon{display:inline-block;border-radius:6px;}
-/* default icon background colours */
-.contact-link.email   .icon{background:var(--accent-color);}
-.contact-link.twitter .icon{background:var(--sec-accent-color);}
-.contact-link.facebook .icon{background:var(--sec-bg);}
+    .contact-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      color: var(--text-light);
+    }
 
-/* hover / active state = FULL yellow bar */
-.contact-link:hover,
-.contact-link:focus{
-  background:var(--sec-accent-color);
-  color:var(--sec-bg);
-  transform:translateY(-2px);
-  opacity:1;
-}
+    /* 1️⃣  Social-link row  */
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
 
-/* 2️⃣  Newsletter box  */
-.email-signup{
-  border:2px solid var(--sec-accent-color);
-  border-radius:12px;
-  padding:30px;
-  max-width:564px;      /* ‼ narrower like screenshot */
-  margin:0 auto;
-  display:flex;flex-direction:column;gap:18px;
-}
-.email-signup label{
-  font-size:1.2rem;font-weight:700;color:var(--text-light);
-}
-.email-signup input[type=email]{
-  padding:14px 20px;font-size:1rem;
-  border-radius:8px;border:2px solid #444;
-  background:#000;color:#fff;
-  transition:border .25s;
-}
-.email-signup input[type=email]:focus{border-color:var(--sec-accent-color);}
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: .7rem 1.6rem;
+      /* bigger bar like reference */
+      border-radius: 10px;
+      background: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #444;
+      text-decoration: none;
+      transition: background .25s, color .25s, transform .2s;
+      opacity: .9;
+    }
 
-/* subscribe button */
-.subscribe-btn{
-  background:var(--accent-color);
-  color:#fff;font-weight:700;font-size:1.1rem;
-  padding:14px 0;border:none;border-radius:10px;
-  cursor:pointer;transition:background .25s,transform .15s;
-}
-.subscribe-btn:hover{background:#1aa7bb;transform:scale(1.02);}
+    .contact-link .icon {
+      display: inline-block;
+      border-radius: 6px;
+    }
 
-/* helper text */
-.info-text{margin-top:20px;color:var(--text-light);font-size:1rem;}
+    /* default icon background colours */
+    .contact-link.email .icon {
+      background: var(--accent-color);
+    }
 
-/* ───────────────────────────────
+    .contact-link.twitter .icon {
+      background: var(--sec-accent-color);
+    }
+
+    .contact-link.facebook .icon {
+      background: var(--sec-bg);
+    }
+
+    /* hover / active state = FULL yellow bar */
+    .contact-link:hover,
+    .contact-link:focus {
+      background: var(--sec-accent-color);
+      color: var(--sec-bg);
+      transform: translateY(-2px);
+      opacity: 1;
+    }
+
+    /* 2️⃣  Newsletter box  */
+    .email-signup {
+      border: 2px solid var(--sec-accent-color);
+      border-radius: 12px;
+      padding: 30px;
+      max-width: 564px;
+      /* ‼ narrower like screenshot */
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .email-signup label {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-light);
+    }
+
+    .email-signup input[type=email] {
+      padding: 14px 20px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 2px solid #444;
+      background: #000;
+      color: #fff;
+      transition: border .25s;
+    }
+
+    .email-signup input[type=email]:focus {
+      border-color: var(--sec-accent-color);
+    }
+
+    /* subscribe button */
+    .subscribe-btn {
+      background: var(--accent-color);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 14px 0;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background .25s, transform .15s;
+    }
+
+    .subscribe-btn:hover {
+      background: #1aa7bb;
+      transform: scale(1.02);
+    }
+
+    /* helper text */
+    .info-text {
+      margin-top: 20px;
+      color: var(--text-light);
+      font-size: 1rem;
+    }
+
+    /* ───────────────────────────────
    LIGHT THEME OVERRIDES
    ─────────────────────────────── */
-.theme-light .contact-section{background:#fff;color:#003057;}
-.theme-light .contact-section h2,
-.theme-light .email-signup label,
-.theme-light .info-text{color:#003057;}
+    .theme-light .contact-section {
+      background: #fff;
+      color: #003057;
+    }
 
-.theme-light .contact-link{color:#003057;}
-.theme-light .contact-link:hover{color:#003057;}  /* keep text legible on yellow */
+    .theme-light .contact-section h2,
+    .theme-light .email-signup label,
+    .theme-light .info-text {
+      color: #003057;
+    }
 
-.theme-light .email-signup{
-  background:#e9eef3;
-  border-color:var(--sec-accent-color);
-}
-.theme-light .email-signup input[type=email]{
-  background:#fff;color:#003057;border:2px solid #aaa;
-}
-.theme-light .email-signup input[type=email]:focus{border-color:var(--sec-accent-color);}
-.theme-light .subscribe-btn{background:var(--accent-color);}
-.theme-light .subscribe-btn:hover{background:#1aa7bb;}
+    .theme-light .contact-link {
+      color: #003057;
+    }
+
+    .theme-light .contact-link:hover {
+      color: #003057;
+    }
+
+    /* keep text legible on yellow */
+
+    .theme-light .email-signup {
+      background: #e9eef3;
+      border-color: var(--sec-accent-color);
+    }
+
+    .theme-light .email-signup input[type=email] {
+      background: #fff;
+      color: #003057;
+      border: 2px solid #aaa;
+    }
+
+    .theme-light .email-signup input[type=email]:focus {
+      border-color: var(--sec-accent-color);
+    }
+
+    .theme-light .subscribe-btn {
+      background: var(--accent-color);
+    }
+
+    .theme-light .subscribe-btn:hover {
+      background: #1aa7bb;
+    }
 
 
     .navbar {
@@ -522,13 +646,16 @@ body{
       background-color: #5cc6ff;
       opacity: 0.3;
     }
-    /* ─── make the mode-selector match the light theme ─────────────── */
-.theme-light .theme-dropdown{
-  background:#FAF5ED;     /* same off-white as the page */
-  color:#003057;          /* dark navy text */
-  border-color:#FAF5ED;   /* hide the border on light bg */
-}
 
+    /* ─── make the mode-selector match the light theme ─────────────── */
+    .theme-light .theme-dropdown {
+      background: #FAF5ED;
+      /* same off-white as the page */
+      color: #003057;
+      /* dark navy text */
+      border-color: #FAF5ED;
+      /* hide the border on light bg */
+    }
   </style>
 </head>
 
@@ -543,10 +670,11 @@ body{
     <div class="nav-inner" id="navInner">
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="about-us-link">About Us</a></li>
-        <li><a href="committees-link">Committees</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="committeespage.html">Committees</a></li>
         <li><a href="conference-details-link">Conference Details</a></li>
-        <li><a href="prizes-link">Prizes</a></li>
+        <li><a href="whyoakmun.html">Prizes</a></li>
+        <li><a href="register-link">Register</a></li>
       </ul>
     </div>
   </header>
@@ -708,72 +836,59 @@ body{
     ).observe(sentinel);
 
   </script>
- <!-- ========= CONTACT SECTION (paste this in place of your old one) ========= -->
-<section class="contact-section" id="contact">
-  <div class="contact-content-wrapper"><!-- keeps everything centered -->
-    
-    <h2>Contact Us!</h2>
+  <!-- ========= CONTACT SECTION (paste this in place of your old one) ========= -->
+  <section class="contact-section" id="contact">
+    <div class="contact-content-wrapper"><!-- keeps everything centered -->
 
-    <!-- quick-links row -->
-    <div class="contact-links">
-      <!-- Email -->
-      <a class="contact-link email"
-         href="mailto:aryankrishnan4b@gmail.com"
-         title="Email us"
-         target="_blank">
-        <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
-          <rect width="24" height="24" rx="6" fill="var(--accent-color)"/>
-          <path d="M6 8.5V16h12V8.5l-6 4.5-6-4.5zM18 7H6l6 4.5L18 7z" fill="var(--bg-color)"/>
-        </svg>
-        Email us!
-      </a>
+      <h2>Contact Us!</h2>
 
-      <!-- Twitter / X -->
-      <a class="contact-link twitter"
-         href="https://twitter.com/yourhandle"
-         title="Twitter/X"
-         target="_blank">
-        <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
-          <rect width="24" height="24" rx="6" fill="var(--sec-accent-color)"/>
-          <path d="M17.5 7.5l-7 9m0-9l7 9"
-                stroke="var(--bg-color)" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-        Twitter/X
-      </a>
+      <!-- quick-links row -->
+      <div class="contact-links">
+        <!-- Email -->
+        <a class="contact-link email" href="mailto:aryankrishnan4b@gmail.com" title="Email us" target="_blank">
+          <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
+            <rect width="24" height="24" rx="6" fill="var(--accent-color)" />
+            <path d="M6 8.5V16h12V8.5l-6 4.5-6-4.5zM18 7H6l6 4.5L18 7z" fill="var(--bg-color)" />
+          </svg>
+          Email us!
+        </a>
 
-      <!-- Facebook -->
-      <a class="contact-link facebook"
-         href="https://facebook.com/yourpage"
-         title="Facebook"
-         target="_blank">
-        <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
-          <rect width="24" height="24" rx="6" fill="var(--sec-bg)"/>
-          <path d="M15.5 8.5H14V7.5c0-.4.3-.5.5-.5h1V5h-2c-1.1 0-2 .9-2 2v1.5H9v2h2V19h3v-5.5h2l.5-2z"
-                fill="var(--accent-color)"/>
-        </svg>
-        Facebook
-      </a>
-    </div><!-- /contact-links -->
+        <!-- Twitter / X -->
+        <a class="contact-link twitter" href="https://twitter.com/yourhandle" title="Twitter/X" target="_blank">
+          <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
+            <rect width="24" height="24" rx="6" fill="var(--sec-accent-color)" />
+            <path d="M17.5 7.5l-7 9m0-9l7 9" stroke="var(--bg-color)" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          Twitter/X
+        </a>
 
-    <!-- newsletter form -->
-    <form class="email-signup" action="#" method="post">
-      <label for="newsletter-email">Subscribe to our newsletter:</label>
-      <input  id="newsletter-email"
-              name="newsletter-email"
-              type="email"
-              placeholder="Enter your email address"
-              required>
-      <button type="submit" class="subscribe-btn">Subscribe</button>
-    </form>
+        <!-- Facebook -->
+        <a class="contact-link facebook" href="https://facebook.com/yourpage" title="Facebook" target="_blank">
+          <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
+            <rect width="24" height="24" rx="6" fill="var(--sec-bg)" />
+            <path d="M15.5 8.5H14V7.5c0-.4.3-.5.5-.5h1V5h-2c-1.1 0-2 .9-2 2v1.5H9v2h2V19h3v-5.5h2l.5-2z"
+              fill="var(--accent-color)" />
+          </svg>
+          Facebook
+        </a>
+      </div><!-- /contact-links -->
 
-    <p class="info-text">
-      Receive the latest news and updates directly in your inbox.
-    </p>
-  </div>
-</section>
-<!-- ======== END CONTACT SECTION ======== -->
+      <!-- newsletter form -->
+      <form class="email-signup" action="#" method="post">
+        <label for="newsletter-email">Subscribe to our newsletter:</label>
+        <input id="newsletter-email" name="newsletter-email" type="email" placeholder="Enter your email address"
+          required>
+        <button type="submit" class="subscribe-btn">Subscribe</button>
+      </form>
 
-    </main>
+      <p class="info-text">
+        Receive the latest news and updates directly in your inbox.
+      </p>
+    </div>
+  </section>
+  <!-- ======== END CONTACT SECTION ======== -->
+
+  </main>
 </body>
 
 </html>
