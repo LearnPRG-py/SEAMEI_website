@@ -339,8 +339,6 @@ section:nth-child(odd) {
 .countdown-section {
     background-color: var(--bg-color);
     padding: 60px 20px;
-    border-top: 2px solid var(--sec-bg);
-    border-bottom: 2px solid var(--sec-bg);
 }
 
 .countdown-section h2 {
