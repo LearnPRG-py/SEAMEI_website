@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: rgb(17, 17, 17);
+    --sec-bg: rgb(53, 53, 53);
+    --accent-color: #1E96A5;
+    --sec-accent-color: #FFCB00;
+    --tert-bg: #002F52;
+    --text-color: #F7F2EC;
+    --ppl-list-color: rgb(53, 53, 53);
+    --contact-us-color: #1e96a5;
+    --section-dark: #1f1f1f;
+    --section-highlight-dark: ;
+}
+
+body {
+    /* background-color: var(--bg-color); */
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+}

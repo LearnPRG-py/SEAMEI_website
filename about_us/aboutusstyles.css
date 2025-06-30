@@ -5,17 +5,16 @@
 }
 
 :root {
-    --bg-color: rgb(17, 17, 17);
-    --sec-bg: rgb(53, 53, 53);
-    --accent-color: #1E96A5;
-    --sec-accent-color: #FFCB00;
-    --tert-bg: #002F52;
-    --text-color: #F7F2EC;
-    --ppl-list-color: rgb(53, 53, 53);
-    --contact-us-color: #1e96a5;
-    --section-dark: #1f1f1f;
-    --section-highlight-dark: #632525;
-
+    --bg-color: ;
+    --sec-bg: ;
+    --accent-color: ;
+    --sec-accent-color: ;
+    --tert-bg: ;
+    --text-color: ;
+    --ppl-list-color: ;
+    --contact-us-color: ;
+    --section-dark: ;
+    --section-highlight-dark: ;
 }
 
 body {
