@@ -1,29 +1,3 @@
-const dropdown = document.querySelector('.custom-dropdown');
-const selected = dropdown.querySelector('.selected');
-const options = dropdown.querySelector('.dropdown-options');
-
-selected.addEventListener('click', () => {
-    options.style.display = options.style.display === 'block' ? 'none' : 'block';
-});
-
-options.querySelectorAll('div').forEach(option => {
-    option.addEventListener('click', () => {
-        selected.textContent = option.textContent;
-        options.style.display = 'none';
-        const theme = option.dataset.value;
-        // Do your theme switch here!
-        applyTheme(theme);
-    });
-});
-
-// Optional: click outside to close
-document.addEventListener('click', (e) => {
-    if (!dropdown.contains(e.target)) {
-        options.style.display = 'none';
-    }
-});
-
-
 function setCookie(name, value, days) {
     const expires = new Date(Date.now() + days * 864e5).toUTCString();
     document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
