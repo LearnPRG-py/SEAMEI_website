@@ -653,9 +653,13 @@ section:nth-child(odd) {
 
 .letters-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 3rem;
     margin-top: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 2rem;
 }
 
 .letter {
@@ -713,6 +717,12 @@ section:nth-child(odd) {
     .potential-review-page {
         margin-top: 40px;
     }
+
+    .letters-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        padding: 0 1rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -768,6 +778,11 @@ section:nth-child(odd) {
         height: 120px;
         font-size: 1em;
     }
+
+    .letters-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -816,46 +831,26 @@ section:nth-child(odd) {
     }
 
     .letters {
-        padding: 6rem 0;
-        background: var(--bg-color);
+        padding: 4rem 0;
     }
 
     .letters-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-        margin-top: 3rem;
+        gap: 1.5rem;
+        padding: 0 1rem;
     }
 
     .letter {
-        background: var(--bg-color);
-        padding: 3rem;
-        border-radius: 10px;
-        box-shadow: 0 5px 20px rgba(0, 48, 87, 0.1);
-        border-top: 4px solid var(--sec-accent-color);
+        padding: 2rem;
     }
 
     .letter h3 {
-        color: var(--sec-bg);
-        margin-bottom: 2rem;
-        font-size: 1.4rem;
-        text-align: center;
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
     }
 
     .letter p {
-        margin-bottom: 1.2rem;
-        line-height: 1.7;
-        font-size: 1rem;
-        color: var(--sec-bg);
-    }
-
-    .letter-signature {
-        margin-top: 2rem;
-        font-style: italic;
-        color: var(--sec-accent-color);
-        text-align: right;
-        border-top: 1px solid var(--tert-bg);
-        padding-top: 1rem;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
     }
 }
 
