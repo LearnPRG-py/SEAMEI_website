@@ -1,0 +1,567 @@
+ body {
+     margin: 0;
+     font-family: 'Source Sans Pro', sans-serif;
+     overflow-x: hidden;
+     transition: background-color 0.4s ease, color 0.4s ease;
+ }
+
+ /* LIGHT THEME */
+ .theme-light {
+     background-color: #FAF5ED;
+     color: #003057;
+ }
+
+ :root {
+     --bg-color: rgb(0, 0, 0);
+     --sec-bg: rgb(53, 53, 53);
+     --accent-color: #1E96A5;
+     --sec-accent-color: #FFCB00;
+     --tert-bg: #002F52;
+     --text-color: #F7F2EC;
+ }
+
+ :root {
+     --bg-color: rgb(0, 0, 0);
+     --sec-bg: rgb(53, 53, 53);
+     --accent-color: #1E96A5;
+     --sec-accent-color: #FFCB00;
+     --tert-bg: #002F52;
+     --text-color: #F7F2EC;
+ }
+
+ /* ───────────────────────────────
+   RESET & DESIGN TOKENS
+   ─────────────────────────────── */
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ :root {
+     --bg-color: #000;
+     /* page background (dark)          */
+     --sec-bg: #353535;
+     /* dark grey                       */
+     --accent-color: #1E96A5;
+     /* teal                            */
+     --sec-accent-color: #FFCB00;
+     /* yellow                          */
+     --tert-bg: #002F52;
+     /* navy blue                       */
+     --text-light: #F7F2EC;
+     /* off-white text in dark mode     */
+ }
+
+ /* ───────────────────────────────
+   LAYOUT BASICS
+   ─────────────────────────────── */
+ body {
+     font-family: 'Montserrat', sans-serif;
+     line-height: 1.6;
+     background: var(--bg-color);
+     color: var(--text-light);
+ }
+
+
+
+ /* ───────────────────────────────
+   THEME DROPDOWN
+   ─────────────────────────────── */
+ .theme-dropdown {
+     position: absolute;
+     top: 60px;
+     right: 20px;
+     padding: 5px;
+     font-size: .8rem;
+     background: var(--bg-color);
+     color: var(--text-light);
+     border: 1px solid var(--bg-color);
+     border-radius: 5px;
+     z-index: 3;
+ }
+
+ /* ───────────────────────────────
+   HERO, LETTERS, REVIEWS …  (unchanged)
+   only the contact section is modified below
+   ─────────────────────────────── */
+
+ /* ───────────────────────────────
+   CONTACT SECTION
+   ─────────────────────────────── */
+ .contact-section {
+     padding: 80px 20px;
+     background: var(--bg-color);
+     text-align: center;
+ }
+
+ .contact-section h2 {
+     font-size: 2.5rem;
+     font-weight: 700;
+     margin-bottom: 40px;
+     color: var(--text-light);
+ }
+
+ /* 1️⃣  Social-link row  */
+ .contact-links {
+     display: flex;
+     justify-content: center;
+     gap: 24px;
+     flex-wrap: wrap;
+     margin-bottom: 50px;
+ }
+
+ .contact-link {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     padding: .7rem 1.6rem;
+     /* bigger bar like reference */
+     border-radius: 10px;
+     background: none;
+     font-size: 1.2rem;
+     font-weight: 600;
+     color: #444;
+     text-decoration: none;
+     transition: background .25s, color .25s, transform .2s;
+     opacity: .9;
+ }
+
+ .contact-link .icon {
+     display: inline-block;
+     border-radius: 6px;
+ }
+
+ /* default icon background colours */
+ .contact-link.email .icon {
+     background: var(--accent-color);
+ }
+
+ .contact-link.twitter .icon {
+     background: var(--sec-accent-color);
+ }
+
+ .contact-link.facebook .icon {
+     background: var(--sec-bg);
+ }
+
+ /* hover / active state = FULL yellow bar */
+ .contact-link:hover,
+ .contact-link:focus {
+     background: var(--sec-accent-color);
+     color: var(--sec-bg);
+     transform: translateY(-2px);
+     opacity: 1;
+ }
+
+ /* 2️⃣  Newsletter box  */
+ .email-signup {
+     border: 2px solid var(--sec-accent-color);
+     border-radius: 12px;
+     padding: 30px;
+     max-width: 564px;
+     /* ‼ narrower like screenshot */
+     margin: 0 auto;
+     display: flex;
+     flex-direction: column;
+     gap: 18px;
+ }
+
+ .email-signup label {
+     font-size: 1.2rem;
+     font-weight: 700;
+     color: var(--text-light);
+ }
+
+ .email-signup input[type=email] {
+     padding: 14px 20px;
+     font-size: 1rem;
+     border-radius: 8px;
+     border: 2px solid #444;
+     background: #000;
+     color: #fff;
+     transition: border .25s;
+ }
+
+ .email-signup input[type=email]:focus {
+     border-color: var(--sec-accent-color);
+ }
+
+ /* subscribe button */
+ .subscribe-btn {
+     background: var(--accent-color);
+     color: #fff;
+     font-weight: 700;
+     font-size: 1.1rem;
+     padding: 14px 0;
+     border: none;
+     border-radius: 10px;
+     cursor: pointer;
+     transition: background .25s, transform .15s;
+ }
+
+ .subscribe-btn:hover {
+     background: #1aa7bb;
+     transform: scale(1.02);
+ }
+
+ /* helper text */
+ .info-text {
+     margin-top: 20px;
+     color: var(--text-light);
+     font-size: 1rem;
+ }
+
+ /* ───────────────────────────────
+   LIGHT THEME OVERRIDES
+   ─────────────────────────────── */
+ .theme-light .contact-section {
+     background: #fff;
+     color: #003057;
+ }
+
+ .theme-light .contact-section h2,
+ .theme-light .email-signup label,
+ .theme-light .info-text {
+     color: #003057;
+ }
+
+ .theme-light .contact-link {
+     color: #003057;
+ }
+
+ .theme-light .contact-link:hover {
+     color: #003057;
+ }
+
+ /* keep text legible on yellow */
+
+ .theme-light .email-signup {
+     background: #e9eef3;
+     border-color: var(--sec-accent-color);
+ }
+
+ .theme-light .email-signup input[type=email] {
+     background: #fff;
+     color: #003057;
+     border: 2px solid #aaa;
+ }
+
+ .theme-light .email-signup input[type=email]:focus {
+     border-color: var(--sec-accent-color);
+ }
+
+ .theme-light .subscribe-btn {
+     background: var(--accent-color);
+ }
+
+ .theme-light .subscribe-btn:hover {
+     background: #1aa7bb;
+ }
+
+
+
+ .theme-light .section-title {
+     color: #003057;
+     text-shadow: none;
+     border-bottom: 3px solid #30CDD7;
+ }
+
+ .theme-light .timeline-content {
+     background-color: #ffffff;
+     color: #003057;
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+     border-left: 4px solid #30CDD7;
+ }
+
+ .theme-light .timeline-content h3 {
+     color: #003057;
+ }
+
+ .theme-light .timeline-content p {
+     color: #333333;
+ }
+
+ .theme-light .timeline-image {
+     border-color: #30CDD7;
+     box-shadow: 0 0 10px rgba(48, 205, 215, 0.4);
+ }
+
+ .theme-light .prize-card {
+     background-color: #ffffff;
+     color: #003057;
+     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+     border-left: 4px solid #30CDD7;
+ }
+
+ .theme-light .prize-card.alt {
+     background-color: #E4EBF5;
+     border-left-color: #003057;
+ }
+
+ .theme-light .prize-title {
+     color: #003057;
+ }
+
+ .theme-light .prize-desc {
+     color: #333333;
+ }
+
+ .theme-light .feature h3 {
+     color: #003057;
+ }
+
+ .theme-light footer {
+     background-color: #ffffff;
+     color: #003057;
+ }
+
+ .theme-light footer a {
+     color: #30CDD7;
+ }
+
+ /* Optional: soften toggle contrast */
+ .theme-light .slider {
+     background-color: #cccccc;
+ }
+
+ .theme-light input:checked+.slider {
+     background-color: #30CDD7;
+ }
+
+ /* DARK THEME */
+ .theme-dark {
+     background-color: #121212;
+     color: #ffffff;
+ }
+
+ .theme-dark .section-title {
+     color: #ffffff;
+     text-shadow: 0 0 10px #5cc6ff, 0 0 20px #5cc6ff;
+ }
+
+ .theme-dark .timeline-content,
+ .theme-dark .prize-card,
+ .theme-dark footer {
+     background-color: rgba(255, 255, 255, 0.05);
+     color: #ffffff;
+ }
+
+ .theme-dark .prize-card.alt {
+     background-color: #222b3d;
+     border-left-color: #ffffff;
+ }
+
+ .theme-dark .feature h3 {
+     color: #5cc6ff;
+ }
+
+
+ canvas#bg {
+     position: fixed;
+     top: 0;
+     left: 0;
+     z-index: -1;
+ }
+
+
+
+
+ .section-title {
+     text-align: center;
+     font-size: 3rem;
+     margin-top: 60px;
+     margin-bottom: 40px;
+     font-weight: 700;
+     color: #ffffff;
+     text-shadow: 0 0 10px #5cc6ff, 0 0 20px #5cc6ff;
+ }
+
+ .timeline {
+     display: flex;
+     flex-direction: column;
+     gap: 100px;
+     padding: 0 10vw;
+     position: relative;
+ }
+
+ .timeline::before {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 40px;
+     width: 4px;
+     height: 100%;
+     background-color: #5cc6ff;
+     opacity: 0.3;
+ }
+
+ .timeline-item {
+     display: flex;
+     align-items: flex-start;
+     gap: 32px;
+     transition: all 0.8s cubic-bezier(0.5, 1.6, 0.4, 1);
+ }
+
+ .timeline-image {
+     min-width: 80px;
+     height: 80px;
+     border-radius: 50%;
+     background-size: cover;
+     background-position: center;
+     border: 4px solid #5cc6ff;
+     box-shadow: 0 0 12px #5cc6ff;
+ }
+
+ .timeline-content {
+     background: rgba(255, 255, 255, 0.05);
+     padding: 24px 32px;
+     border-radius: 12px;
+     border-left: 4px solid #5cc6ff;
+     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+     max-width: 700px;
+     backdrop-filter: blur(4px);
+ }
+
+ .timeline-content h3 {
+     margin: 0 0 10px 0;
+     font-size: 1.7rem;
+     color: #ffffff;
+ }
+
+ .timeline-content p {
+     margin: 0;
+     color: #cccccc;
+     font-size: 1.1rem;
+     line-height: 1.6;
+ }
+
+ .feature-section {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     align-items: center;
+     gap: 50px;
+     padding: 100px 10vw;
+ }
+
+ .feature {
+     flex: 1 1 400px;
+     text-align: center;
+     animation: fadeInUp 1s ease-out;
+ }
+
+ .feature img {
+     width: 100%;
+     max-width: 400px;
+     border-radius: 10px;
+     box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+ }
+
+ .feature h3 {
+     margin-top: 20px;
+     color: #5cc6ff;
+     font-size: 1.8rem;
+ }
+
+
+ footer {
+     text-align: center;
+     padding: 40px 10vw;
+     background: #181818;
+     color: #aaa;
+     margin-top: 100px;
+ }
+
+ footer a {
+     color: #5cc6ff;
+     text-decoration: none;
+     margin: 0 6px;
+
+
+ }
+
+ .feature {
+     transition: opacity 0.8s ease, transform 0.8s ease;
+ }
+
+
+ .timeline::before,
+ .timeline::after {
+     display: none;
+ }
+
+ .timeline::after {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 40px;
+     width: 4px;
+     height: 100%;
+     background-color: #5cc6ff;
+     opacity: 0.3;
+ }
+
+ /* ─── make the mode-selector match the light theme ─────────────── */
+ .theme-light .theme-dropdown {
+     background: #FAF5ED;
+     /* same off-white as the page */
+     color: #003057;
+     /* dark navy text */
+     border-color: #FAF5ED;
+     /* hide the border on light bg */
+ }
+
+
+ .prizes-section {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 40px;
+     padding: 80px 10vw;
+ }
+
+ .prize-card {
+     background: var(--card-bg);
+     /* Use the CSS variable or replace with a neutral color like #ffffff or #111111 */
+     border-left: 5px solid var(--accent-color);
+     /* Optional: or use a neutral/dark accent */
+     box-shadow: none;
+     /* Remove the glow */
+     border-radius: 10px;
+     padding: 24px 32px;
+     width: 100%;
+     max-width: 700px;
+     transition: transform 0.8s ease, background 0.6s ease;
+ }
+
+
+ .prize-card.alt {
+     background: #222b3d;
+     border-left-color: #ffffff;
+     box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+ }
+
+ .prize-title {
+     font-size: 1.6rem;
+     margin-bottom: 10px;
+     color: #ffffff;
+ }
+
+ .prize-desc {
+     font-size: 1.05rem;
+     color: #cccccc;
+ }
+
+ .theme-dropdown {
+     position: absolute;
+     top: 60px;
+     right: 20px;
+     padding: 5px;
+     font-size: 0.8rem;
+     background-color: var(--bg-color);
+     color: var(--text-color);
+     border: 1px solid var(--bg-color);
+     border-radius: 5px;
+     z-index: 3;
+ }
