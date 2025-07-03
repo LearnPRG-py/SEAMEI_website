@@ -20,6 +20,7 @@ function applyTheme(theme) {
         root.style.setProperty('--sec-accent-color', 'rgb(255, 203, 0)');   // #FFCB00
         root.style.setProperty('--tert-bg', 'rgb(180, 235, 245)');          // #B4EBF5
         root.style.setProperty('--text-color', 'black');
+        root.style.setProperty('--cl-color', 'rgb(0, 48, 87)')
     } else {
         root.style.setProperty('--bg-color', 'rgb(17, 17, 17)');
         root.style.setProperty('--sec-bg', 'rgb(53, 53, 53)');
@@ -27,6 +28,7 @@ function applyTheme(theme) {
         root.style.setProperty('--sec-accent-color', 'rgb(255, 203, 0)');   // #FFCB00
         root.style.setProperty('--tert-bg', 'rgb(0, 47, 82)');              // #002F52
         root.style.setProperty('--text-color', 'rgb(247, 242, 236)');       // #F7F2EC
+        root.style.setProperty('--cl-color', 'rgb(250, 245, 237)')
     }
 }
 

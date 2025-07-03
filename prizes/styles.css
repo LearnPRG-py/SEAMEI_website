@@ -9,6 +9,7 @@
  .theme-light {
      background-color: #FAF5ED;
      color: #003057;
+     --sec-bg: #003057;
  }
 
  :root {
