@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Content Wrapper - POC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #1a1a1a;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* ===== GENERIC RESPONSIVE WRAPPER SYSTEM ===== */
+        
+        /* Main responsive container */
+        .responsive-wrapper {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Flexible grid system */
+        .flex-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: stretch;
+        }
+
+        .flex-grid.center {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flex-grid.space-between {
+            justify-content: space-between;
+        }
+
+        /* Responsive columns */
+        .col {
+            flex: 1;
+            min-width: 0; /* Prevents overflow */
+        }
+
+        .col-auto {
+            flex: 0 0 auto;
+        }
+
+        .col-2 {
+            flex: 0 0 calc(50% - 10px);
+        }
+
+        .col-3 {
+            flex: 0 0 calc(33.333% - 14px);
+        }
+
+        .col-4 {
+            flex: 0 0 calc(25% - 15px);
+        }
+
+        /* Adaptive content blocks */
+        .content-block {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .content-block:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive text scaling */
+        .responsive-text {
+            font-size: clamp(1rem, 2.5vw, 2rem);
+        }
+
+        .responsive-title {
+            font-size: clamp(1.5rem, 4vw, 3.5rem);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .responsive-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            opacity: 0.8;
+        }
+
+        /* Adaptive spacing */
+        .section-spacing {
+            padding: clamp(40px, 8vw, 100px) 0;
+        }
+
+        .content-spacing {
+            margin: clamp(20px, 4vw, 40px) 0;
+        }
+
+        /* Responsive images/media */
+        .responsive-media {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .media-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        /* Horizontal scroll for overflow content */
+        .horizontal-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scroll-behavior: smooth;
+        }
+
+        .horizontal-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .horizontal-scroll::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .horizontal-scroll::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+        }
+
+        .scroll-item {
+            flex: 0 0 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Stack layout for mobile */
+        .stack-mobile {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* ===== BREAKPOINT ADAPTATIONS ===== */
+
+        /* Large Desktop */
+        @media (min-width: 1200px) {
+            .responsive-wrapper {
+                padding: 0 40px;
+            }
+            
+            .flex-grid {
+                gap: 30px;
+            }
+        }
+
+        /* Tablet Landscape */
+        @media (max-width: 1024px) {
+            .col-4 {
+                flex: 0 0 calc(50% - 10px);
+            }
+            
+            .col-3 {
+                flex: 0 0 calc(50% - 10px);
+            }
+        }
+
+        /* Tablet Portrait */
+        @media (max-width: 768px) {
+            .responsive-wrapper {
+                padding: 0 15px;
+            }
+
+            .flex-grid {
+                gap: 15px;
+            }
+
+            .col-2,
+            .col-3,
+            .col-4 {
+                flex: 1 1 100%;
+            }
+
+            .content-block {
+                padding: 15px;
+            }
+
+            /* Convert flex to stack on mobile */
+            .flex-grid.mobile-stack {
+                flex-direction: column;
+            }
+
+            /* Horizontal scroll becomes vertical stack */
+            .horizontal-scroll.mobile-stack {
+                flex-direction: column;
+                overflow-x: visible;
+            }
+
+            .scroll-item {
+                flex: 1 1 auto;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 480px) {
+            .responsive-wrapper {
+                padding: 0 10px;
+            }
+
+            .flex-grid {
+                gap: 10px;
+            }
+
+            .content-block {
+                padding: 12px;
+            }
+        }
+
+        /* ===== DEMO STYLES ===== */
+        .demo-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin-bottom: 40px;
+        }
+
+        .demo-card {
+            background: rgba(255, 255, 255, 0.1);
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .demo-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .navbar-demo {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-items {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .nav-items a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+        }
+
+        .nav-items a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .nav-items {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+            
+            .nav-items a {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Demo Navigation -->
+    <nav class="navbar-demo">
+        <div class="responsive-wrapper">
+            <div class="nav-items">
+                <a href="#hero">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="section-spacing demo-section">
+        <div class="responsive-wrapper">
+            <div class="flex-grid center mobile-stack">
+                <div class="col">
+                    <h1 class="responsive-title">Responsive Wrapper System</h1>
+                    <p class="responsive-subtitle">A generic solution for adaptive content layouts</p>
+                    <div class="content-spacing">
+                        <p class="responsive-text">This system automatically adapts content for different screen sizes without breaking the layout. Perfect for desktop-first designs that need mobile optimization.</p>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="demo-image">Hero Image</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grid Demo -->
+    <section class="section-spacing">
+        <div class="responsive-wrapper">
+            <h2 class="responsive-title" style="text-align: center; margin-bottom: 40px;">Flexible Grid System</h2>
+            
+            <div class="flex-grid mobile-stack">
+                <div class="col-4">
+                    <div class="content-block demo-card">
+                        <div>
+                            <h3>Feature 1</h3>
+                            <p>Automatically stacks on mobile</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="content-block demo-card">
+                        <div>
+                            <h3>Feature 2</h3>
+                            <p>Maintains spacing and proportions</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="content-block demo-card">
+                        <div>
+                            <h3>Feature 3</h3>
+                            <p>Responsive text scaling</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="content-block demo-card">
+                        <div>
+                            <h3>Feature 4</h3>
+                            <p>Smooth transitions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Horizontal Scroll Demo -->
+    <section class="section-spacing">
+        <div class="responsive-wrapper">
+            <h2 class="responsive-title" style="text-align: center; margin-bottom: 40px;">Horizontal Scroll (Stacks on Mobile)</h2>
+            
+            <div class="horizontal-scroll mobile-stack">
+                <div class="scroll-item">
+                    <h3>Card 1</h3>
+                    <div class="demo-image" style="height: 150px; margin: 15px 0;">Image</div>
+                    <p>This horizontal scroll becomes a vertical stack on mobile devices.</p>
+                </div>
+                <div class="scroll-item">
+                    <h3>Card 2</h3>
+                    <div class="demo-image" style="height: 150px; margin: 15px 0;">Image</div>
+                    <p>Perfect for showcasing multiple items without overwhelming mobile users.</p>
+                </div>
+                <div class="scroll-item">
+                    <h3>Card 3</h3>
+                    <div class="demo-image" style="height: 150px; margin: 15px 0;">Image</div>
+                    <p>Maintains readability and usability across all devices.</p>
+                </div>
+                <div class="scroll-item">
+                    <h3>Card 4</h3>
+                    <div class="demo-image" style="height: 150px; margin: 15px 0;">Image</div>
+                    <p>Smooth scrolling experience with custom scrollbar styling.</p>
+                </div>
+                <div class="scroll-item">
+                    <h3>Card 5</h3>
+                    <div class="demo-image" style="height: 150px; margin: 15px 0;">Image</div>
+                    <p>Easily customizable for different content types.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Two Column Layout -->
+    <section class="section-spacing">
+        <div class="responsive-wrapper">
+            <div class="flex-grid mobile-stack">
+                <div class="col">
+                    <div class="content-block">
+                        <h2 class="responsive-subtitle">Adaptive Content</h2>
+                        <div class="content-spacing">
+                            <p>This system uses CSS clamp() for responsive typography, ensuring text scales smoothly across all screen sizes. The layout automatically adjusts column widths and stacking behavior.</p>
+                            <p>Key features include:</p>
+                            <ul style="margin: 20px 0; padding-left: 20px;">
+                                <li>Fluid typography with clamp()</li>
+                                <li>Flexible grid system</li>
+                                <li>Automatic mobile stacking</li>
+                                <li>Horizontal scroll containers</li>
+                                <li>Responsive spacing</li>
+                                <li>Smooth transitions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="content-block">
+                        <h3>Implementation</h3>
+                        <div class="content-spacing">
+                            <p>Simply wrap your content with the responsive-wrapper class and use the flex-grid system for layouts. Add mobile-stack class to convert horizontal layouts to vertical on mobile.</p>
+                            <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 6px; margin: 20px 0; font-family: monospace; font-size: 0.9rem;">
+                                &lt;div class="responsive-wrapper"&gt;<br>
+                                &nbsp;&nbsp;&lt;div class="flex-grid mobile-stack"&gt;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col"&gt;Content&lt;/div&gt;<br>
+                                &nbsp;&nbsp;&lt;/div&gt;<br>
+                                &lt;/div&gt;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="section-spacing" style="background: rgba(0,0,0,0.5); text-align: center;">
+        <div class="responsive-wrapper">
+            <p class="responsive-text">Generic Responsive Wrapper System - Adaptable for any content type</p>
+        </div>
+    </footer>
+
+    <script>
+        // Optional: Add smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Optional: Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Animate content blocks on scroll
+        document.querySelectorAll('.content-block').forEach(block => {
+            block.style.opacity = '0';
+            block.style.transform = 'translateY(20px)';
+            block.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(block);
+        });
+    </script>
+</body>
+</html>
