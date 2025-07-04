@@ -643,7 +643,7 @@ section:nth-child(odd) {
     padding-top: 1rem;
 }
 
-@media (max-width: 1500px){
+@media (max-width: 1200px){
     .bubble-1{display: none;}
     .bubble-2{display: none;}
     .bubble-3{left: 75%; top: 30%;}
