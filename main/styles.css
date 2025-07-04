@@ -237,7 +237,8 @@ section:nth-child(odd) {
     left: 55%;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1700px) {
+    .bubble-3{left:60%};
 }
 
 @media (max-width: 768px) {
@@ -642,7 +643,9 @@ section:nth-child(odd) {
     border-top: 1px solid var(--tert-bg);
     padding-top: 1rem;
 }
-
+@media (min-width:2000px) {
+    .bubble-3{top: 15%;}
+}
 @media (max-width: 1200px){
     .bubble-1{display: none;}
     .bubble-2{display: none;}
