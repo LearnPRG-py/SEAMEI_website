@@ -1,0 +1,102 @@
+/* ---------- ROOT THEME VARIABLES ---------- */
+:root {
+  --accent: #1485ff;          /* blue accent */
+  --radius: 0.75rem;
+  --transition: 0.3s ease;
+}
+html.dark {
+  --bg: #0d1117;
+  --bg-alt: #161b22;
+  --text: #e6edf3;
+  --card: #161b22;
+  --shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+html.light {
+  --bg: #ffffff;
+  --bg-alt: #f2f6ff;
+  --text: #001b38;
+  --card: #ffffff;
+  --shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+/* ---------- GLOBAL ---------- */
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family: "Montserrat", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background var(--transition), color var(--transition);
+}
+h1,h2,h3{margin:0 0 .5em;}
+section{padding:4rem 1rem;}
+.grid{
+  display:grid;
+  gap:1.25rem;
+}
+@media(min-width:600px){
+  .details{grid-template-columns:repeat(4,1fr);}
+  .logos {grid-template-columns:repeat(3,1fr);}
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;
+  min-height:40vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1350&q=80") center/cover;
+}
+.hero .overlay{
+  position:absolute; inset:0;
+  background:rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+}
+.hero-content{position:relative; z-index:1; color:#fff;}
+.meta{opacity:0.9; font-weight:300;}
+#themeToggle{
+  position:absolute; top:1rem; right:1rem;
+  background:var(--card); color:var(--text);
+  border:none; border-radius:50%; font-size:1.1rem;
+  width:2.5rem; height:2.5rem; cursor:pointer;
+  box-shadow:var(--shadow);
+  transition:background var(--transition), transform var(--transition);
+}
+#themeToggle:hover{transform:scale(1.05);}
+
+/* ---------- CARDS ---------- */
+.card, .logo-card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:1.25rem;
+  box-shadow:var(--shadow);
+  text-align:center;
+}
+.card h3{color:var(--accent);}
+.logo-card img{width:100%; object-fit:contain; filter:grayscale(20%);}
+
+/* ---------- SCHOOLS ---------- */
+.schools h2,
+.sponsors h2{
+  text-align:center;
+  color:var(--accent);
+  margin-bottom:1.5rem;
+}
+.school-list{
+  list-style:none; padding:0; margin:0 auto; max-width:500px;
+}
+.school-list li{
+  padding:0.5rem 0;
+  border-bottom:1px solid var(--bg-alt);
+}
+.school-list li:last-child{border:none;}
+
+/* ---------- FOOTER ---------- */
+footer{
+  text-align:center;
+  padding:2rem 0 1rem;
+  background:var(--bg-alt);
+  color:var(--text);
+}

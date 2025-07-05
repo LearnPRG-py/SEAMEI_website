@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oak SEAMEI MUN – Committee Details</title>
+
+  <style>
+    :root {
+      --accent: #1485ff;
+      --radius: 0.85rem;
+      --transition: 0.35s ease;
+    }
+    html.dark {
+      --bg: #0d1117;
+      --bg-alt: #161b22;
+      --text: #e6edf3;
+      --card: #161b22;
+      --shadow: 0 2px 10px rgba(0,0,0,0.4);
+    }
+    html.light {
+      --bg: #ffffff;
+      --bg-alt: #f0f6ff;
+      --text: #091d34;
+      --card: #ffffff;
+      --shadow: 0 2px 10px rgba(0,0,0,0.15);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Montserrat", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background var(--transition), color var(--transition);
+    }
+    h1, h2, h3 { font-weight: 700; }
+    section { padding: 4rem 1rem 3.5rem; }
+    .grid { display: grid; gap: 1.5rem; }
+    @media(min-width:600px){
+      .details { grid-template-columns: repeat(2, 1fr); }
+      .school-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+    }
+
+    @keyframes glowFade {
+  0% { text-shadow: 0 0 6px #ff6ec7, 0 0 20px #ff6ec7; color: #ffffff; }
+  50% { text-shadow: 0 0 12px #ffb347, 0 0 30px #ffb347; color: #fceaff; }
+  100% { text-shadow: 0 0 6px #6ecfff, 0 0 20px #6ecfff; color: #ffffff; }
+}
+.meta span {
+  animation: glowFade 4s infinite alternate;
+}
+
+    .hero {
+      position: relative;
+      min-height: 48vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1350&q=80") center/cover;
+    }
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(2px);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      padding: 0 1rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: .5rem;
+      text-shadow: 0 0 12px var(--accent);
+    }
+    .subtitle {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: peachpuff;
+    }
+    .meta {
+      font-weight: 500;
+      margin-top: 1.2rem;
+      font-size: 1.15rem;
+      color: #fff;
+      text-shadow: 0 0 10px var(--accent);
+    }
+    .meta span {
+      display: inline-block;
+      position: relative;
+    }
+
+    #themeToggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 2.55rem;
+      height: 2.55rem;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      background: var(--card);
+      color: var(--text);
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), background var(--transition);
+    }
+    #themeToggle:hover { transform: scale(1.07); }
+
+    .card {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: transform .35s ease, box-shadow .35s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+    .card h3 {
+      color: var(--accent);
+      margin-bottom: .5rem;
+      font-size: 1.2rem;
+    }
+    .card p {
+      font-size: 1rem;
+    }
+
+    .schools h2, .sponsors h2 {
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 1.8rem;
+      font-size: 2rem;
+    }
+
+    .global-stat {
+      max-width: 620px;
+      margin: 0 auto 2.5rem auto;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+
+    .school-grid { gap: 1rem; }
+    .school-tile {
+      background: var(--card);
+      padding: 1.2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform .35s;
+    }
+    .school-tile:hover { transform: translateY(-4px); }
+    .school-tile img {
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: .6rem;
+      filter: grayscale(15%);
+    }
+
+.logos {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  align-items: start;
+  justify-content: space-between;   /* ← add this */
+}
+
+
+/* 2️⃣  TIMELINE ANIMATION — replace the @keyframes + li styles */
+@keyframes slideIn {
+  0%   { opacity: 0; transform: translateX(-25px); }
+  100% { opacity: 1; transform: translateX(0);     }
+}
+
+/* timeline-list <li> */
+.timeline-list li {
+  position: relative;
+  margin: 0 0 1.8rem 0;
+  animation: slideIn 0.6s forwards;
+}
+
+/* staggered delays */
+.timeline-list li:nth-child(2){animation-delay:.15s;}
+.timeline-list li:nth-child(3){animation-delay:.30s;}
+.timeline-list li:nth-child(4){animation-delay:.45s;}
+.timeline-list li:nth-child(5){animation-delay:.60s;}
+.timeline-list li:nth-child(6){animation-delay:.75s;}
+.timeline-list li:nth-child(7){animation-delay:.90s;}
+
+
+    .logo-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .logo-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      filter: grayscale(0.1);
+    }
+    .logo-card span {
+      margin-top: .65rem;
+      font-size: .95rem;
+      font-weight: 500;
+    }
+    /* ===== TIMELINE STYLES ===== */
+.timeline       {padding:4rem 1rem; max-width:900px; margin:0 auto;}
+.timeline h2    {text-align:center; color:var(--accent); margin-bottom:2rem;}
+
+.timeline-list          {list-style:none; margin:0; padding:0 0 0 40px; position:relative;}
+.timeline-list::before  {content:""; position:absolute; left:11px; top:0; bottom:0;
+                          width:4px; background:var(--accent); border-radius:2px;}
+
+.timeline-list li       {position:relative; margin:0 0 1.8rem 0; opacity:0;
+                          transform:translateX(-25px); animation:slideIn .6s forwards;}
+.timeline-list li:nth-child(2){animation-delay:.15s;}
+.timeline-list li:nth-child(3){animation-delay:.3s;}
+.timeline-list li:nth-child(4){animation-delay:.45s;}
+.timeline-list li:nth-child(5){animation-delay:.6s;}
+.timeline-list li:nth-child(6){animation-delay:.75s;}
+.timeline-list li:nth-child(7){animation-delay:.9s;}
+
+.timeline-list .dot     {position:absolute; left:-31px; top:3px; width:16px; height:16px;
+                          border-radius:50%; background:var(--accent);
+                          box-shadow:0 0 8px var(--accent);}
+
+@keyframes slideIn { to {opacity:1; transform:none;} }
+/* ===== FAQ STYLES ===== */
+.faq details      {width:100%; margin:0.6rem 0;}
+.faq summary      {cursor:pointer; font-weight:600; color:var(--accent);}
+.faq p            {margin-top:0.4rem; font-size:0.95rem; line-height:1.45;}
+
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Oak SEAMEI MUN</h1>
+      <p class="subtitle">Committee Details</p>
+      <p class="meta"><span>10 – 12 July 2024</span> &nbsp;·&nbsp; <span>Oak SEAMEI High School, Springfield (USA)</span></p>
+    </div>
+    <button id="themeToggle" aria-label="Toggle theme">🌙</button>
+  </header>
+
+  <section class="grid details">
+    <article class="card"><h3>Registration Fee</h3><p>$50 per delegate</p></article>
+    <article class="card"><h3>Food</h3><p>Lunch &amp; Snacks Included<br>Vegetarian / Halal options</p></article>
+    <article class="card"><h3>Accommodation</h3><p>Partner Hotel • $90/night<br>Shuttle every 30&nbsp;min</p></article>
+    <!-- ===== FAQ CARD ===== -->
+<article class="card faq">
+  <h3>FAQ</h3>
+
+  <details><summary>Is accommodation mandatory?</summary>
+    <p>No. Delegates may commute daily if they wish, but the partner hotel shuttle runs every 30 min for convenience.</p>
+  </details>
+
+  <details><summary>Dress code?</summary>
+    <p>Western business attire for all sessions. National dress is welcome for Opening Ceremony.</p>
+  </details>
+
+  <details><summary>Refund policy?</summary>
+    <p>Full refund until 15 June; 50 % refund until 1 July; no refunds thereafter.</p>
+  </details>
+</article>
+
+  <!-- ===== COMMITTEE TIMELINE ===== -->
+<section class="timeline">
+  <h2>Conference Timeline</h2>
+
+  <ul class="timeline-list">
+    <li><span class="dot"></span><p><strong>08 : 00</strong> — Delegate Registration</p></li>
+    <li><span class="dot"></span><p><strong>09 : 00</strong> — Opening Ceremony</p></li>
+    <li><span class="dot"></span><p><strong>10 : 00</strong> — Session I (Debate)</p></li>
+    <li><span class="dot"></span><p><strong>12 : 30</strong> — Networking Lunch</p></li>
+    <li><span class="dot"></span><p><strong>13 : 30</strong> — Session II (Moderated Caucus)</p></li>
+    <li><span class="dot"></span><p><strong>16 : 30</strong> — Crisis Night Briefing</p></li>
+    <li><span class="dot"></span><p><strong>18 : 30</strong> — Social Event</p></li>
+  </ul>
+</section>
+
+
+  <section class="schools">
+    <h2>Global Outreach</h2>
+    <p class="global-stat">12 schools • <strong>6 countries</strong> • 3 continents represented</p>
+
+    <div class="grid school-grid">
+      <div class="school-tile"><img src="https://flagsapi.com/GB/flat/64.png" alt="UK flag"><span>Brampton College (UK)</span></div>
+      <div class="school-tile"><img src="https://flagsapi.com/MX/flat/64.png" alt="Mexico flag"><span>La Sierra School (Mexico)</span></div>
+      <div class="school-tile"><img src="https://flagsapi.com/IN/flat/64.png" alt="India flag"><span>Cendana Academy (India)</span></div>
+      <div class="school-tile"><img src="https://flagsapi.com/ZA/flat/64.png" alt="South Africa flag"><span>Utbo School (South Africa)</span></div>
+      <div class="school-tile"><img src="https://flagsapi.com/JP/flat/64.png" alt="Japan flag"><span>Shintoku High (Japan)</span></div>
+      <div class="school-tile"><img src="https://flagsapi.com/AU/flat/64.png" alt="Australia flag"><span>St Hilda’s (Australia)</span></div>
+    </div>
+  </section>
+
+  <section class="sponsors">
+    <h2>Our Sponsors</h2>
+    <div class="logos">
+      <div class="logo-card"><img src="https://via.placeholder.com/240x240.png?text=Flow" alt="Flow logo"><span>Flow</span></div>
+      <div class="logo-card"><img src="https://via.placeholder.com/240x240.png?text=Ader" alt="Ader logo"><span>Ader</span></div>
+      <div class="logo-card"><img src="https://via.placeholder.com/240x240.png?text=Greenleaf" alt="Greenleaf logo"><span>Greenleaf</span></div>
+    </div>
+  </section>
+
+  <script>
+    const toggle = document.getElementById("themeToggle");
+    const root = document.documentElement;
+    function setIcon() {
+      toggle.textContent = root.classList.contains("dark") ? "🌙" : "☀️";
+    }
+    toggle.addEventListener("click", () => {
+      root.classList.toggle("dark");
+      root.classList.toggle("light");
+      setIcon();
+    });
+    setIcon();
+  </script>
+</body>
+</html>
