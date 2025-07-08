@@ -81,3 +81,74 @@ body {
         font-size: 0.9rem;
     }
 }
+
+.countdown-container {
+    height: 100vh;
+    background: radial-gradient(circle at center, #0f0f0f 40%, #000000 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    padding: 2rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.countdown-heading {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #00ffe1;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px rgba(0, 255, 225, 0.6), 0 0 30px rgba(0, 255, 225, 0.3);
+    animation: glowPulse 3s infinite ease-in-out;
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        text-shadow: 0 0 15px rgba(0, 255, 225, 0.6), 0 0 30px rgba(0, 255, 225, 0.3);
+    }
+
+    50% {
+        text-shadow: 0 0 25px rgba(0, 255, 225, 0.8), 0 0 40px rgba(0, 255, 225, 0.5);
+    }
+}
+
+.countdown-timer {
+    font-size: 3rem;
+    padding: 1.5rem 3rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    text-shadow: 0 0 10px #00ffe1;
+    animation: countFadeIn 1.5s ease-in;
+}
+
+@keyframes countFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

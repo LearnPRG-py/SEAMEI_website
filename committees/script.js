@@ -64,3 +64,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
+const startTime = new Date("2025-07-11T24:00:00").getTime();
+
+const countdownEnd = startTime + (
+    (12 * 24 * 60 * 60 * 1000) + // 12 days
+    (11 * 60 * 60 * 1000) +     // 11 hours
+    (10 * 60 * 1000) +          // 10 minutes
+    (9 * 1000)                  // 9 seconds
+);
+
+const countdownEl = document.getElementById("countdown");
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = countdownEnd - now;
+
+    if (distance <= 0) {
+        countdownEl.innerHTML = "🔥 The Committees Are Live 🔥";
+        return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    countdownEl.innerHTML =
+        `${days}d  : ${hours}h : ${minutes}m : ${seconds}s`;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
