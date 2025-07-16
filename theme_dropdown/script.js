@@ -14,39 +14,40 @@ function applyTheme(theme) {
     const root = document.documentElement;
 
     if (theme === 'light') {
-        root.style.setProperty('--bg-color', 'rgb(250, 245, 237)');         // #FAF5ED
-        root.style.setProperty('--sec-bg', 'rgb(0, 48, 87)');               // #003057
-        root.style.setProperty('--accent-color', 'rgb(30, 150, 165)');      // #1E96A5
-        root.style.setProperty('--sec-accent-color', 'rgb(255, 203, 0)');   // #FFCB00
-        root.style.setProperty('--tert-bg', 'rgb(180, 235, 245)');          // #B4EBF5
+        root.style.setProperty('--bg-color', 'rgb(250, 245, 237)');
+        root.style.setProperty('--sec-bg', 'rgb(0, 48, 87)');
+        root.style.setProperty('--accent-color', 'rgb(30, 150, 165)');
+        root.style.setProperty('--sec-accent-color', 'rgb(255, 203, 0)');
+        root.style.setProperty('--tert-bg', 'rgb(180, 235, 245)');
         root.style.setProperty('--text-color', 'black');
-        root.style.setProperty('--cl-color', 'rgb(0, 48, 87)')
+        root.style.setProperty('--cl-color', 'rgb(0, 48, 87)');
     } else {
         root.style.setProperty('--bg-color', 'rgb(17, 17, 17)');
         root.style.setProperty('--sec-bg', 'rgb(53, 53, 53)');
-        root.style.setProperty('--accent-color', 'rgb(30, 150, 165)');      // #1E96A5
-        root.style.setProperty('--sec-accent-color', 'rgb(255, 203, 0)');   // #FFCB00
-        root.style.setProperty('--tert-bg', 'rgb(0, 47, 82)');              // #002F52
-        root.style.setProperty('--text-color', 'rgb(247, 242, 236)');       // #F7F2EC
-        root.style.setProperty('--cl-color', 'rgb(250, 245, 237)')
+        root.style.setProperty('--accent-color', 'rgb(30, 150, 165)');
+        root.style.setProperty('--sec-accent-color', 'rgb(255, 203, 0)');
+        root.style.setProperty('--tert-bg', 'rgb(0, 47, 82)');
+        root.style.setProperty('--text-color', 'rgb(247, 242, 236)');
+        root.style.setProperty('--cl-color', 'rgb(250, 245, 237)');
+    }
+
+    // update button icon if needed
+    const toggleBtn = document.getElementById('themeToggle');
+    if (toggleBtn) {
+        toggleBtn.textContent = theme === 'light' ? '☀️' : '🌙';
     }
 }
 
-
-
-// --bg-color: rgb(250, 245, 237); --sec-bg: rgb(0, 48, 87); --accent-color: rgb(30, 150, 165); --sec-accent-color: rgb(255, 203, 0); --tert-bg: rgb(180, 235, 245); --text-color: black;
 document.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = getCookie('theme') || 'dark';
-    applyTheme(savedTheme);
+    let currentTheme = getCookie('theme') || 'dark';
+    applyTheme(currentTheme);
 
-    const dropdown = document.getElementById('theme-toggle');
-    if (dropdown) {
-        dropdown.value = savedTheme;
-
-        dropdown.addEventListener('change', () => {
-            const selectedTheme = dropdown.value;
-            applyTheme(selectedTheme);
-            setCookie('theme', selectedTheme, 30);
+    const toggleBtn = document.getElementById('themeToggle');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+            applyTheme(currentTheme);
+            setCookie('theme', currentTheme, 30);
         });
     }
 });

@@ -1,6 +1,6 @@
 #themeToggle {
     position: absolute;
-    top: 1rem;
+    top: 5rem;
     right: 1rem;
     z-index: 1200;
     width: 2.55rem;
@@ -9,10 +9,10 @@
     border-radius: 50%;
     cursor: pointer;
     font-size: 1.2rem;
-    background: var(--card);
-    color: var(--text);
-    box-shadow: var(--shadow);
-    transition: transform var(--transition), background var(--transition);
+    background: gray;
+    color: white;
+    box-shadow: white;
+    transition: transform 0.2s ease, background 0.2s ease;
 }
 
 #themeToggle:hover {
