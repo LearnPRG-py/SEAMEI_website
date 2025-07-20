@@ -278,7 +278,6 @@
             );
         }
 
-/* Default gradient for all non-first committees (zasec) */
 :root[style*="--fadeneeded: true"] .committee-section.zasec .committee-banner::before {
     background: linear-gradient(
         to bottom,
@@ -286,7 +285,6 @@
     );
 }
 
-/* Special gradient for first committee (zafirst) */
 :root[style*="--fadeneeded: true"] .committee-section.zafirst .committee-banner::before {
     background: linear-gradient(
         to bottom,
@@ -296,7 +294,6 @@
     );
 }
 
-/* Dark mode - keep original overlay for both */
 :root:not([style*="--fadeneeded: true"]) .committee-banner::before {
     background: rgba(0, 0, 0, 0.5);
 }
@@ -403,16 +400,13 @@
         </div>
     </section>
 
-    <!-- Committees will be dynamically generated here -->
     <div class="committees-container" id="committeesContainer">
     </div>
 
-    <!-- Overlays will be dynamically generated here -->
     <div id="overlaysContainer">
     </div>
 
     <script>
-        // Fetch and render committees
         async function loadCommittees() {
             try {
                 const response = await fetch('committees-data.json');
@@ -423,7 +417,6 @@
                 initializeEventListeners();
             } catch (error) {
                 console.error('Error loading committee data:', error);
-                // Fallback content or error message
             }
         }
 
@@ -517,7 +510,6 @@ function renderCommittees(committees) {
                 });
             });
 
-            // Escape key to close
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
                     closeOverlay();
@@ -533,7 +525,6 @@ function renderCommittees(committees) {
             document.body.style.overflow = '';
         }
 
-        // Initialize when page loads
         document.addEventListener('DOMContentLoaded', loadCommittees);
     </script>
 </body>
