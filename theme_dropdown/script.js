@@ -21,6 +21,8 @@ function applyTheme(theme) {
         root.style.setProperty('--tert-bg', 'rgb(180, 235, 245)');
         root.style.setProperty('--text-color', 'black');
         root.style.setProperty('--cl-color', 'rgb(0, 48, 87)');
+        root.style.setProperty('--fadeneeded', true);
+        root.style.setProperty('--dark', false);
     } else {
         root.style.setProperty('--bg-color', 'rgb(17, 17, 17)');
         root.style.setProperty('--sec-bg', 'rgb(53, 53, 53)');
@@ -29,6 +31,8 @@ function applyTheme(theme) {
         root.style.setProperty('--tert-bg', 'rgb(0, 47, 82)');
         root.style.setProperty('--text-color', 'rgb(247, 242, 236)');
         root.style.setProperty('--cl-color', 'rgb(250, 245, 237)');
+        root.style.setProperty('--fadeneeded', false);
+        root.style.setProperty('--dark', true);
     }
 
     // update button icon if needed

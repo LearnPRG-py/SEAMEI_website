@@ -1,0 +1,302 @@
+[
+  {
+    "id": 1,
+    "title": "UNHRC (junior)",
+    "subtitle": "United Nations Human Rights Commission",
+    "agenda": "Evaluating Human Rights Violations and Exploring Measures to Safeguard Civilians amid the Israel-Hamas Conflict",
+    "agendaText": "The ongoing Israel-Hamas conflict has resulted in devastating civilian casualties and widespread human rights violations on both sides. As international law continues to be challenged and innocent lives hang in the balance, the Human Rights Council faces an urgent mandate to investigate these violations and establish concrete mechanisms for civilian protection. In times when diplomatic solutions seem distant, the HRC must serve as a beacon of accountability and justice for all affected populations.",
+    "backgroundGuideLink": "#",
+    "backgroundImage": "c1.jpg",
+    "first": true,
+    "executiveBoard": [
+      {
+        "name": "Sarah Chen",
+        "quote": "Diplomacy through action",
+        "description": "Experienced in international relations with focus on conflict resolution and human rights advocacy.",
+        "image": "c1e1.jpg"
+      },
+      {
+        "name": "Marcus Rodriguez", 
+        "quote": "Justice knows no borders",
+        "description": "Legal expert specializing in international humanitarian law and civilian protection mechanisms.",
+        "image": "c1e2.jpg"
+      },
+      {
+        "name": "Anna Thompson",
+        "quote": "Peace through understanding",
+        "description": "Human rights researcher with expertise in Middle Eastern conflicts and international law.",
+        "image": "c1e3.jpg"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "ECOSOC (junior)",
+    "subtitle": "Economic and Social Council",
+    "agenda": "Discussing the Regulation of Cryptocurrencies in Light of Their Role in Money Laundering, Tax Evasion, and Terror Financing",
+    "agendaText": "The rapid proliferation of cryptocurrencies has created unprecedented challenges for global financial systems and regulatory frameworks. As digital currencies become increasingly utilized for illicit activities including money laundering, tax evasion, and terror financing, ECOSOC must develop comprehensive regulatory mechanisms that balance innovation with security. The Council faces the complex task of establishing international standards that prevent criminal exploitation while fostering legitimate digital financial growth and inclusion.",
+    "backgroundGuideLink": "#",
+    "backgroundImage": "c2.jpg",
+        "first": false,
+    "executiveBoard": [
+      {
+        "name": "Raj Patel",
+        "quote": "Economics with empathy",
+        "description": "Development economist specializing in sustainable growth strategies for emerging markets.",
+        "image": "c2e1.jpg"
+      },
+      {
+        "name": "Elena Vasquez",
+        "quote": "Trade that transforms",
+        "description": "International trade policy expert with focus on equitable global commerce.",
+        "image": "c2e2.jpg"
+      },
+      {
+        "name": "David Kim",
+        "quote": "Innovation for inclusion",
+        "description": "Technology and development specialist working on digital inclusion initiatives.",
+        "image": "c2e3.jpg"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "UNSC",
+    "subtitle": "United Nations Security Council",
+    "agenda": "Operation Rising Lion: Addressing the Escalation of Hostilities Between Iran and Israel with special emphasis on regional stability, nuclear non-proliferation, and operation Rising Lion.",
+    "agendaText": "The escalating tensions between Iran and Israel have reached a critical juncture, threatening regional stability and global security. Operation Rising Lion represents a significant escalation in Middle Eastern hostilities, with implications for nuclear non-proliferation efforts and international peace. The Security Council must navigate complex geopolitical dynamics while addressing immediate security concerns and preventing further regional destabilization. With a freeze date of June 15, 2025, the Council faces urgent pressure to implement effective de-escalation measures and protective mechanisms for civilian populations caught in the crossfire.",
+    "backgroundGuideLink": "#",
+    "backgroundImage": "c3.jpg",
+        "first": false,
+    "executiveBoard": [
+      {
+        "name": "Ambassador Williams",
+        "quote": "Security through unity",
+        "description": "Veteran diplomat with extensive experience in conflict resolution and peacekeeping operations.",
+        "image": "c3e1.jpg"
+      },
+      {
+        "name": "General Martinez",
+        "quote": "Peace is the mission",
+        "description": "Military strategist specialized in international security and peacekeeping operations.",
+        "image": "c3e2.jpg"
+      },
+      {
+        "name": "Dr. Liu Wei",
+        "quote": "Prevention over intervention",
+        "description": "International security analyst focusing on conflict prevention and early warning systems.",
+        "image": "c3e3.jpg"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "The Catholic Church (Historical Crisis committee)",
+    "subtitle": "Medieval Catholic Church - 1348",
+    "agenda": "Coordinating a Unified Response to the Black Death in 1348: Between Faith, Fear, and Fire",
+    "agendaText": "The year is 1348, and Europe faces an unprecedented catastrophe as the Black Death sweeps across the continent, claiming millions of lives and challenging the very foundations of medieval society. The Catholic Church, as the dominant institution of the era, must coordinate a unified response to this devastating pandemic while addressing the crisis of faith, social upheaval, and widespread fear among the faithful. Church leaders must navigate between providing spiritual comfort and practical guidance, managing resources for the afflicted, and maintaining ecclesiastical authority as traditional structures crumble under the weight of unprecedented mortality.",
+    "backgroundGuideLink": "#",
+    "backgroundImage": "c4.jpg",
+        "first": false,
+    "executiveBoard": [
+      {
+        "name": "Cardinal Benedetti",
+        "quote": "Una fides, una ecclesia",
+        "description": "Senior Cardinal with deep knowledge of canon law and Church politics during the Schism.",
+        "image": "c4e1.jpg"
+      },
+      {
+        "name": "Bishop François",
+        "quote": "Veritas et unitas",
+        "description": "French bishop navigating the complex political landscape of the Avignon Papacy.",
+        "image": "c4e2.jpg"
+      },
+      {
+        "name": "Abbot Heinrich",
+        "quote": "Pax et concordia",
+        "description": "German religious leader seeking reconciliation between competing papal factions.",
+        "image": "c4e3.jpg"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "DISEC",
+    "subtitle": "Disarmament & International Security Committee",
+    "agenda": "The Status of Private Military Companies in Armed Conflict: Accountability and Regulation",
+    "agendaText": "The proliferation of private military companies (PMCs) in contemporary armed conflicts has created a complex web of accountability challenges and regulatory gaps in international law. As these private actors increasingly operate in conflict zones worldwide, DISEC must address the legal ambiguities surrounding their status, conduct, and oversight. The committee faces the critical task of establishing clear frameworks for PMC accountability while balancing state sovereignty, operational effectiveness, and the protection of civilian populations. The growing influence of these entities in global security architecture demands urgent attention to prevent potential abuses and ensure compliance with international humanitarian law.",
+    "backgroundGuideLink": "#",
+    "backgroundImage": "c5.jpg",
+        "first": false,
+    "executiveBoard": [
+      {
+        "name": "Dr. Amanda Foster",
+        "quote": "Disarm to protect",
+        "description": "Nuclear policy expert with extensive experience in arms control negotiations.",
+        "image": "c5e1.jpg"
+      },
+      {
+        "name": "Colonel Hassan Al-Rashid",
+        "quote": "Security through dialogue",
+        "description": "Military strategist specializing in Middle Eastern security and conflict de-escalation.",
+        "image": "c5e2.jpg"
+      },
+      {
+        "name": "Prof. Yuki Tanaka",
+        "quote": "Technology for peace",
+        "description": "International security researcher focusing on verification technologies and monitoring systems.",
+        "image": "c5e3.jpg"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "AIPPM",
+    "subtitle": "All India Political Parties Meet",
+    "agenda": "Discussing the Functioning of Enforcement Directorate (ED), CBI, and Alleged Political Vendetta",
+    "agendaText": "India's premier investigative agencies, the Enforcement Directorate and Central Bureau of Investigation, face mounting scrutiny over allegations of political misuse and selective enforcement. As questions arise about the independence and impartiality of these crucial institutions, political parties must address concerns about their functioning while maintaining the integrity of India's democratic processes. The committee must navigate sensitive issues of institutional autonomy, accountability mechanisms, and the balance between law enforcement and political neutrality. The challenge lies in strengthening these agencies' credibility while ensuring they serve justice rather than political interests.",
+    "backgroundGuideLink": "#",
+    "backgroundImage": "c6.jpg",
+        "first": false,
+    "executiveBoard": [
+      {
+        "name": "Priya Sharma",
+        "quote": "Democracy through transparency",
+        "description": "Electoral reform advocate with expertise in campaign finance and voting systems.",
+        "image": "c6e1.jpg"
+      },
+      {
+        "name": "Vikram Mehta",
+        "quote": "Unity in diversity",
+        "description": "Political analyst specializing in coalition building and inter-party cooperation.",
+        "image": "c6e2.jpg"
+      },
+      {
+        "name": "Anita Desai",
+        "quote": "Voice for every vote",
+        "description": "Democracy researcher focusing on voter rights and electoral accessibility.",
+        "image": "c6e3.jpg"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "UNODC",
+    "subtitle": "United Nations Office on Drugs and Crime",
+    "agenda": "Reassessing Global Counter-Narcotics Strategy in Light of the Expanding Power and Transnational Reach of South and North American Drug Cartels",
+    "agendaText": "The exponential growth and sophistication of drug cartels across the Americas has fundamentally altered the global narcotics landscape, challenging traditional counter-narcotics approaches and threatening regional stability. These transnational criminal organizations now wield unprecedented power, corrupting institutions and destabilizing entire regions while expanding their operations across continents. UNODC must reassess and reformulate global counter-narcotics strategies to address the evolving nature of these criminal enterprises, their technological capabilities, and their increasing influence on legitimate economies and governance structures. The challenge requires unprecedented international cooperation and innovative approaches to dismantle these networks while addressing root causes of the drug trade.",
+    "backgroundGuideLink": "#",
+    "backgroundImage": "c7.jpg",
+        "first": false,
+    "executiveBoard": [
+      {
+        "name": "Inspector Maria Santos",
+        "quote": "Justice without borders",
+        "description": "International law enforcement expert with focus on transnational criminal networks.",
+        "image": "c7e1.jpg"
+      },
+      {
+        "name": "Dr. James Mitchell",
+        "quote": "Prevention through innovation",
+        "description": "Criminologist specializing in digital forensics and cybercrime investigation techniques.",
+        "image": "c7e2.jpg"
+      },
+      {
+        "name": "Agent Chen Li",
+        "quote": "Technology against terror",
+        "description": "Cybersecurity specialist working on counter-terrorism and organized crime prevention.",
+        "image": "c7e3.jpg"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "UNGA",
+    "subtitle": "United Nations General Assembly",
+    "agenda": "Reviewing the misuse of the Responsibility to Protect (R2P) to justify unilateral or bloc-based interventions",
+    "agendaText": "The Responsibility to Protect doctrine, established to prevent mass atrocities and protect vulnerable populations, faces critical scrutiny over its alleged misuse to justify unilateral military interventions and advance geopolitical interests. As the international community grapples with questions of sovereignty versus humanitarian intervention, the General Assembly must examine how R2P has been applied in practice and address concerns about selective implementation and political manipulation. The challenge lies in preserving the doctrine's humanitarian intent while preventing its exploitation as a pretext for unauthorized military action. The Assembly must work toward clarifying the parameters and oversight mechanisms for R2P implementation to restore its credibility and effectiveness.",
+    "backgroundGuideLink": "#",
+    "backgroundImage": "c8.jpg",
+        "first": false,
+    "executiveBoard": [
+      {
+        "name": "Dr. Amara Okafor",
+        "quote": "Planet before profit",
+        "description": "Environmental scientist and climate policy expert with focus on global climate agreements.",
+        "image": "c8e1.jpg"
+      },
+      {
+        "name": "Minister Erik Larsson",
+        "quote": "Sustainability for all",
+        "description": "Sustainable development specialist with experience in renewable energy transitions.",
+        "image": "c8e2.jpg"
+      },
+      {
+        "name": "Dr. Isabella Cruz",
+        "quote": "Future generations matter",
+        "description": "Climate adaptation researcher focusing on vulnerable communities and environmental justice.",
+        "image": "c8e3.jpg"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "ICJ",
+    "subtitle": "International Court of Justice",
+    "agenda": "Reevaluating the Principle of Proportionality in International Law with special emphasis on its Role in Armed Conflicts and State Responsibility",
+    "agendaText": "The principle of proportionality in international law faces unprecedented challenges as modern warfare and state actions blur traditional legal boundaries and test established jurisprudential frameworks. As conflicts become increasingly complex and asymmetric, the International Court of Justice must reevaluate how proportionality is assessed, applied, and enforced in contemporary international relations. The court faces the critical task of clarifying the standard for proportional response in armed conflicts while addressing state responsibility for both action and inaction. This judicial review comes at a time when the international community struggles to balance legitimate security concerns with the protection of civilian populations and adherence to humanitarian law.",
+    "backgroundGuideLink": "#",
+    "backgroundImage": "c9.jpg",
+        "first": false,
+    "executiveBoard": [
+      {
+        "name": "Justice Margaret Stone",
+        "quote": "Law above politics",
+        "description": "International law judge with expertise in maritime law and territorial disputes.",
+        "image": "c9e1.jpg"
+      },
+      {
+        "name": "Professor Ali Hassan",
+        "quote": "Justice knows no flag",
+        "description": "Legal scholar specializing in international maritime law and boundary arbitration.",
+        "image": "c9e2.jpg"
+      },
+      {
+        "name": "Judge Sophia Komnenos",
+        "quote": "Precedent for peace",
+        "description": "International court veteran with focus on dispute resolution and legal precedent.",
+        "image": "c9e3.jpg"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "IPC",
+    "subtitle": "International Press Corps",
+    "agenda": "International Press",
+    "agendaText": "The International Press Corps operates as the watchful eye of global democracy, documenting and reporting on international diplomatic proceedings with unwavering commitment to truth and transparency. As the fourth estate of international governance, the Press Corps faces unique challenges in maintaining journalistic integrity while navigating complex political landscapes and ensuring accurate, unbiased coverage of critical global issues. In an era of information warfare and media manipulation, the Press Corps serves as a crucial safeguard for democratic accountability and public awareness in international affairs.",
+    "backgroundGuideLink": "#",
+    "backgroundImage": "c10.jpg",
+        "first": false,
+    "executiveBoard": [
+      {
+        "name": "Rachel Thompson",
+        "quote": "Truth through courage",
+        "description": "War correspondent with extensive experience reporting from conflict zones worldwide.",
+        "image": "c10e1.jpg"
+      },
+      {
+        "name": "Ahmed Al-Mansouri",
+        "quote": "Facts over fiction",
+        "description": "Investigative journalist specializing in media literacy and fact-checking initiatives.",
+        "image": "c10e2.jpg"
+      },
+      {
+        "name": "Dr. Nina Petrov",
+        "quote": "Free press, free world",
+        "description": "Media freedom advocate and researcher focusing on journalist safety and press rights.",
+        "image": "c10e3.jpg"
+      }
+    ]
+  }
+]
