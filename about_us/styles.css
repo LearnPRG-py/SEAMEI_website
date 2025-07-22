@@ -236,7 +236,7 @@ body {
 
 .profile-card-role,
 .profile-card-role2 {
-    color: var(--sec-accent-color);
+    color: var(--accent-color);
     font-size: 1em;
 }
 
