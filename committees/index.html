@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUN Committees</title>
+    <link rel="stylesheet" href="../navbar/styles.css">
+    <link rel="stylesheet" href="../theme_dropdown/styles.css">
+    <script src="../theme_dropdown/script.js"></script>
+    <script src="../navbar/script.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-color);
+            min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .hero-section {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            text-align: center;
+            padding: 100px 30px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .hero-content p {
+            font-size: 1.5em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -0.02em;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .committees-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .committee-section {
+            width: 100vw;
+            position: relative;
+            margin-left: calc(-50vw + 50%);
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .committee-banner {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            transition: all 0.4s ease;
+        }
+
+        .committee-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            transition: all 0.4s ease;
+        }
+
+        .committee-section:hover .committee-banner::before {
+            background: rgba(0,0,0,0.1);
+        }
+
+        .committee-section:hover .committee-banner {
+            transition: width 0.4s ease, height 0.4s ease;
+            height: 300px;
+        }
+
+
+        .committee-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 800;
+            color: rgb(247, 242, 236);
+            z-index: 2;
+            position: relative;
+            letter-spacing: -0.02em;
+        }
+
+        .detail-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            z-index: 1000;
+        }
+
+        .detail-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .detail-panel {
+            background: var(--dark, linear-gradient(135deg, #f0f0f0, #ffffff));
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 80%;
+            width: 55%;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: translateY(50px) scale(0.9);
+            transition: all 0.4s ease;
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+
+        .detail-overlay.active .detail-panel {
+            transform: translateY(0) scale(1);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+            z-index: 10;
+        }
+
+        .close-btn:hover {
+            opacity: 1;
+        }
+
+        .panel-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .panel-subtitle {
+            font-size: 1.3rem;
+            color: #999;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .agenda-section {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .agenda-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .agenda-text {
+            color: #ccc;
+            line-height: 1.7;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .background-guide {
+            display: inline-block;
+            background: linear-gradient(135deg, rgb(30, 150, 165), rgb(0, 47, 82));
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .background-guide:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 47, 82, 0.3);
+        }
+
+        .executive-board {
+            margin-top: 30px;
+        }
+
+        .board-title {
+            font-size: 2.1rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .board-grid {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .board-item {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 10px;
+            color: #ccc;
+            border-left: 3px solid rgb(30, 150, 165);
+            transition: all 0.3s ease;
+            min-height: 120px;
+            margin-top: 1%;
+        }
+
+        .board-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .board-info {
+            flex: 1;
+        }
+
+        .board-name {
+            font-size: 1.65rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .board-quote {
+            font-size: 1.35rem;
+            color: rgb(30, 150, 165);
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+        [data-theme="light"] .hero-section {
+            background: linear-gradient(
+                to bottom,
+                var(--bg-color) 0%,
+                var(--bg-color) 80%,
+                transparent 100%
+            );
+        }
+
+:root[style*="--fadeneeded: true"] .committee-section.zasec .committee-banner::before {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.5) 100%
+    );
+}
+
+:root[style*="--fadeneeded: true"] .committee-section.zafirst .committee-banner::before {
+    background: linear-gradient(
+        to bottom,
+        rgba(250, 245, 237, 1) 0%,
+        rgba(250, 245, 237, 0.1) 10%,
+        rgba(0, 0, 0, 0.5) 100%
+    );
+}
+
+:root:not([style*="--fadeneeded: true"]) .committee-banner::before {
+    background: rgba(0, 0, 0, 0.5);
+}
+        .board-description {
+            font-size: 1.3rem;
+            color: #aaa;
+            line-height: 1.4;
+        }
+
+        .board-image {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid rgba(255,255,255,0.2);
+            flex-shrink: 0;
+        }
+
+        .board-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .board-item:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateX(5px);
+        }
+        .committee-hover-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.committee-banner:hover .committee-hover-text {
+    opacity: 1;
+}
+
+.committee-hover-text h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--accent-color);
+}
+
+.committee-hover-text p {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+        @media (max-width: 1000px) {
+            .committee-banner {
+                height: 150px;
+            }
+            
+            .detail-panel {
+                padding: 30px 25px;
+                border-radius: 15px;
+                width: 90%;
+                max-width: 90%;
+            }
+            
+            .panel-title {
+                font-size: 2rem;
+            }
+            .background-guide {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div id="sentinel" class="sentinel" style="height:0px;"></div>
+    <header class="navbar" id="navbar">
+        <div class="nav-inner" id="navInner">
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">☰</button>
+            <span class="page-title" id="pageTitle">Home</span>
+            <ul id="navMenu" class="nav-menu hidden">
+                <li><a href="../main/index.html">Home</a></li>
+                <li><a href="../about_us/index.html">About Us</a></li>
+                <li><a href="../committees/index.html">Committees</a></li>
+                <li><a href="../conference_details/index.html">Conference Details</a></li>
+                <li><a href="../prizes/index.html">Prizes</a></li>
+                <li><a href="register-link">Register</a></li>
+            </ul>
+        </div>
+    </header>
+    <button id="themeToggle" aria-label="Toggle theme">🌙</button>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Explore Committees</h1>
+            <p>Our Committees are designed to address pressing worldwide issues that the future generations must work to address.</p>
+        </div>
+    </section>
+
+    <div class="committees-container" id="committeesContainer">
+    </div>
+
+    <div id="overlaysContainer">
+    </div>
+
+    <script>
+        async function loadCommittees() {
+            try {
+                const response = await fetch('committees-data.json');
+                const committees = await response.json();
+                
+                renderCommittees(committees);
+                renderOverlays(committees);
+                initializeEventListeners();
+            } catch (error) {
+                console.error('Error loading committee data:', error);
+            }
+        }
+
+function renderCommittees(committees) {
+    const container = document.getElementById('committeesContainer');
+    
+    committees.forEach(committee => {
+        const firstClass = committee.first ? ' zafirst' : '';
+        const secClass = !committee.first ? ' zasec' : '';
+        const committeeHTML = `
+            <div class="committee-section${firstClass}${secClass}" data-committee="${committee.id}">
+                <div class="committee-banner" style="background-image: url('${committee.backgroundImage}')">
+                    <div class="committee-hover-text">
+                        <h3>${committee.agenda}</h3>
+                        <p>${committee.agendaText.substring(0, 100)}... (click to view more)</p>
+                    </div>
+                    <h2 class="committee-title">${committee.title}</h2>
+                </div>
+            </div>
+        `;
+        container.innerHTML += committeeHTML;
+    });
+}
+
+        function renderOverlays(committees) {
+            const container = document.getElementById('overlaysContainer');
+            
+            committees.forEach(committee => {
+                const executiveBoardHTML = committee.executiveBoard.map(member => `
+                    <div class="board-item">
+                        <div class="board-content">
+                            <div class="board-info">
+                                <div class="board-name">${member.name}</div>
+                                <div class="board-quote">"${member.quote}"</div>
+                                <div class="board-description">${member.description}</div>
+                            </div>
+                            <div class="board-image">
+                                <img src="${member.image}" alt="${member.name}">
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+                const overlayHTML = `
+                    <div class="detail-overlay" id="overlay-${committee.id}">
+                        <div class="detail-panel">
+                            <button class="close-btn">&times;</button>
+                            <h2 class="panel-title">${committee.title}</h2>
+                            <p class="panel-subtitle">${committee.subtitle}</p>
+                            <div class="agenda-section">
+                                <div class="agenda-title">Agenda - ${committee.agenda}</div>
+                                <div class="agenda-text">${committee.agendaText}</div>
+                                <a href="${committee.backgroundGuideLink}" class="background-guide">Background guides</a>
+                            </div>
+                            <!--<div class="executive-board">
+                                <div class="board-title">Executive board</div>
+                                <div class="board-grid">
+                                    ${executiveBoardHTML}
+                                </div>
+                            </div>--!>
+                        </div>
+                    </div>
+                `; //remove the comment to show the executive board information
+                container.innerHTML += overlayHTML;
+            });
+        }
+
+        function initializeEventListeners() {
+            const committees = document.querySelectorAll('.committee-section');
+            const overlays = document.querySelectorAll('.detail-overlay');
+            const closeBtns = document.querySelectorAll('.close-btn');
+
+            committees.forEach(committee => {
+                committee.addEventListener('click', () => {
+                    const committeeId = committee.dataset.committee;
+                    const overlay = document.getElementById(`overlay-${committeeId}`);
+                    overlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            closeBtns.forEach(btn => {
+                btn.addEventListener('click', closeOverlay);
+            });
+
+            overlays.forEach(overlay => {
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) {
+                        closeOverlay();
+                    }
+                });
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeOverlay();
+                }
+            });
+        }
+
+        function closeOverlay() {
+            const overlays = document.querySelectorAll('.detail-overlay');
+            overlays.forEach(overlay => {
+                overlay.classList.remove('active');
+            });
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('DOMContentLoaded', loadCommittees);
+    </script>
+</body>
+</html>
