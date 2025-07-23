@@ -21,36 +21,34 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById("countdown-timer").innerHTML = "EVENT HAS BEGUN!";
         }
     }, 1000);
-
     const lazyScrollingContainer = document.querySelector('.lazy-scrolling-container');
     const carousel = lazyScrollingContainer.querySelector('.carousel');
 
     carousel.innerHTML += carousel.innerHTML;
 
-    let scrollPosition = 0;
     const scrollSpeed = 1;
-    const resetPoint = carousel.scrollWidth / 2;
+    let scrollInterval;
 
-    const startAutoScroll = () => {
+    function startAutoScroll() {
         scrollInterval = setInterval(() => {
             lazyScrollingContainer.scrollLeft += scrollSpeed;
-            scrollPosition += scrollSpeed;
-
-            if (scrollPosition >= resetPoint) {
+            if (lazyScrollingContainer.scrollLeft >= carousel.scrollWidth / 2) {
                 lazyScrollingContainer.scrollLeft = 0;
-                scrollPosition = 0;
             }
-
         }, 16);
-    };
-    lazyScrollingContainer.addEventListener("mouseenter", () => {
+    }
+
+    function stopAutoScroll() {
         clearInterval(scrollInterval);
-    });
+    }
 
-    lazyScrollingContainer.addEventListener("mouseleave", () => {
-        startAutoScroll();
-    });
 
+    lazyScrollingContainer.addEventListener('mouseenter', stopAutoScroll);
+    lazyScrollingContainer.addEventListener('mouseleave', startAutoScroll);
+
+
+    console.log("Carousel scrollWidth (after duplication):", carousel.scrollWidth);
+    console.log("Container offsetWidth:", lazyScrollingContainer.offsetWidth);
 
 
     startAutoScroll();

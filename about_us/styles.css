@@ -11,8 +11,6 @@
     --sec-accent-color: ;
     --tert-bg: ;
     --text-color: ;
-    --ppl-list-color: ;
-    --contact-us-color: ;
     --section-dark: ;
     --section-highlight-dark: ;
 }
@@ -192,7 +190,7 @@ body {
 
 .profile-card,
 .profile-card2 {
-    background-color: var(--ppl-list-color);
+    background-color: var(--bg-color);
     border-radius: 20px;
     padding: 25px;
     text-align: center;

@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MUN Committees</title>
     <link rel="stylesheet" href="../navbar/styles.css">
     <link rel="stylesheet" href="../theme_dropdown/styles.css">
+
     <script src="../theme_dropdown/script.js"></script>
     <script src="../navbar/script.js"></script>
+
+
     <style>
         * {
             margin: 0;
@@ -41,6 +45,7 @@
             max-width: 800px;
             margin: 0 auto;
         }
+
         .header h1 {
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 700;
@@ -86,12 +91,12 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0, 0, 0, 0.3);
             transition: all 0.4s ease;
         }
 
         .committee-section:hover .committee-banner::before {
-            background: rgba(0,0,0,0.1);
+            background: rgba(0, 0, 0, 0.1);
         }
 
         .committee-section:hover .committee-banner {
@@ -115,7 +120,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(0,0,0,0.7);
+            background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(10px);
             display: flex;
             align-items: center;
@@ -141,7 +146,7 @@
             overflow-y: auto;
             transform: translateY(50px) scale(0.9);
             transition: all 0.4s ease;
-            border: 2px solid rgba(255,255,255,0.5);
+            border: 2px solid rgba(255, 255, 255, 0.5);
         }
 
         .detail-overlay.active .detail-panel {
@@ -181,11 +186,11 @@
         }
 
         .agenda-section {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             padding: 30px;
             border-radius: 15px;
             margin-bottom: 30px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .agenda-title {
@@ -236,7 +241,7 @@
         }
 
         .board-item {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             padding: 20px;
             border-radius: 10px;
             color: #ccc;
@@ -269,34 +274,30 @@
             font-style: italic;
             margin-bottom: 8px;
         }
+
         [data-theme="light"] .hero-section {
-            background: linear-gradient(
-                to bottom,
-                var(--bg-color) 0%,
-                var(--bg-color) 80%,
-                transparent 100%
-            );
+            background: linear-gradient(to bottom,
+                    var(--bg-color) 0%,
+                    var(--bg-color) 80%,
+                    transparent 100%);
         }
 
-:root[style*="--fadeneeded: true"] .committee-section.zasec .committee-banner::before {
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.5) 100%
-    );
-}
+        :root[style*="--fadeneeded: true"] .committee-section.zasec .committee-banner::before {
+            background: linear-gradient(to bottom,
+                    rgba(0, 0, 0, 0.5) 100%);
+        }
 
-:root[style*="--fadeneeded: true"] .committee-section.zafirst .committee-banner::before {
-    background: linear-gradient(
-        to bottom,
-        rgba(250, 245, 237, 1) 0%,
-        rgba(250, 245, 237, 0.1) 10%,
-        rgba(0, 0, 0, 0.5) 100%
-    );
-}
+        :root[style*="--fadeneeded: true"] .committee-section.zafirst .committee-banner::before {
+            background: linear-gradient(to bottom,
+                    rgba(250, 245, 237, 1) 0%,
+                    rgba(250, 245, 237, 0.1) 10%,
+                    rgba(0, 0, 0, 0.5) 100%);
+        }
 
-:root:not([style*="--fadeneeded: true"]) .committee-banner::before {
-    background: rgba(0, 0, 0, 0.5);
-}
+        :root:not([style*="--fadeneeded: true"]) .committee-banner::before {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
         .board-description {
             font-size: 1.3rem;
             color: #aaa;
@@ -308,7 +309,7 @@
             height: 90px;
             border-radius: 50%;
             overflow: hidden;
-            border: 2px solid rgba(255,255,255,0.2);
+            border: 2px solid rgba(255, 255, 255, 0.2);
             flex-shrink: 0;
         }
 
@@ -319,62 +320,66 @@
         }
 
         .board-item:hover {
-            background: rgba(255,255,255,0.08);
+            background: rgba(255, 255, 255, 0.08);
             transform: translateX(5px);
         }
+
         .committee-hover-text {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 20px;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
-    z-index: 2;
-}
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            z-index: 2;
+        }
 
-.committee-banner:hover .committee-hover-text {
-    opacity: 1;
-}
+        .committee-banner:hover .committee-hover-text {
+            opacity: 1;
+        }
 
-.committee-hover-text h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: var(--accent-color);
-}
+        .committee-hover-text h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--accent-color);
+        }
 
-.committee-hover-text p {
-    font-size: 1rem;
-    opacity: 0.8;
-}
+        .committee-hover-text p {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
 
         @media (max-width: 1000px) {
             .committee-banner {
                 height: 150px;
             }
-            
+
             .detail-panel {
                 padding: 30px 25px;
                 border-radius: 15px;
                 width: 90%;
                 max-width: 90%;
             }
-            
+
             .panel-title {
                 font-size: 2rem;
             }
+
             .background-guide {
                 padding: 8px 16px;
                 font-size: 0.9rem;
             }
         }
-
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
     <div id="sentinel" class="sentinel" style="height:0px;"></div>
     <header class="navbar" id="navbar">
@@ -396,7 +401,8 @@
     <section class="hero-section">
         <div class="hero-content">
             <h1>Explore Committees</h1>
-            <p>Our Committees are designed to address pressing worldwide issues that the future generations must work to address.</p>
+            <p>Our Committees are designed to address pressing worldwide issues that the future generations must work to
+                address.</p>
         </div>
     </section>
 
@@ -411,7 +417,7 @@
             try {
                 const response = await fetch('committees-data.json');
                 const committees = await response.json();
-                
+
                 renderCommittees(committees);
                 renderOverlays(committees);
                 initializeEventListeners();
@@ -420,13 +426,13 @@
             }
         }
 
-function renderCommittees(committees) {
-    const container = document.getElementById('committeesContainer');
-    
-    committees.forEach(committee => {
-        const firstClass = committee.first ? ' zafirst' : '';
-        const secClass = !committee.first ? ' zasec' : '';
-        const committeeHTML = `
+        function renderCommittees(committees) {
+            const container = document.getElementById('committeesContainer');
+
+            committees.forEach(committee => {
+                const firstClass = committee.first ? ' zafirst' : '';
+                const secClass = !committee.first ? ' zasec' : '';
+                const committeeHTML = `
             <div class="committee-section${firstClass}${secClass}" data-committee="${committee.id}">
                 <div class="committee-banner" style="background-image: url('${committee.backgroundImage}')">
                     <div class="committee-hover-text">
@@ -437,13 +443,13 @@ function renderCommittees(committees) {
                 </div>
             </div>
         `;
-        container.innerHTML += committeeHTML;
-    });
-}
+                container.innerHTML += committeeHTML;
+            });
+        }
 
         function renderOverlays(committees) {
             const container = document.getElementById('overlaysContainer');
-            
+
             committees.forEach(committee => {
                 const executiveBoardHTML = committee.executiveBoard.map(member => `
                     <div class="board-item">
@@ -528,4 +534,5 @@ function renderCommittees(committees) {
         document.addEventListener('DOMContentLoaded', loadCommittees);
     </script>
 </body>
+
 </html>

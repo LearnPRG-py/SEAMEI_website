@@ -430,38 +430,25 @@ section:nth-child(odd) {
 }
 
 .lazy-scrolling-container {
-    overflow: hidden;
+    /* Changed: Removed flex-wrap, overflow-x: hidden for smooth JS scroll */
+    overflow-x: hidden;
+    /* Hide the scrollbar */
     position: relative;
     width: 100%;
-    display: flex;
+    /* Removed display: flex and justify-content: center; from here as carousel handles flex */
     padding: 0 30px;
-    justify-content: center;
-    /* optional */
-    gap: 1rem;
-    /* optional spacing */
-    flex-wrap: wrap;
 }
-
 
 .carousel {
     display: flex;
-    width: max-content;
+    /* Keeps items in a row */
     gap: 30px;
-    animation: scroll-left 40s linear infinite;
+    /* Removed animation: scroll-left; - JavaScript will handle scrolling */
+    width: max-content;
+    /* Ensure the carousel takes up enough width for all its content */
 }
 
-@keyframes scroll-left {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-50%);
-    }
-}
-
-
-
+/* Removed @keyframes scroll-left as we're using JavaScript for scrolling */
 
 .review-card {
     flex: 0 0 auto;
