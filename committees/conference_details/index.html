@@ -1,0 +1,806 @@
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oak SEAMEI MUN – Committee Details</title>
+
+  <style>
+    :root {
+      --accent: #1485ff;
+      --radius: 0.85rem;
+      --transition: 0.35s ease;
+    }
+    html.dark {
+      --bg: #0d1117;
+      --bg-alt: #161b22;
+      --text: #e6edf3;
+      --card: #161b22;
+      --shadow: 0 2px 10px rgba(0,0,0,0.4);
+    } 
+html.light {
+  --bg: #fdf6ec;         /* Warm white */
+  --bg-alt: #f8f1e8;     /* Softer contrast for cards */
+  --text: #2c2c2c;
+  --card: #ffffff;
+  --shadow: 0 2px 10px rgba(0,0,0,0.12);
+}
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Montserrat", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background var(--transition), color var(--transition);
+    }
+    h1, h2, h3 { font-weight: 700; }
+    section { padding: 4rem 1rem 3.5rem; }
+    .grid { display: grid; gap: 1.5rem; }
+
+    @keyframes glowFade {
+  0% { text-shadow: 0 0 6px #ff6ec7, 0 0 20px #ff6ec7; color: #ffffff; }
+  50% { text-shadow: 0 0 12px #ffb347, 0 0 30px #ffb347; color: #fceaff; }
+  100% { text-shadow: 0 0 6px #6ecfff, 0 0 20px #6ecfff; color: #ffffff; }
+}
+.meta span {
+  animation: glowFade 4s infinite alternate;
+}
+
+    .hero {
+      position: relative;
+      min-height: 48vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1350&q=80") center/cover;
+    }
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(2px);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      padding: 0 1rem;
+    }
+    .hero h1 {
+  color: #f4c430;
+  font-weight: 600;
+  text-shadow: 0 0 6px rgba(244, 196, 48, 0.5);
+
+      font-size: 3rem;
+      margin-bottom: .5rem;
+    }
+    .subtitle {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: peachpuff;
+    }
+    .meta {
+      font-weight: 500;
+      margin-top: 1.2rem;
+      font-size: 1.15rem;
+      color: #fff;
+      text-shadow: 0 0 10px var(--accent);
+    }
+    .meta span {
+      display: inline-block;
+      position: relative;
+    }
+
+    #themeToggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1200;
+      width: 2.55rem;
+      height: 2.55rem;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      background: var(--card);
+      color: var(--text);
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), background var(--transition);
+    }
+    #themeToggle:hover { transform: scale(1.07); }
+
+    .card {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: transform .35s ease, box-shadow .35s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+    .card h3 {
+      color: var(--accent);
+      margin-bottom: .5rem;
+      font-size: 1.2rem;
+    }
+    .card p {
+      font-size: 1rem;
+    }
+
+    .schools h2, .sponsors h2 {
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 1.8rem;
+      font-size: 2rem;
+    }
+
+    .global-stat {
+      max-width: 620px;
+      margin: 0 auto 2.5rem auto;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+
+    .school-grid { gap: 1rem; }
+    .school-tile {
+      background: var(--card);
+      padding: 1.2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform .35s;
+    }
+    .school-tile {
+  height: 111px;         /* ← reduce from default size */
+  padding: 1rem;
+  justify-content: center;
+}
+.school-tile img {
+  width: 30px;
+  height: 30px;
+}
+    .school-tile:hover { transform: translateY(-4px); }
+    .school-tile img {
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: .6rem;
+      filter: grayscale(15%);
+    }
+
+.school-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.logos {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  align-items: start;
+  justify-content: center;
+}
+
+
+
+/* 2️⃣  TIMELINE ANIMATION — replace the @keyframes + li styles */
+@keyframes slideIn {
+  0%   { opacity: 0; transform: translateX(-25px); }
+  100% { opacity: 1; transform: translateX(0);     }
+}
+
+/* timeline-list <li> */
+.timeline-list li {
+  position: relative;
+  margin: 0 0 1.8rem 0;
+  animation: slideIn 0.6s forwards;
+}
+
+/* staggered delays */
+.timeline-list li:nth-child(2){animation-delay:.15s;}
+.timeline-list li:nth-child(3){animation-delay:.30s;}
+.timeline-list li:nth-child(4){animation-delay:.45s;}
+.timeline-list li:nth-child(5){animation-delay:.60s;}
+.timeline-list li:nth-child(6){animation-delay:.75s;}
+.timeline-list li:nth-child(7){animation-delay:.90s;}
+
+
+    .logo-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .logo-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      filter: grayscale(0.1);
+    }
+    .logo-card span {
+      margin-top: .65rem;
+      font-size: .95rem;
+      font-weight: 500;
+    }
+    /* ===== TIMELINE STYLES ===== */
+.timeline       {padding:4rem 1rem; max-width:900px; margin:0 auto;}
+.timeline h2    {text-align:center; color:var(--accent); margin-bottom:2rem;}
+
+.timeline-list          {list-style:none; margin:0; padding:0 0 0 40px; position:relative;}
+.timeline-list::before  {content:""; position:absolute; left:11px; top:0; bottom:0;
+                          width:4px; background:var(--accent); border-radius:2px;}
+
+.timeline-list li       {position:relative; margin:0 0 1.8rem 0; opacity:0;
+                          transform:translateX(-25px); animation:slideIn .6s forwards;}
+.timeline-list li:nth-child(2){animation-delay:.15s;}
+.timeline-list li:nth-child(3){animation-delay:.3s;}
+.timeline-list li:nth-child(4){animation-delay:.45s;}
+.timeline-list li:nth-child(5){animation-delay:.6s;}
+.timeline-list li:nth-child(6){animation-delay:.75s;}
+.timeline-list li:nth-child(7){animation-delay:.9s;}
+
+.timeline-list .dot     {position:absolute; left:-31px; top:3px; width:16px; height:16px;
+                          border-radius:50%; background:var(--accent);
+                          box-shadow:0 0 8px var(--accent);}
+
+@keyframes slideIn { to {opacity:1; transform:none;} }
+/* ===== FAQ STYLES ===== */
+.faq details      {width:100%; margin:0.6rem 0;}
+.faq summary      {cursor:pointer; font-weight:600; color:var(--accent);}
+.faq p            {margin-top:0.4rem; font-size:0.95rem; line-height:1.45;}
+/* 1️⃣  DETAILS – 2 cards per row on wide screens */
+.details {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+.details {
+  display: grid;                 /* keeps the grid */
+  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);   /* exactly 2 per row */
+}
+
+/* 2️⃣  TIMELINE + SCHOOLS side-by-side */
+.timeline-and-schools {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: 1fr 1fr;     /* two equal columns */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+}
+@media (max-width: 800px) {           /* stack them on phones */
+  .timeline-and-schools { grid-template-columns: 1fr; }
+}
+
+.timeline h2,
+.school-column h2,
+.sponsors h2,
+.timeline-column h2 {
+  text-align: center;
+  color: var(--accent);
+  margin-bottom: 2rem;
+
+}
+.card h3 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.card p,
+.card details,
+.card summary {
+  text-align: left;
+  width: 100%;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  line-height: 1.5;
+}
+
+.card p:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.card ul {
+  list-style-type: disc;
+  padding-left: 1.1rem;  /* slightly tighter */
+  margin-left: 0.5rem;   /* aligns better with text */
+  margin-right: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.card li {
+  text-align: left;
+  margin-bottom: 0.45rem;
+  font-size: 0.97rem;
+  line-height: 1.5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html.dark {
+  --bg-color: rgb(0, 0, 0);
+  --sec-bg: rgb(53, 53, 53);
+  --tert-bg: #002F52;
+  --accent-color: #1E96A5;
+  --sec-accent-color: #FFCB00;
+  --text-color: #F7F2EC;
+}
+
+html.light {
+  --bg-color: #fdf6ec;
+  --sec-bg: #ffffff;
+  --tert-bg: #f5f5f5;
+  --accent-color: #1485ff;
+  --sec-accent-color: #ff8c00;
+  --text-color: #2c2c2c;
+}
+
+.sentinel {
+    height: 0;
+    width: 0;
+}
+
+.navbar {
+    height: 70px;
+    position: relative;
+    z-index: 1000;
+}
+
+.nav-inner {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 60px;
+    background-color: var(--sec-bg);
+    padding: 0 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:
+        top 0.4s ease,
+        width 0.4s ease,
+        height 0.4s ease,
+        padding 0.4s ease,
+        box-shadow 0.4s ease,
+        border-radius 0.4s ease,
+        transform 0.4s ease;
+    box-shadow: none;
+}
+
+.navbar.dock .nav-inner {
+    top: 15px;
+    width: 40%;
+    min-width: fit-content;
+    height: 70px;
+    padding: 0 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
+    transform: translateX(-50%) scale(1);
+}
+
+
+.nav-inner ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-inner a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-inner a:hover {
+    color: #30cdd7;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+html.dark,
+html.light {          /* put this once, after your existing theme blocks */
+  --nav-bg: #353535;  /* dark gray – stays constant */
+}
+.nav-inner {
+  background-color: var(--nav-bg);   /* was var(--sec-bg) */
+}
+/* 1. Collapse the wrapper */
+.navbar{ height:0; }
+
+/* 2. Give the sentinel the spacer height (same as .nav-inner) */
+#sentinel{ height:60px; }   /* or 70px if you want exact match */
+
+ /* ───────────────────────────────
+   CONTACT SECTION
+   ─────────────────────────────── */
+ .contact-section {
+     padding: 80px 20px;
+     background: var(--bg-color);
+     text-align: center;
+ }
+
+ .contact-section h2 {
+     font-size: 2.5rem;
+     font-weight: 700;
+     margin-bottom: 40px;
+     color: var(--text-light);
+ }
+
+ /* 1️⃣  Social-link row  */
+ .contact-links {
+     display: flex;
+     justify-content: center;
+     gap: 24px;
+     flex-wrap: wrap;
+     margin-bottom: 50px;
+ }
+
+ .contact-link {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     padding: .7rem 1.6rem;
+     /* bigger bar like reference */
+     border-radius: 10px;
+     background: none;
+     font-size: 1.2rem;
+     font-weight: 600;
+     color: #444;
+     text-decoration: none;
+     transition: background .25s, color .25s, transform .2s;
+     opacity: .9;
+ }
+
+ .contact-link .icon {
+     display: inline-block;
+     border-radius: 6px;
+ }
+
+ /* default icon background colours */
+ .contact-link.email .icon {
+     background: var(--accent-color);
+ }
+
+ .contact-link.twitter .icon {
+     background: var(--sec-accent-color);
+ }
+
+ .contact-link.facebook .icon {
+     background: var(--sec-bg);
+ }
+
+ /* hover / active state = FULL yellow bar */
+ .contact-link:hover,
+ .contact-link:focus {
+     background: var(--sec-accent-color);
+     color: var(--sec-bg);
+     transform: translateY(-2px);
+     opacity: 1;
+ }
+
+ /* 2️⃣  Newsletter box  */
+ .email-signup {
+     border: 2px solid var(--sec-accent-color);
+     border-radius: 12px;
+     padding: 30px;
+     max-width: 564px;
+     /* ‼ narrower like screenshot */
+     margin: 0 auto;
+     display: flex;
+     flex-direction: column;
+     gap: 18px;
+ }
+
+ .email-signup label {
+     font-size: 1.2rem;
+     font-weight: 700;
+     color: var(--text-light);
+ }
+
+ .email-signup input[type=email] {
+     padding: 14px 20px;
+     font-size: 1rem;
+     border-radius: 8px;
+     border: 2px solid #444;
+     background: #000;
+     color: #fff;
+     transition: border .25s;
+ }
+
+ .email-signup input[type=email]:focus {
+     border-color: var(--sec-accent-color);
+ }
+
+ /* subscribe button */
+ .subscribe-btn {
+     background: var(--accent-color);
+     color: #fff;
+     font-weight: 700;
+     font-size: 1.1rem;
+     padding: 14px 0;
+     border: none;
+     border-radius: 10px;
+     cursor: pointer;
+     transition: background .25s, transform .15s;
+ }
+
+ .subscribe-btn:hover {
+     background: #1aa7bb;
+     transform: scale(1.02);
+ }
+
+ /* helper text */
+ .info-text {
+     margin-top: 20px;
+     color: var(--text-light);
+     font-size: 1rem;
+ }
+
+ /* ───────────────────────────────
+   LIGHT THEME OVERRIDES
+   ─────────────────────────────── */
+ .theme-light .contact-section {
+     background: #fff;
+     color: #003057;
+ }
+
+ .theme-light .contact-section h2,
+ .theme-light .email-signup label,
+ .theme-light .info-text {
+     color: #003057;
+ }
+
+ .theme-light .contact-link {
+     color: #003057;
+ }
+
+ .theme-light .contact-link:hover {
+     color: #003057;
+ }
+
+ /* keep text legible on yellow */
+
+ .theme-light .email-signup {
+     background: #e9eef3;
+     border-color: var(--sec-accent-color);
+ }
+
+ .theme-light .email-signup input[type=email] {
+     background: #fff;
+     color: #003057;
+     border: 2px solid #aaa;
+ }
+
+ .theme-light .email-signup input[type=email]:focus {
+     border-color: var(--sec-accent-color);
+ }
+
+ .theme-light .subscribe-btn {
+     background: var(--accent-color);
+ }
+
+ .theme-light .subscribe-btn:hover {
+     background: #1aa7bb;
+ }
+
+  </style>
+</head>
+<body>
+
+      <div id="sentinel" class="sentinel" style="height:0px;"></div>
+    <header class="navbar" id="navbar">
+        <div class="nav-inner" id="navInner">
+            <ul>
+                <li><a href="../main/index.html">Home</a></li>
+                <li><a href="../about_us/index.html">About Us</a></li>
+                <li><a href="../committees/index.html">Committees</a></li>
+                <li><a href="../conference_details/index.html">Conference Details</a></li>
+                <li><a href="../prizes/index.html">Prizes</a></li>
+                <li><a href="register-link">Register</a></li>
+            </ul>
+        </div>
+    </header>
+    <script src="script.js"></script>
+  <header class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Oak SEAMEI MUN</h1>
+      <p class="subtitle">Committee Details</p>
+      <p class="meta"><span>10 – 12 Sep 2024</span> &nbsp;·&nbsp; <span>Oakridge International School, Bangalore (India)</span></p>
+    </div>
+    <button id="themeToggle" aria-label="Toggle theme">🌙</button>
+  </header>
+
+<section class="grid details">
+  <!-- Registration Card -->
+  <article class="card">
+    <h3>Registration Fee</h3>
+    <ul>
+      <li>₹1,800 for external delegates</li>
+      <li>₹1,200 for Oakridge students</li>
+      <li>Includes all committee sessions, socials, and delegate kit</li>
+    </ul>
+  </article>
+
+  <!-- Accommodation Card -->
+  <article class="card">
+    <h3>Accommodation</h3>
+    <ul>
+      <li>₹30,000 for full stay</li>
+      <li>Lodge Stays Hotel – 5 min from venue</li>
+      <li>Shuttle every 30 minutes (hotel ↔ school)</li>
+      <li>Available for international & domestic delegates</li>
+      <li>Rooms include A/C, Wi-Fi, laundry, breakfast</li>
+    </ul>
+  </article>
+
+  <!-- Food + About Card -->
+  <article class="card">
+    <h3>Food & Experience</h3>
+    <ul>
+      <li>Daily lunch and snacks served on campus</li>
+      <li>Menu options: Indian, International, Vegetarian, Halal</li>
+      <li>Hydration & refreshment stations across campus</li>
+      <li>Hosted at Oakridge International School, Bangalore</li>
+      <li>Welcoming 500+ high-school delegates from around the world</li>
+    </ul>
+  </article>
+
+  <!-- FAQ Card -->
+  <article class="card faq">
+    <h3>FAQs</h3>
+
+    <details>
+      <summary>How many committees will there be?</summary>
+      <p>Full list of committees will be announced soon — expect diverse and dynamic councils!</p>
+    </details>
+
+    <details>
+      <summary>Is accommodation mandatory?</summary>
+      <p>No. Delegates may commute daily. However, the partner hotel with shuttle is strongly recommended for convenience.</p>
+    </details>
+
+    <details>
+      <summary>What is the dress code?</summary>
+      <p>Western business attire is required for all sessions. National or cultural dress is welcomed during the Opening Ceremony.</p>
+    </details>
+
+    <details>
+      <summary>What is the refund policy?</summary>
+      <p>Full refund before 15 June • 50 % refund until 1 July • No refunds thereafter.</p>
+    </details>
+  </article>
+</section>
+
+  <section class="timeline-and-schools">
+  <div class="timeline-column">
+    <h2>Conference Timeline</h2>
+    <ul class="timeline-list">
+      <li><span class="dot"></span><p><strong>08 : 00</strong> — Delegate Registration</p></li>
+      <li><span class="dot"></span><p><strong>09 : 00</strong> — Opening Ceremony</p></li>
+      <li><span class="dot"></span><p><strong>10 : 00</strong> — Session I (Debate)</p></li>
+      <li><span class="dot"></span><p><strong>12 : 30</strong> — Networking Lunch</p></li>
+      <li><span class="dot"></span><p><strong>13 : 30</strong> — Session II (Moderated Caucus)</p></li>
+      <li><span class="dot"></span><p><strong>16 : 30</strong> — Crisis Night Briefing</p></li>
+      <li><span class="dot"></span><p><strong>18 : 30</strong> — Social Event</p></li>
+    </ul>
+  </div>
+
+  <div class="school-column">
+    <h2>Global Outreach</h2>
+    <p class="global-stat">12 schools • <strong>6 countries</strong> • 3 continents represented</p>
+
+    <div class="school-grid">
+      <div class="school-tile"><img src="https://flagsapi.com/GB/flat/64.png"><span>Brampton College (UK)</span></div>
+      <div class="school-tile"><img src="https://flagsapi.com/MX/flat/64.png"><span>La Sierra School (Mexico)</span></div>
+      <div class="school-tile"><img src="https://flagsapi.com/IN/flat/64.png"><span>Cendana Academy (India)</span></div>
+      <div class="school-tile"><img src="https://flagsapi.com/ZA/flat/64.png"><span>Utbo School (South Africa)</span></div>
+      <div class="school-tile"><img src="https://flagsapi.com/JP/flat/64.png"><span>Shintoku High (Japan)</span></div>
+      <div class="school-tile"><img src="https://flagsapi.com/AU/flat/64.png"><span>St Hilda’s (Australia)</span></div>
+    </div>
+  </div>
+</section>
+
+
+  <section class="sponsors">
+    <h2>Our Sponsors</h2>
+    <div class="logos">
+      <div class="logo-card"><img src="https://via.placeholder.com/240x240.png?text=Flow" alt="Flow logo"><span>Flow</span></div>
+      <div class="logo-card"><img src="https://via.placeholder.com/240x240.png?text=Ader" alt="Ader logo"><span>Ader</span></div>
+      <div class="logo-card"><img src="https://via.placeholder.com/240x240.png?text=Greenleaf" alt="Greenleaf logo"><span>Greenleaf</span></div>
+    </div>
+  </section>
+  <!-- ========= CONTACT SECTION (paste this in place of your old one) ========= -->
+  <section class="contact-section" id="contact">
+    <div class="contact-content-wrapper"><!-- keeps everything centered -->
+
+      <h2>Contact Us!</h2>
+
+      <!-- quick-links row -->
+      <div class="contact-links">
+        <!-- Email -->
+        <a class="contact-link email" href="mailto:aryankrishnan4b@gmail.com" title="Email us" target="_blank">
+          <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
+            <rect width="24" height="24" rx="6" fill="var(--accent-color)" />
+            <path d="M6 8.5V16h12V8.5l-6 4.5-6-4.5zM18 7H6l6 4.5L18 7z" fill="var(--bg-color)" />
+          </svg>
+          Email us!
+        </a>
+
+        <!-- Twitter / X -->
+        <a class="contact-link twitter" href="https://twitter.com/yourhandle" title="Twitter/X" target="_blank">
+          <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
+            <rect width="24" height="24" rx="6" fill="var(--sec-accent-color)" />
+            <path d="M17.5 7.5l-7 9m0-9l7 9" stroke="var(--bg-color)" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          Twitter/X
+        </a>
+
+        <!-- Facebook -->
+        <a class="contact-link facebook" href="https://facebook.com/yourpage" title="Facebook" target="_blank">
+          <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
+            <rect width="24" height="24" rx="6" fill="var(--sec-bg)" />
+            <path d="M15.5 8.5H14V7.5c0-.4.3-.5.5-.5h1V5h-2c-1.1 0-2 .9-2 2v1.5H9v2h2V19h3v-5.5h2l.5-2z"
+              fill="var(--accent-color)" />
+          </svg>
+          Facebook
+        </a>
+      </div><!-- /contact-links -->
+
+      <!-- newsletter form -->
+      <form class="email-signup" action="#" method="post">
+        <label for="newsletter-email">Subscribe to our newsletter:</label>
+        <input id="newsletter-email" name="newsletter-email" type="email" placeholder="Enter your email address"
+          required>
+        <button type="submit" class="subscribe-btn">Subscribe</button>
+      </form>
+
+      <p class="info-text">
+        Receive the latest news and updates directly in your inbox.
+      </p>
+    </div>
+  </section>
+  <!-- ======== END CONTACT SECTION ======== -->
+  <script>
+    const toggle = document.getElementById("themeToggle");
+    const root = document.documentElement;
+    function setIcon() {
+      toggle.textContent = root.classList.contains("dark") ? "🌙" : "☀️";
+    }
+    toggle.addEventListener("click", () => {
+      root.classList.toggle("dark");
+      root.classList.toggle("light");
+      setIcon();
+    });
+    setIcon();
+  </script>
+</body>
+</html>
