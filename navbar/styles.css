@@ -17,7 +17,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
-  
+
 }
 
 .sentinel {
@@ -49,7 +49,7 @@ body {
 
 .navbar.dock .nav-inner {
   top: 15px;
-  width: 40%;
+  width: 46%;
   min-width: fit-content;
   height: 60px;
   padding: 0 1.5rem;
