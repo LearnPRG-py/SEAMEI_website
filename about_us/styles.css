@@ -22,23 +22,20 @@ body {
     line-height: 1.6;
 }
 
-.hero-section {
-    background-color: var(--tert-bg);
+.hero-sectionxx {
+    background-color: var(--bg-color);
     color: var(--text-color);
     text-align: center;
-    padding: 100px 30px;
 }
 
-.hero-content h1 {
+.hero-contentxx h1 {
     font-size: 3.5em;
     margin-bottom: 20px;
-    color: var(--sec-accent-color);
+    color: var(--text-color);
 }
 
-.hero-content p {
+.hero-contentxx p {
     font-size: 1.5em;
-    max-width: 800px;
-    margin: 0 auto;
 }
 
 /* Mission & Vision Redesign */

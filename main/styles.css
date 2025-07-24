@@ -133,7 +133,7 @@ p {
     padding: 20px;
 }
 
-section:not(.hero-section) {
+section:not(.hero-section):not(.hero-sectionxx) {
     border-top: 2px solid var(--sec-bg);
 }
 
@@ -825,54 +825,4 @@ section:nth-child(odd) {
         font-size: 0.9rem;
         margin-bottom: 1rem;
     }
-}
-
-.contact-links {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin: 2rem 0 1.5rem 0;
-}
-
-.contact-link {
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    font-weight: 600;
-    font-size: 1.1rem;
-    text-decoration: none;
-    color: var(--cl-color);
-    background: none;
-    border-radius: 8px;
-    padding: 0.5rem 1.2rem;
-    transition: background 0.2s, color 0.2s;
-}
-
-.contact-link.email .icon {
-    background: var(--accent-color);
-    border-radius: 6px;
-    color: var(--text-color);
-}
-
-.contact-link.twitter .icon {
-    background: var(--sec-accent-color);
-    border-radius: 6px;
-    color: var(--text-color);
-}
-
-.contact-link.facebook .icon {
-    background: var(--sec-bg);
-    border-radius: 6px;
-    color: var(--text-color);
-}
-
-.contact-link:hover {
-    background: var(--sec-accent-color);
-    color: var(--sec-bg);
-}
-
-.contact-link .icon {
-    display: inline-block;
-    vertical-align: middle;
 }
