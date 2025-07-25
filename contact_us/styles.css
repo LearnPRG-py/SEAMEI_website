@@ -25,128 +25,128 @@ body {
 }
 
 .contact-section {
-     padding: 80px 20px;
-     background: var(--bg-color);
-     text-align: center;
- }
+    padding: 80px 20px;
+    background: var(--bg-color);
+    text-align: center;
+}
 
- .contact-section h2 {
-     font-size: 2.5rem;
-     font-weight: 700;
-     margin-bottom: 40px;
-     color: var(--cl-color);
- }
+.contact-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: var(--cl-color);
+}
 
- .contact-section p {
-     color: var(--cl-color);
- }
+.contact-section p {
+    color: var(--cl-color);
+}
 
- /* 1️⃣  Social-link row  */
- .contact-links {
-     display: flex;
-     justify-content: center;
-     gap: 24px;
-     flex-wrap: wrap;
-     margin-bottom: 50px;
- }
+/* 1️⃣  Social-link row  */
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
 
- .contact-link {
-     display: flex;
-     align-items: center;
-     gap: 12px;
-     padding: .7rem 1.6rem;
-     /* bigger bar like reference */
-     border-radius: 10px;
-     background: none;
-     font-size: 1.2rem;
-     font-weight: 600;
-     color: var(--cl-color);
-     text-decoration: none;
-     transition: background .25s, color .25s, transform .2s;
-     opacity: .9;
- }
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: .7rem 1.6rem;
+    /* bigger bar like reference */
+    border-radius: 10px;
+    background: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--cl-color);
+    text-decoration: none;
+    transition: background .25s, color .25s, transform .2s;
+    opacity: .9;
+}
 
- .contact-link .icon {
-     display: inline-block;
-     border-radius: 6px;
- }
+.contact-link .icon {
+    display: inline-block;
+    border-radius: 6px;
+}
 
- /* default icon background colours */
- .contact-link.email .icon {
-     background: var(--accent-color);
- }
+/* default icon background colours */
+.contact-link.email .icon {
+    background: var(--accent-color);
+}
 
- .contact-link.twitter .icon {
-     background: var(--sec-accent-color);
- }
+.contact-link.twitter .icon {
+    background: var(--accent-color);
+}
 
- .contact-link.facebook .icon {
-     background: var(--sec-bg);
- }
+.contact-link.facebook .icon {
+    background: var(--accent-color);
+}
 
- /* hover / active state = FULL yellow bar */
- .contact-link:hover,
- .contact-link:focus {
-     background: var(--sec-accent-color);
-     color: var(--cl-color);
-     transform: translateY(-2px);
-     opacity: 1;
- }
+/* hover / active state = FULL yellow bar */
+.contact-link:hover,
+.contact-link:focus {
+    background: var(--sec-accent-color);
+    color: var(--cl-color);
+    transform: translateY(-2px);
+    opacity: 1;
+}
 
- /* 2️⃣  Newsletter box  */
- .email-signup {
-     border: 2px solid var(--sec-accent-color);
-     border-radius: 12px;
-     padding: 30px;
-     max-width: 564px;
-     /* ‼ narrower like screenshot */
-     margin: 0 auto;
-     display: flex;
-     flex-direction: column;
-     gap: 18px;
- }
+/* 2️⃣  Newsletter box  */
+.email-signup {
+    border: 2px solid var(--sec-accent-color);
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 564px;
+    /* ‼ narrower like screenshot */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
 
- .email-signup label {
-     font-size: 1.2rem;
-     font-weight: 700;
-     color: var(--cl-color);
- }
+.email-signup label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--cl-color);
+}
 
- .email-signup input[type=email] {
-     padding: 14px 20px;
-     font-size: 1rem;
-     border-radius: 8px;
-     border: 2px solid #444;
-     background: #fff;
-     color: #757575;
-     transition: border .25s;
- }
+.email-signup input[type=email] {
+    padding: 14px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 2px solid #444;
+    background: #fff;
+    color: #757575;
+    transition: border .25s;
+}
 
- .email-signup input[type=email]:focus {
-     border-color: var(--sec-accent-color);
- }
+.email-signup input[type=email]:focus {
+    border-color: var(--sec-accent-color);
+}
 
- /* subscribe button */
- .subscribe-btn {
-     background: var(--accent-color);
-     color: #fff;
-     font-weight: 700;
-     font-size: 1.1rem;
-     padding: 14px 0;
-     border: none;
-     border-radius: 10px;
-     cursor: pointer;
-     transition: background .25s, transform .15s;
- }
+/* subscribe button */
+.subscribe-btn {
+    background: var(--accent-color);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 14px 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background .25s, transform .15s;
+}
 
- .subscribe-btn:hover {
-     background: #1aa7bb;
-     transform: scale(1.02);
- }
+.subscribe-btn:hover {
+    background: #1aa7bb;
+    transform: scale(1.02);
+}
 
- /* helper text */
- .info-text {
-     margin-top: 20px;
-     color: var(--text-light);
-     font-size: 1rem;
- }
+/* helper text */
+.info-text {
+    margin-top: 20px;
+    color: var(--text-light);
+    font-size: 1rem;
+}
