@@ -58,6 +58,7 @@ body {
   transform: translateX(-50%) scale(1);
 }
 
+
 /* Default: full navbar */
 .nav-menu {
   display: flex;

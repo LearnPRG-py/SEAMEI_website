@@ -469,7 +469,6 @@ section:nth-child(odd) {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 300px;
 }
 
 .review-card .stars {
