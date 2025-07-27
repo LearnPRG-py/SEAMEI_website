@@ -38,18 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 16);
     }
 
-    function stopAutoScroll() {
-        clearInterval(scrollInterval);
-    }
-
-
-    lazyScrollingContainer.addEventListener('mouseenter', stopAutoScroll);
-    lazyScrollingContainer.addEventListener('mouseleave', startAutoScroll);
-
-
-    console.log("Carousel scrollWidth (after duplication):", carousel.scrollWidth);
-    console.log("Container offsetWidth:", lazyScrollingContainer.offsetWidth);
-
 
     startAutoScroll();
 
