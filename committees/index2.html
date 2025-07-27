@@ -1,149 +1,968 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>topnav test</title>
-    <link rel="stylesheet" href="styles2.css">
-    <link rel="stylesheet" href="../main/styles.css">
+    <title>SEAMEI MUN - Home</title>
     <link rel="stylesheet" href="../navbar/styles.css">
     <link rel="stylesheet" href="../contact_us/styles.css">
     <link rel="stylesheet" href="../theme_dropdown/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="../theme_dropdown/script.js"></script>
+    <script src="../navbar/script.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --bg-color: ;
+            --sec-bg: ;
+            --accent-color: ;
+            --sec-accent-color: ;
+            --tert-bg: ;
+            --text-color: ;
+            --cl-color: ;
+        }
+
+        .sentinel {
+            height: 0;
+            width: 0;
+        }
+
+        .navbar {
+            height: 70px;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .nav-inner {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 60px;
+            background-color: var(--sec-bg);
+            padding: 0 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.4s ease;
+            box-shadow: none;
+        }
+
+        .navbar.dock .nav-inner {
+            top: 15px;
+            width: 46%;
+            min-width: fit-content;
+            height: 60px;
+            padding: 0 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-radius: 999px;
+            transform: translateX(-50%) scale(1);
+        }
+
+        /* Default: full navbar */
+        .nav-menu {
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-inner a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-inner a:hover {
+            color: #30cdd7;
+        }
+
+        /* Hide hamburger and page title by default */
+        .hamburger,
+        .page-title {
+            display: none;
+        }
+
+        /* MOBILE MODE */
+        @media (max-width: 1000px) {
+            .hamburger {
+                display: block;
+                font-size: 1.5rem;
+                background: none;
+                border: none;
+                color: #fff;
+                cursor: pointer;
+                z-index: 1001;
+            }
+
+            .page-title {
+                display: block;
+                color: #fff;
+                font-size: 1.1rem;
+                font-weight: 600;
+                margin-left: 0.75rem;
+                flex: 1;
+                text-align: center;
+            }
+
+            .nav-inner {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 70px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                background-color: var(--sec-bg);
+                flex-direction: column;
+                display: flex;
+                gap: 1rem;
+                padding: 1rem 1.5rem;
+                border-radius: 1rem;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+                text-align: center;
+                z-index: 999;
+            }
+
+            .nav-menu.hidden {
+                display: none;
+            }
+
+            .nav-inner ul {
+                gap: 1rem;
+                padding: 0;
+            }
+
+            .nav-inner a {
+                font-size: 1rem;
+                padding: 0.5rem 0;
+            }
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .theme-dropdown {
+            position: absolute;
+            top: 60px;
+            right: 0vh;
+            padding: 5px 30px 5px 10px;
+            font-size: 0.8rem;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            border: 1px solid var(--bg-color);
+            border-radius: 5px;
+            z-index: 3;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            outline: none;
+            box-shadow: none;
+            background-image: url("data:image/svg+xml;utf8,<svg fill='%23ccc' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            background-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border 0.3s ease;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--text-color);
+            margin-bottom: 0.5em;
+        }
+
+        p {
+            color: var(--text-color);
+            margin-bottom: 1em;
+        }
+
+        .container {
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section:not(.hero-section):not(.hero-sectionxx) {
+            border-top: 2px solid var(--sec-bg);
+        }
+
+        section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            padding: 100px 20px;
+            background-color: var(--bg-color);
+            display: block;
+            margin-left: 3%;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 550px;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: left;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            margin-top: 7%;
+            font-size: clamp(2.5rem, 5vw, 5em);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-content p {
+            font-size: clamp(1.1rem, 2.5vw, 1.625em);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 60px;
+            color: var(--text-color);
+            opacity: 0.8;
+            font-weight: 400;
+        }
+
+        .circular-image-bubble {
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--sec-bg);
+            background-color: var(--tert-bg);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .circular-image-bubble:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+            border-color: var(--accent-color);
+        }
+
+        .circular-image-bubble img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .bubble-1 {
+            width: 8vw;
+            height: 8vw;
+            top: 10%;
+            right: 15%;
+        }
+
+        .bubble-2 {
+            width: 12vw;
+            height: 12vw;
+            top: 35%;
+            right: 5%;
+        }
+
+        .bubble-3 {
+            width: 17vw;
+            height: 17vw;
+            bottom: 25%;
+            left: 55%;
+        }
+
+        /* Info Cards Section */
+        .info-cards-section {
+            padding: 60px 20px;
+            background-color: var(--bg-color);
+        }
+
+        .info-cards-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .info-card {
+            background-color: var(--tert-bg);
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .info-card p {
+            font-size: 1rem;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            padding: 80px 20px;
+            background-color: var(--bg-color);
+        }
+
+        .timeline-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .timeline-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 15px;
+        }
+
+        .timeline-scroll {
+            overflow-x: auto;
+            padding: 20px 0;
+        }
+
+        .timeline {
+            display: flex;
+            gap: 40px;
+            min-width: max-content;
+            padding: 20px;
+        }
+
+        .timeline-item {
+            background: var(--tert-bg);
+            border-radius: 12px;
+            padding: 30px 25px;
+            min-width: 250px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--accent-color);
+            transition: transform 0.2s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .timeline-date {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .timeline-event {
+            font-size: 1rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 20px;
+            background-color: var(--bg-color);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .faq-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 15px;
+        }
+
+        .faq-item {
+            background: var(--tert-bg);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 25px 30px;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-icon {
+            font-size: 1.2rem;
+            transition: transform 0.2s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 30px 25px;
+            max-height: 200px;
+        }
+
+        .faq-answer p {
+            color: var(--text-color);
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Prizes Section */
+        .prizes-section {
+            padding: 80px 20px;
+            background-color: var(--bg-color);
+        }
+
+        .prizes-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .prizes-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .prizes-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 15px;
+        }
+
+        .prize-card {
+            background: var(--tert-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--accent-color);
+            transition: transform 0.2s ease;
+        }
+
+        .prize-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .prize-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        .prize-card p {
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        @media (max-width: 1700px) {
+            .bubble-3 {
+                left: 60%;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .bubble-1 {
+                display: none;
+            }
+
+            .bubble-2 {
+                display: none;
+            }
+
+            .bubble-3 {
+                left: 75%;
+                top: 30%;
+            }
+        }
+
+        @media (max-width: 1100px) {
+            .bubble-3 {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                min-height: 450px;
+                padding: 60px 15px;
+                margin-left: 0;
+                text-align: center;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5em;
+                margin-top: 0;
+            }
+
+            .hero-content p {
+                font-size: 1.1em;
+                margin-bottom: 30px;
+            }
+
+            .bubble-1,
+            .bubble-2,
+            .bubble-3 {
+                display: none;
+            }
+
+            .info-cards-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .timeline {
+                gap: 20px;
+            }
+
+            .timeline-item {
+                min-width: 220px;
+                padding: 25px 20px;
+            }
+
+            .faq-question {
+                padding: 20px 25px;
+                font-size: 1rem;
+            }
+
+            .faq-answer {
+                padding: 0 25px;
+            }
+
+            .faq-item.active .faq-answer {
+                padding: 0 25px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                min-height: 400px;
+                padding: 40px 10px;
+            }
+
+            .hero-content h1 {
+                font-size: 2em;
+            }
+
+            .hero-content p {
+                font-size: 1em;
+                margin-bottom: 20px;
+            }
+
+            .bubble-1,
+            .bubble-2,
+            .bubble-3 {
+                display: none;
+            }
+        }
+
+        /* Theme Toggle Styles */
+        [data-theme="dark"] {
+            --bg-color: rgb(0, 0, 0);
+            --sec-bg: rgb(53, 53, 53);
+            --accent-color: #1E96A5;
+            --sec-accent-color: #FFCB00;
+            --tert-bg: #002F52;
+            --text-color: #F7F2EC;
+            --cl-color: rgb(250, 245, 237);
+            --fadeneeded: false;
+            --dark: true;
+        }
+
+        [data-theme="light"] {
+            --bg-color: rgb(250, 245, 237);
+            --sec-bg: rgb(0, 48, 87);
+            --accent-color: rgb(30, 150, 165);
+            --sec-accent-color: rgb(255, 203, 0);
+            --tert-bg: rgb(180, 235, 245);
+            --text-color: black;
+            --cl-color: rgb(0, 48, 87);
+            --fadeneeded: true;
+            --dark: false;
+        }
+    </style>
 </head>
-
 <body>
     <div id="sentinel" class="sentinel" style="height:0px;"></div>
     <header class="navbar" id="navbar">
         <div class="nav-inner" id="navInner">
-            <ul>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">☰</button>
+            <span class="page-title" id="pageTitle">SEAMEI MUN</span>
+            <ul id="navMenu" class="nav-menu hidden">
                 <li><a href="../main/index.html">Home</a></li>
                 <li><a href="../about_us/index.html">About Us</a></li>
                 <li><a href="../committees/index.html">Committees</a></li>
-                <li><a href="conference-details-link">Conference Details</a></li>
+                <li><a href="../conference_details/index.html">Conference Details</a></li>
                 <li><a href="../prizes/index.html">Prizes</a></li>
+                <li><a href="../resources/index.html">Resources</a></li>
                 <li><a href="register-link">Register</a></li>
             </ul>
         </div>
     </header>
-    <button id="themeToggle" aria-label="Toggle theme">🌙</button>
-    <div class="committee-container">
-        <div class="committee-card">
-            <img src="../picture_assets/i1.jpg" alt="UNSC">
-            <div class="overlay">
-                <h2>UNSC</h2>
-                <p>Agenda: Addressing conflicts in Eastern Europe</p>
-            </div>
-        </div>
 
-        <div class="committee-card">
-            <img src="../picture_assets/i2.jpg" alt="UNHRC">
-            <div class="overlay">
-                <h2>UNHRC</h2>
-                <p>Agenda: Freedom of speech vs misinformation</p>
-            </div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Welcome to SEAMEI MUN</h1>
+            <p>Empowering voices. Shaping leaders. One resolution at a time.</p>
         </div>
-        <div class="committee-card">
-            <img src="../picture_assets/i1.jpg" alt="UNSC">
-            <div class="overlay">
-                <h2>UNSC</h2>
-                <p>Agenda: Addressing conflicts in Eastern Europe</p>
-            </div>
+        <div class="circular-image-bubble bubble-1" id="bubble-1">
+            <img src="https://via.placeholder.com/150" alt="MUN Image 1">
         </div>
-
-        <div class="committee-card">
-            <img src="../picture_assets/i2.jpg" alt="UNHRC">
-            <div class="overlay">
-                <h2>UNHRC</h2>
-                <p>Agenda: Freedom of speech vs misinformation</p>
-            </div>
+        <div class="circular-image-bubble bubble-2" id="bubble-2">
+            <img src="https://via.placeholder.com/150" alt="MUN Image 2">
         </div>
-        <div class="committee-card">
-            <img src="../picture_assets/i1.jpg" alt="UNSC">
-            <div class="overlay">
-                <h2>UNSC</h2>
-                <p>Agenda: Addressing conflicts in Eastern Europe</p>
-            </div>
+        <div class="circular-image-bubble bubble-3" id="bubble-3">
+            <img src="https://via.placeholder.com/150" alt="MUN Image 3">
         </div>
-
-        <div class="committee-card">
-            <img src="../picture_assets/i2.jpg" alt="UNHRC">
-            <div class="overlay">
-                <h2>UNHRC</h2>
-                <p>Agenda: Freedom of speech vs misinformation</p>
-            </div>
-        </div>
-        <div class="committee-card">
-            <img src="../picture_assets/i1.jpg" alt="UNSC">
-            <div class="overlay">
-                <h2>UNSC</h2>
-                <p>Agenda: Addressing conflicts in Eastern Europe</p>
-            </div>
-        </div>
-
-        <div class="committee-card">
-            <img src="../picture_assets/i2.jpg" alt="UNHRC">
-            <div class="overlay">
-                <h2>UNHRC</h2>
-                <p>Agenda: Freedom of speech vs misinformation</p>
-            </div>
-        </div>
-        <div class="committee-card">
-            <img src="../picture_assets/i1.jpg" alt="UNSC">
-            <div class="overlay">
-                <h2>UNSC</h2>
-                <p>Agenda: Addressing conflicts in Eastern Europe</p>
-            </div>
-        </div>
-
-        <div class="committee-card">
-            <img src="../picture_assets/i2.jpg" alt="UNHRC">
-            <div class="overlay">
-                <h2>UNHRC</h2>
-                <p>Agenda: Freedom of speech vs misinformation</p>
-            </div>
-        </div>
-    </div>
-
-    <section class="contact-section">
-        <h2>Contact Us!</h2>
-        <div class="contact-links">
-            <a class="contact-link email" href="mailto:aryankrishnan4b@gmail.com" title="Email" target="_blank">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" width="28" height="28">
-                    <rect width="24" height="24" rx="6" fill="var(--accent-color)" />
-                    <path d="M6 8.5V16h12V8.5l-6 4.5-6-4.5zM18 7H6l6 4.5L18 7z" fill="var(--navy)" />
-                </svg>
-                Email us!
-            </a>
-            <a class="contact-link twitter" href="https://twitter.com/yourhandle" title="Twitter/X" target="_blank">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" width="28" height="28">
-                    <rect width="24" height="24" rx="6" fill="var(--dark-teal)" />
-                    <path d="M17.5 7.5l-7 9m0-9l7 9" stroke="var(--bg-color)" stroke-width="2" stroke-linecap="round" />
-                </svg>
-                Twitter/X
-            </a>
-            <a class="contact-link facebook" href="https://facebook.com/yourpage" title="Facebook" target="_blank">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" width="28" height="28">
-                    <rect width="24" height="24" rx="6" fill="var(--navy)" />
-                    <path d="M15.5 8.5H14V7.5c0-.4.3-.5.5-.5h1V5h-2c-1.1 0-2 .9-2 2v1.5H9v2h2V19h3v-5.5h2l.5-2z"
-                        fill="var(--accent-color)" />
-                </svg>
-                Facebook
-            </a>
-        </div>
-        <form class="email-signup" action="#" method="post">
-            <label for="newsletter-email">Subscribe to our newsletter:</label>
-            <input type="email" id="newsletter-email" name="newsletter-email" placeholder="Enter your email address"
-                required>
-            <button type="submit" class="subscribe-btn">Subscribe</button>
-        </form>
-        <p class="info-text">Receive the latest news and updates directly in your inbox.</p>
     </section>
-    <script src="script.js"></script>
-    <script src="../navbar/script.js"></script>
-    <script src="../theme_dropdown/script.js"></script>
-</body>
 
+    <!-- Info Cards Section -->
+    <section class="info-cards-section">
+        <div class="info-cards-container">
+            <div class="info-card">
+                <h3>Food Info</h3>
+                <p>Nutritious meals and refreshments will be provided throughout the conference to keep delegates energized and focused during sessions.</p>
+            </div>
+            <div class="info-card">
+                <h3>Accommodation Info</h3>
+                <p>Comfortable lodging options are available for out-of-town participants, with convenient transportation to the conference venue.</p>
+            </div>
+            <div class="info-card">
+                <h3>More Info</h3>
+                <p>Additional resources, schedules, and important updates will be shared with registered participants via email and our website.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="timeline-container">
+            <div class="timeline-header">
+                <h2>Conference Timeline</h2>
+            </div>
+            <div class="timeline-scroll">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">Day 1</div>
+                        <div class="timeline-event">Registration & Opening Ceremony</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Day 2</div>
+                        <div class="timeline-event">Committee Sessions Begin</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Day 3</div>
+                        <div class="timeline-event">Crisis Simulations</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Day 4</div>
+                        <div class="timeline-event">Final Resolutions</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Day 5</div>
+                        <div class="timeline-event">Closing Ceremony</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="faq-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What is the registration deadline?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Registration closes two weeks before the conference date. Early registration is recommended as spots are limited.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What should I bring to the conference?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Please bring formal business attire, notebooks, pens, and any research materials. All other conference materials will be provided.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is prior MUN experience required?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No prior experience is necessary. We welcome both novice and experienced delegates, with training sessions available for beginners.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How are committee assignments made?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Committee assignments are based on your preferences indicated during registration, experience level, and availability in each committee.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prizes Section -->
+    <section class="prizes-section">
+        <div class="prizes-container">
+            <div class="prizes-header">
+                <h2>Prizes</h2>
+            </div>
+            <div class="prize-card">
+                <h3>Best Delegate</h3>
+                <p>Awarded to the delegate who demonstrates exceptional diplomacy, leadership, and contribution to their committee's success.</p>
+            </div>
+            <div class="prize-card">
+                <h3>Outstanding Delegate</h3>
+                <p>Recognizes delegates who show remarkable debate skills, collaboration, and understanding of their country's position.</p>
+            </div>
+            <div class="prize-card">
+                <h3>Commendable Delegate</h3>
+                <p>Honors delegates who display good participation, research quality, and positive contribution to committee discussions.</p>
+            </div>
+            <div class="prize-card">
+                <h3>Special Mentions</h3>
+                <p>Acknowledges delegates who demonstrate unique insights, creativity, or significant improvement throughout the conference.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-content-wrapper">
+            <h2>Contact Us!</h2>
+            <div class="contact-links">
+                <a class="contact-link email" href="mailto:aryankrishnan4b@gmail.com" target="_blank">Email us!</a>
+                <a class="contact-link twitter" href="https://twitter.com/yourhandle" target="_blank">Twitter/X</a>
+                <a class="contact-link facebook" href="https://facebook.com/yourpage" target="_blank">Facebook</a>
+            </div>
+            <form class="email-signup" action="#" method="post">
+                <label for="newsletter-email">Subscribe to our newsletter:</label>
+                <input id="newsletter-email" name="newsletter-email" type="email" placeholder="Enter your email address" required>
+                <button type="submit" class="subscribe-btn">Subscribe</button>
+            </form>
+            <p class="info-text">Receive the latest news and updates directly in your inbox.</p>
+        </div>
+    </section>
+
+    <script>
+        // Initialize default theme
+        const root = document.documentElement;
+        
+        function setTheme(theme) {
+            if (theme === 'light') {
+                document.body.setAttribute('data-theme', 'light');
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+            }
+        }
+
+        // Navbar functionality from your reference code
+        const navbar = document.getElementById('navbar');
+        const sentinel = document.getElementById('sentinel');
+
+        new IntersectionObserver(
+            ([e]) => {
+                if (!e.isIntersecting) {
+                    navbar.classList.add('dock');
+                } else {
+                    navbar.classList.remove('dock');
+                }
+            },
+            { root: null, threshold: 0 }
+        ).observe(sentinel);
+
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburgerBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('hidden');
+        });
+
+        const pageTitle = document.getElementById('pageTitle');
+
+        const pageNameMap = {
+            'index.html': 'Home',
+            'about_us': 'About Us',
+            'committees': 'Committees',
+            'prizes': 'Prizes',
+            'register': 'Register',
+            'conference-details': 'Conference Details'
+        };
+
+        const path = window.location.pathname.toLowerCase();
+        for (const key in pageNameMap) {
+            if (path.includes(key)) {
+                pageTitle.textContent = pageNameMap[key];
+                break;
+            }
+        }
+
+        // FAQ functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all other FAQ items
+                    faqItems.forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                    });
+                    
+                    // Toggle current item
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+
+            // Initialize with dark theme
+            setTheme('dark');
+
+            // Floating bubbles animation
+            const circle1 = document.getElementById('bubble-1');
+            const circle2 = document.getElementById('bubble-2');
+            const circle3 = document.getElementById('bubble-3');
+
+            if (circle1 && circle2 && circle3) {
+                const initialTop1 = parseFloat(getComputedStyle(circle1).top);
+                const initialTop2 = parseFloat(getComputedStyle(circle2).top);
+                const initialTop3 = parseFloat(getComputedStyle(circle3).top);
+                
+                let angle1 = 0;
+                let angle2 = 0;
+                let angle3 = 0;
+                let delay = 0;
+                
+                function animate() {
+                    const bobAmount = 10;
+                    const bobSpeed = 0.040;
+                    
+                    const offsetY1 = Math.sin(angle1) * bobAmount;
+                    circle1.style.top = `${initialTop1 + offsetY1}px`;
+                    angle1 += bobSpeed;
+                    
+                    if (delay >= 0.3) {
+                        const offsetY2 = Math.sin(angle2) * bobAmount;
+                        circle2.style.top = `${initialTop2 + offsetY2}px`;
+                        angle2 += bobSpeed;
+                    }
+                    
+                    if (delay >= 0.6) {
+                        const offsetY3 = Math.sin(angle3) * bobAmount;
+                        circle3.style.top = `${initialTop3 + offsetY3}px`;
+                        angle3 += bobSpeed;
+                    }
+                    
+                    delay += bobSpeed;
+                    requestAnimationFrame(animate);
+                }
+                
+                animate();
+            }
+        });
+
+        // Timeline scroll behavior
+        const timelineScroll = document.querySelector('.timeline-scroll');
+        if (timelineScroll) {
+            timelineScroll.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                timelineScroll.scrollLeft += e.deltaY;
+            });
+        }
+    </script>
+</body>
 </html>
