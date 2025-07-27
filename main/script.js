@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    const countdownDate = new Date("October 26, 2025 09:00:00").getTime();
+    const countdownDate = new Date("September 19, 2025 09:00:00").getTime();
 
     const updateCountdown = setInterval(() => {
         const now = new Date().getTime();
