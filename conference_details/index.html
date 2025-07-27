@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,7 +56,12 @@
             transition: background-color 0.3s ease, border 0.3s ease;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             color: var(--text-color);
             margin-bottom: 0.5em;
         }
@@ -544,14 +550,86 @@
             --fadeneeded: true;
             --dark: false;
         }
+
+        .countdown-container {
+            height: 100vh;
+            background: radial-gradient(circle at center, #0f0f0f 40%, #000000 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            padding: 2rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .countdown-heading {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #00ffe1;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(0, 255, 225, 0.6), 0 0 30px rgba(0, 255, 225, 0.3);
+            animation: glowPulse 3s infinite ease-in-out;
+        }
+
+        @keyframes glowPulse {
+
+            0%,
+            100% {
+                text-shadow: 0 0 15px rgba(0, 255, 225, 0.6), 0 0 30px rgba(0, 255, 225, 0.3);
+            }
+
+            50% {
+                text-shadow: 0 0 25px rgba(0, 255, 225, 0.8), 0 0 40px rgba(0, 255, 225, 0.5);
+            }
+        }
+
+        .countdown-timer {
+            font-size: 3rem;
+            padding: 1.5rem 3rem;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            text-shadow: 0 0 10px #00ffe1;
+            animation: countFadeIn 1.5s ease-in;
+        }
+
+        @keyframes countFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
+
 <body>
     <div id="sentinel" class="sentinel" style="height:0px;"></div>
-    
+
     <!-- Theme Toggle Button -->
     <button id="themeToggle" aria-label="Toggle theme">🌙</button>
-    
+
     <header class="navbar" id="navbar">
         <div class="nav-inner" id="navInner">
             <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">☰</button>
@@ -566,8 +644,13 @@
             </ul>
         </div>
     </header>
+    <div class="countdown-container">
+        <h1 class="countdown-heading">Conference details revealed in...</h1>
+        <div id="countdown" class="countdown-timer">00d : 00h : 00m : 00s</div>
+            
+    </div>
 
-    <!-- Hero Section -->
+    <!-- Hero Section 
     <section class="hero-section">
         <div class="hero-content">
             <h1 style="text-align: center;">SEAMEI OAKMUN 2025</h1>
@@ -584,25 +667,28 @@
         </div>
     </section>
 
-    <!-- Info Cards Section -->
+    Info Cards Section 
     <section class="info-cards-section">
         <div class="info-cards-container">
             <div class="info-card">
                 <h3>Food Info</h3>
-                <p>Nutritious meals and refreshments will be provided throughout the conference to keep delegates energized and focused during sessions.</p>
+                <p>Nutritious meals and refreshments will be provided throughout the conference to keep delegates
+                    energized and focused during sessions.</p>
             </div>
             <div class="info-card">
                 <h3>Accommodation Info</h3>
-                <p>Comfortable lodging options are available for out-of-town participants, with convenient transportation to the conference venue.</p>
+                <p>Comfortable lodging options are available for out-of-town participants, with convenient
+                    transportation to the conference venue.</p>
             </div>
             <div class="info-card">
                 <h3>More Info</h3>
-                <p>Additional resources, schedules, and important updates will be shared with registered participants via email and our website.</p>
+                <p>Additional resources, schedules, and important updates will be shared with registered participants
+                    via email and our website.</p>
             </div>
         </div>
     </section>
 
-    <!-- Timeline Section -->
+    Timeline Section 
     <section class="timeline-section">
         <div class="timeline-container">
             <div class="timeline-header">
@@ -635,7 +721,7 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
+    FAQ Section 
     <section class="faq-section">
         <div class="faq-container">
             <div class="faq-header">
@@ -648,7 +734,8 @@
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Registration closes two weeks before the conference date. Early registration is recommended as spots are limited.</p>
+                        <p>Registration closes two weeks before the conference date. Early registration is recommended
+                            as spots are limited.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -657,7 +744,8 @@
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Please bring formal business attire, notebooks, pens, and any research materials. All other conference materials will be provided.</p>
+                        <p>Please bring formal business attire, notebooks, pens, and any research materials. All other
+                            conference materials will be provided.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -666,7 +754,8 @@
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>No prior experience is necessary. We welcome both novice and experienced delegates, with training sessions available for beginners.</p>
+                        <p>No prior experience is necessary. We welcome both novice and experienced delegates, with
+                            training sessions available for beginners.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -675,14 +764,15 @@
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Committee assignments are based on your preferences indicated during registration, experience level, and availability in each committee.</p>
+                        <p>Committee assignments are based on your preferences indicated during registration, experience
+                            level, and availability in each committee.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Prizes Section -->
+    Prizes Section 
     <section class="prizes-section">
         <div class="prizes-container">
             <div class="prizes-header">
@@ -690,71 +780,77 @@
             </div>
             <div class="prize-card">
                 <h3>Best Delegate</h3>
-                <p>Awarded to the delegate who demonstrates exceptional diplomacy, leadership, and contribution to their committee's success.</p>
+                <p>Awarded to the delegate who demonstrates exceptional diplomacy, leadership, and contribution to their
+                    committee's success.</p>
             </div>
             <div class="prize-card">
                 <h3>Outstanding Delegate</h3>
-                <p>Recognizes delegates who show remarkable debate skills, collaboration, and understanding of their country's position.</p>
+                <p>Recognizes delegates who show remarkable debate skills, collaboration, and understanding of their
+                    country's position.</p>
             </div>
             <div class="prize-card">
                 <h3>Commendable Delegate</h3>
-                <p>Honors delegates who display good participation, research quality, and positive contribution to committee discussions.</p>
+                <p>Honors delegates who display good participation, research quality, and positive contribution to
+                    committee discussions.</p>
             </div>
             <div class="prize-card">
                 <h3>Special Mentions</h3>
-                <p>Acknowledges delegates who demonstrate unique insights, creativity, or significant improvement throughout the conference.</p>
+                <p>Acknowledges delegates who demonstrate unique insights, creativity, or significant improvement
+                    throughout the conference.</p>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Contact Section -->
     <section class="contact-section" id="contact">
-  <div class="contact-content-wrapper">
-    <h2>Contact Us!</h2>
+        <div class="contact-content-wrapper">
+            <h2>Contact Us!</h2>
 
-    <!-- Quick-links row -->
-    <div class="contact-links">
-      <!-- Email -->
-      <a class="contact-link email" href="mailto:aryankrishnan4b@gmail.com" title="Email us" target="_blank">
-        <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
-          <rect width="24" height="24" rx="6" fill="" />
-          <path d="M6 8.5V16h12V8.5l-6 4.5-6-4.5zM18 7H6l6 4.5L18 7z" fill="var(--bg-color)" />
-        </svg>
-        Email us!
-      </a>
+            <!-- Quick-links row -->
+            <div class="contact-links">
+                <!-- Email -->
+                <a class="contact-link email" href="mailto:aryankrishnan4b@gmail.com" title="Email us" target="_blank">
+                    <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
+                        <rect width="24" height="24" rx="6" fill="" />
+                        <path d="M6 8.5V16h12V8.5l-6 4.5-6-4.5zM18 7H6l6 4.5L18 7z" fill="var(--bg-color)" />
+                    </svg>
+                    Email us!
+                </a>
 
-      <!-- Twitter -->
-      <a class="contact-link twitter" href="https://twitter.com/yourhandle" title="Twitter/X" target="_blank">
-        <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
-          <rect width="24" height="24" rx="6" fill="" />
-          <path d="M17.5 7.5l-7 9m0-9l7 9" stroke="var(--bg-color)" stroke-width="2" stroke-linecap="round" />
-        </svg>
-        Twitter/X
-      </a>
+                <!-- Twitter -->
+                <a class="contact-link twitter" href="https://twitter.com/yourhandle" title="Twitter/X" target="_blank">
+                    <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
+                        <rect width="24" height="24" rx="6" fill="" />
+                        <path d="M17.5 7.5l-7 9m0-9l7 9" stroke="var(--bg-color)" stroke-width="2"
+                            stroke-linecap="round" />
+                    </svg>
+                    Twitter/X
+                </a>
 
-      <!-- Facebook -->
-      <a class="contact-link facebook" href="https://facebook.com/yourpage" title="Facebook" target="_blank">
-        <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
-          <rect width="24" height="24" rx="6" fill="" />
-          <path d="M15.5 8.5H14V7.5c0-.4.3-.5.5-.5h1V5h-2c-1.1 0-2 .9-2 2v1.5H9v2h2V19h3v-5.5h2l.5-2z"
-                fill="var(--bg-color)" />
-        </svg>
-        Facebook
-      </a>
-    </div>
+                <!-- Facebook -->
+                <a class="contact-link facebook" href="https://facebook.com/yourpage" title="Facebook" target="_blank">
+                    <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
+                        <rect width="24" height="24" rx="6" fill="" />
+                        <path d="M15.5 8.5H14V7.5c0-.4.3-.5.5-.5h1V5h-2c-1.1 0-2 .9-2 2v1.5H9v2h2V19h3v-5.5h2l.5-2z"
+                            fill="var(--bg-color)" />
+                    </svg>
+                    Facebook
+                </a>
+            </div>
 
-    <!-- Newsletter signup -->
-    <form class="email-signup" action="#" method="post">
-      <label for="newsletter-email">Subscribe to our newsletter:</label>
-      <input id="newsletter-email" name="newsletter-email" type="email" placeholder="Enter your email address" required>
-      <button type="submit" class="subscribe-btn">Subscribe</button>
-    </form>
+            <!-- Newsletter signup -->
+            <form class="email-signup" action="#" method="post">
+                <label for="newsletter-email">Subscribe to our newsletter:</label>
+                <input id="newsletter-email" name="newsletter-email" type="email" placeholder="Enter your email address"
+                    required>
+                <button type="submit" class="subscribe-btn">Subscribe</button>
+            </form>
 
-    <p class="info-text">
-      Receive the latest news and updates directly in your inbox.
-    </p>
-  </div>
-</section>
+            <p class="info-text">
+                Receive the latest news and updates directly in your inbox.
+            </p>
+        </div>
+    </section>
 
 
     <script>
@@ -774,10 +870,10 @@
         }
 
         // Theme toggle functionality
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const themeToggle = document.getElementById('themeToggle');
-            
-            themeToggle.addEventListener('click', function() {
+
+            themeToggle.addEventListener('click', function () {
                 if (currentTheme === 'dark') {
                     setTheme('light');
                 } else {
@@ -790,7 +886,7 @@
         });
 
         // Navbar functionality
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const navbar = document.getElementById('navbar');
             const sentinel = document.getElementById('sentinel');
 
@@ -813,7 +909,7 @@
             const navMenu = document.getElementById('navMenu');
 
             if (hamburgerBtn && navMenu) {
-                hamburgerBtn.addEventListener('click', function() {
+                hamburgerBtn.addEventListener('click', function () {
                     navMenu.classList.toggle('hidden');
                 });
             }
@@ -834,7 +930,7 @@
             if (pageTitle) {
                 const path = window.location.pathname.toLowerCase();
                 let titleSet = false;
-                
+
                 for (const key in pageNameMap) {
                     if (path.includes(key)) {
                         pageTitle.textContent = pageNameMap[key];
@@ -842,7 +938,7 @@
                         break;
                     }
                 }
-                
+
                 if (!titleSet) {
                     pageTitle.textContent = 'SEAMEI MUN';
                 }
@@ -850,19 +946,19 @@
 
             // FAQ functionality
             const faqItems = document.querySelectorAll('.faq-item');
-            
+
             faqItems.forEach(item => {
                 const question = item.querySelector('.faq-question');
-                
+
                 if (question) {
                     question.addEventListener('click', () => {
                         const isActive = item.classList.contains('active');
-                        
+
                         // Close all other FAQ items
                         faqItems.forEach(otherItem => {
                             otherItem.classList.remove('active');
                         });
-                        
+
                         // Toggle current item
                         if (!isActive) {
                             item.classList.add('active');
@@ -887,36 +983,36 @@
                 const initialTop1 = getInitialTop(circle1);
                 const initialTop2 = getInitialTop(circle2);
                 const initialTop3 = getInitialTop(circle3);
-                
+
                 let angle1 = 0;
                 let angle2 = 0;
                 let angle3 = 0;
                 let delay = 0;
-                
+
                 function animate() {
                     const bobAmount = 10;
                     const bobSpeed = 0.040;
-                    
+
                     const offsetY1 = Math.sin(angle1) * bobAmount;
                     circle1.style.top = `calc(10% + ${offsetY1}px)`;
                     angle1 += bobSpeed;
-                    
+
                     if (delay >= 0.3) {
                         const offsetY2 = Math.sin(angle2) * bobAmount;
                         circle2.style.top = `calc(35% + ${offsetY2}px)`;
                         angle2 += bobSpeed;
                     }
-                    
+
                     if (delay >= 0.6) {
                         const offsetY3 = Math.sin(angle3) * bobAmount;
                         circle3.style.bottom = `calc(25% + ${-offsetY3}px)`;
                         angle3 += bobSpeed;
                     }
-                    
+
                     delay += bobSpeed;
                     requestAnimationFrame(animate);
                 }
-                
+
                 animate();
             }
 
@@ -930,11 +1026,11 @@
             }
 
             // Close mobile menu when clicking outside
-            document.addEventListener('click', function(event) {
+            document.addEventListener('click', function (event) {
                 const navMenu = document.getElementById('navMenu');
                 const hamburgerBtn = document.getElementById('hamburgerBtn');
                 const navbar = document.getElementById('navbar');
-                
+
                 if (navMenu && hamburgerBtn && navbar) {
                     if (!navbar.contains(event.target) && !navMenu.classList.contains('hidden')) {
                         navMenu.classList.add('hidden');
@@ -943,13 +1039,44 @@
             });
 
             // Close mobile menu when window is resized to desktop
-            window.addEventListener('resize', function() {
+            window.addEventListener('resize', function () {
                 const navMenu = document.getElementById('navMenu');
                 if (navMenu && window.innerWidth > 1000) {
                     navMenu.classList.remove('hidden');
                 }
             });
         });
+        const startTime = new Date("2025-08-11T24:00:00").getTime();
+
+        const countdownEnd = startTime + (
+            (12 * 24 * 60 * 60 * 1000) + // 12 days
+            (11 * 60 * 60 * 1000) +     // 11 hours
+            (10 * 60 * 1000) +          // 10 minutes
+            (9 * 1000)                  // 9 seconds
+        );
+
+        const countdownEl = document.getElementById("countdown");
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = countdownEnd - now;
+
+            if (distance <= 0) {
+                countdownEl.innerHTML = "🔥 The Committees Are Live 🔥";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            countdownEl.innerHTML =
+                `${days}d  : ${hours}h : ${minutes}m : ${seconds}s`;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
     </script>
 </body>
+
 </html>
