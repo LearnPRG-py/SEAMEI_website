@@ -13,6 +13,7 @@
     --text-color: ;
     --section-dark: ;
     --section-highlight-dark: ;
+    --shadow-color: color-mix(in srgb, var(--text-color) 5%, transparent);
 }
 
 body {
@@ -55,7 +56,7 @@ body {
     /* background-color: var(--bg-color); */
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 20px var(--shadow-color);
 }
 
 .mission-vision-text h2 {
@@ -75,7 +76,7 @@ body {
 .mission-vision-image img {
     max-width: 100%;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 30px var(--shadow-color);;
 }
 
 /* What is SEAMEI MUN */
@@ -110,7 +111,7 @@ body {
 .what-is-image img {
     max-width: 100%;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 30px var(--shadow-color);;
 }
 
 .benefits-section {
@@ -130,7 +131,7 @@ body {
     /* background-color: var(--bg-color); */
     border-radius: 20px;
     padding: 30px 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 25px var(--shadow-color);;
     transition: transform 0.3s ease;
 }
 
@@ -200,7 +201,7 @@ body {
 .profile-card:hover,
 .profile-card2:hover {
     transform: translateY(-12px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 12px 24px var(--shadow-color);
 }
 
 .profile-card-image,
@@ -273,7 +274,7 @@ body {
 .oakridge-image img {
     max-width: 100%;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 30px var(--shadow-color);;
 }
 
 section {
