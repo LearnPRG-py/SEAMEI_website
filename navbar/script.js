@@ -29,11 +29,3 @@ const pageNameMap = {
   'register': 'Register',
   'conference-details': 'Conference Details'
 };
-
-const path = window.location.pathname.toLowerCase();
-for (const key in pageNameMap) {
-  if (path.includes(key)) {
-    pageTitle.textContent = pageNameMap[key];
-    break;
-  }
-}

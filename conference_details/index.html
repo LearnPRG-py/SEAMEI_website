@@ -624,7 +624,7 @@
     <div id="sentinel" class="sentinel" style="height:0px;"></div>
 
     <!-- Theme Toggle Button -->
-    <button id="themeToggle" aria-label="Toggle theme">🌙</button>
+    <button id="themeToggle" aria-label="Toggle theme" style="display: none;">🌙</button>
 
     <header class="navbar" id="navbar">
         <div class="nav-inner" id="navInner">
@@ -795,14 +795,12 @@
         </div>
     </section> -->
 
-    <!-- Contact Section -->
+    <!--Contact Section
     <section class="contact-section" id="contact">
         <div class="contact-content-wrapper">
             <h2>Contact Us!</h2>
 
-            <!-- Quick-links row -->
             <div class="contact-links">
-                <!-- Email -->
                 <a class="contact-link email" href="mailto:aryankrishnan4b@gmail.com" title="Email us" target="_blank">
                     <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
                         <rect width="24" height="24" rx="6" fill="" />
@@ -811,7 +809,6 @@
                     Email us!
                 </a>
 
-                <!-- Twitter -->
                 <a class="contact-link twitter" href="https://twitter.com/yourhandle" title="Twitter/X" target="_blank">
                     <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
                         <rect width="24" height="24" rx="6" fill="" />
@@ -821,7 +818,7 @@
                     Twitter/X
                 </a>
 
-                <!-- Facebook -->
+
                 <a class="contact-link facebook" href="https://facebook.com/yourpage" title="Facebook" target="_blank">
                     <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
                         <rect width="24" height="24" rx="6" fill="" />
@@ -832,7 +829,7 @@
                 </a>
             </div>
 
-            <!-- Newsletter signup -->
+
             <form class="email-signup" action="#" method="post">
                 <label for="newsletter-email">Subscribe to our newsletter:</label>
                 <input id="newsletter-email" name="newsletter-email" type="email" placeholder="Enter your email address"
@@ -844,7 +841,7 @@
                 Receive the latest news and updates directly in your inbox.
             </p>
         </div>
-    </section>
+    </section>-->
 
 
     <script>
@@ -920,23 +917,6 @@
                 'conference_details': 'Conference Details',
                 'resources': 'Resources'
             };
-
-            if (pageTitle) {
-                const path = window.location.pathname.toLowerCase();
-                let titleSet = false;
-
-                for (const key in pageNameMap) {
-                    if (path.includes(key)) {
-                        pageTitle.textContent = pageNameMap[key];
-                        titleSet = true;
-                        break;
-                    }
-                }
-
-                if (!titleSet) {
-                    pageTitle.textContent = 'SEAMEI MUN';
-                }
-            }
 
             // FAQ functionality
             const faqItems = document.querySelectorAll('.faq-item');
@@ -1020,25 +1000,6 @@
             }
 
             // Close mobile menu when clicking outside
-            document.addEventListener('click', function (event) {
-                const navMenu = document.getElementById('navMenu');
-                const hamburgerBtn = document.getElementById('hamburgerBtn');
-                const navbar = document.getElementById('navbar');
-
-                if (navMenu && hamburgerBtn && navbar) {
-                    if (!navbar.contains(event.target) && !navMenu.classList.contains('hidden')) {
-                        navMenu.classList.add('hidden');
-                    }
-                }
-            });
-
-            // Close mobile menu when window is resized to desktop
-            window.addEventListener('resize', function () {
-                const navMenu = document.getElementById('navMenu');
-                if (navMenu && window.innerWidth > 1000) {
-                    navMenu.classList.remove('hidden');
-                }
-            });
         });
         const startTime = new Date("2025-08-11T24:00:00").getTime();
 
