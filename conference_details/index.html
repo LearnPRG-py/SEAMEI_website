@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +7,6 @@
     <link rel="stylesheet" href="../navbar/styles.css">
     <link rel="stylesheet" href="../contact_us/styles.css">
     <link rel="stylesheet" href="../theme_dropdown/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -26,157 +24,7 @@
             --cl-color: ;
         }
 
-        .sentinel {
-            height: 0;
-            width: 0;
-        }
-
-        .navbar {
-            height: 70px;
-            position: relative;
-            z-index: 1000;
-        }
-
-        .nav-inner {
-            position: fixed;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            height: 60px;
-            background-color: var(--sec-bg);
-            padding: 0 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.4s ease;
-            box-shadow: none;
-        }
-
-        .navbar.dock .nav-inner {
-            top: 15px;
-            width: 46%;
-            min-width: fit-content;
-            height: 60px;
-            padding: 0 1.5rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            border-radius: 999px;
-            transform: translateX(-50%) scale(1);
-        }
-
-        /* Default: full navbar */
-        .nav-menu {
-            display: flex;
-            flex-direction: row;
-            gap: 2rem;
-            align-items: center;
-            list-style: none;
-        }
-
-        .nav-inner a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .nav-inner a:hover {
-            color: #30cdd7;
-        }
-
-        /* Hide hamburger and page title by default */
-        .hamburger,
-        .page-title {
-            display: none;
-        }
-
-        /* MOBILE MODE */
-        @media (max-width: 1000px) {
-            .hamburger {
-                display: block;
-                font-size: 1.5rem;
-                background: none;
-                border: none;
-                color: #fff;
-                cursor: pointer;
-                z-index: 1001;
-            }
-
-            .page-title {
-                display: block;
-                color: #fff;
-                font-size: 1.1rem;
-                font-weight: 600;
-                margin-left: 0.75rem;
-                flex: 1;
-                text-align: center;
-            }
-
-            .nav-inner {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            .nav-menu {
-                position: absolute;
-                top: 70px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 90%;
-                background-color: var(--sec-bg);
-                flex-direction: column;
-                display: flex;
-                gap: 1rem;
-                padding: 1rem 1.5rem;
-                border-radius: 1rem;
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-                text-align: center;
-                z-index: 999;
-            }
-
-            .nav-menu.hidden {
-                display: none;
-            }
-
-            .nav-inner ul {
-                gap: 1rem;
-                padding: 0;
-            }
-
-            .nav-inner a {
-                font-size: 1rem;
-                padding: 0.5rem 0;
-            }
-        }
-
-        /* Theme Toggle Button */
-        #themeToggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: none;
-            background: var(--sec-bg);
-            color: var(--text-color);
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 1002;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #themeToggle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-        }
-
         body {
-            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
             background-color: var(--bg-color);
             color: var(--text-color);
@@ -207,12 +55,7 @@
             transition: background-color 0.3s ease, border 0.3s ease;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
+        h1, h2, h3, h4, h5, h6 {
             color: var(--text-color);
             margin-bottom: 0.5em;
         }
@@ -557,99 +400,6 @@
             opacity: 0.8;
         }
 
-        /* Contact Section Styles */
-        .contact-section {
-            background-color: var(--bg-color);
-            padding: 80px 20px;
-            text-align: center;
-            border-top: 2px solid var(--sec-bg);
-        }
-
-        .contact-section h2 {
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            color: var(--text-color);
-        }
-
-        .contact-content-wrapper {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            padding: 10px 20px;
-            border: 2px solid var(--sec-bg);
-            border-radius: 8px;
-            background-color: var(--tert-bg);
-            transition: background-color 0.3s ease;
-        }
-
-        .contact-link:hover {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-        }
-
-        .contact-link .icon {
-            width: 24px;
-            height: 24px;
-            fill: var(--text-color);
-        }
-
-        .email-signup {
-            margin-top: 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .email-signup input[type="email"] {
-            padding: 10px 15px;
-            width: 100%;
-            max-width: 400px;
-            border: 2px solid var(--sec-bg);
-            border-radius: 6px;
-            font-size: 1rem;
-            background-color: var(--tert-bg);
-            color: var(--text-color);
-        }
-
-        .subscribe-btn {
-            background-color: var(--accent-color);
-            color: var(--text-color);
-            padding: 10px 25px;
-            font-size: 1rem;
-            font-weight: bold;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .subscribe-btn:hover {
-            background-color: var(--sec-accent-color);
-        }
-
-        .info-text {
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            color: var(--text-color);
-        }
 
         @media (max-width: 1700px) {
             .bubble-3 {
@@ -796,13 +546,12 @@
         }
     </style>
 </head>
-
 <body>
     <div id="sentinel" class="sentinel" style="height:0px;"></div>
-
+    
     <!-- Theme Toggle Button -->
     <button id="themeToggle" aria-label="Toggle theme">🌙</button>
-
+    
     <header class="navbar" id="navbar">
         <div class="nav-inner" id="navInner">
             <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">☰</button>
@@ -841,18 +590,15 @@
         <div class="info-cards-container">
             <div class="info-card">
                 <h3>Food Info</h3>
-                <p>Nutritious meals and refreshments will be provided throughout the conference to keep delegates
-                    energized and focused during sessions.</p>
+                <p>Nutritious meals and refreshments will be provided throughout the conference to keep delegates energized and focused during sessions.</p>
             </div>
             <div class="info-card">
                 <h3>Accommodation Info</h3>
-                <p>Comfortable lodging options are available for out-of-town participants, with convenient
-                    transportation to the conference venue.</p>
+                <p>Comfortable lodging options are available for out-of-town participants, with convenient transportation to the conference venue.</p>
             </div>
             <div class="info-card">
                 <h3>More Info</h3>
-                <p>Additional resources, schedules, and important updates will be shared with registered participants
-                    via email and our website.</p>
+                <p>Additional resources, schedules, and important updates will be shared with registered participants via email and our website.</p>
             </div>
         </div>
     </section>
@@ -903,8 +649,7 @@
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Registration closes two weeks before the conference date. Early registration is recommended
-                            as spots are limited.</p>
+                        <p>Registration closes two weeks before the conference date. Early registration is recommended as spots are limited.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -913,8 +658,7 @@
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Please bring formal business attire, notebooks, pens, and any research materials. All other
-                            conference materials will be provided.</p>
+                        <p>Please bring formal business attire, notebooks, pens, and any research materials. All other conference materials will be provided.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -923,8 +667,7 @@
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>No prior experience is necessary. We welcome both novice and experienced delegates, with
-                            training sessions available for beginners.</p>
+                        <p>No prior experience is necessary. We welcome both novice and experienced delegates, with training sessions available for beginners.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -933,8 +676,7 @@
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Committee assignments are based on your preferences indicated during registration, experience
-                            level, and availability in each committee.</p>
+                        <p>Committee assignments are based on your preferences indicated during registration, experience level, and availability in each committee.</p>
                     </div>
                 </div>
             </div>
@@ -949,77 +691,71 @@
             </div>
             <div class="prize-card">
                 <h3>Best Delegate</h3>
-                <p>Awarded to the delegate who demonstrates exceptional diplomacy, leadership, and contribution to their
-                    committee's success.</p>
+                <p>Awarded to the delegate who demonstrates exceptional diplomacy, leadership, and contribution to their committee's success.</p>
             </div>
             <div class="prize-card">
                 <h3>Outstanding Delegate</h3>
-                <p>Recognizes delegates who show remarkable debate skills, collaboration, and understanding of their
-                    country's position.</p>
+                <p>Recognizes delegates who show remarkable debate skills, collaboration, and understanding of their country's position.</p>
             </div>
             <div class="prize-card">
                 <h3>Commendable Delegate</h3>
-                <p>Honors delegates who display good participation, research quality, and positive contribution to
-                    committee discussions.</p>
+                <p>Honors delegates who display good participation, research quality, and positive contribution to committee discussions.</p>
             </div>
             <div class="prize-card">
                 <h3>Special Mentions</h3>
-                <p>Acknowledges delegates who demonstrate unique insights, creativity, or significant improvement
-                    throughout the conference.</p>
+                <p>Acknowledges delegates who demonstrate unique insights, creativity, or significant improvement throughout the conference.</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact-section" id="contact">
-        <div class="contact-content-wrapper">
-            <h2>Contact Us!</h2>
+  <div class="contact-content-wrapper">
+    <h2>Contact Us!</h2>
 
-            <!-- Quick-links row -->
-            <div class="contact-links">
-                <!-- Email -->
-                <a class="contact-link email" href="mailto:aryankrishnan4b@gmail.com" title="Email us" target="_blank">
-                    <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
-                        <rect width="24" height="24" rx="6" fill="" />
-                        <path d="M6 8.5V16h12V8.5l-6 4.5-6-4.5zM18 7H6l6 4.5L18 7z" fill="var(--bg-color)" />
-                    </svg>
-                    Email us!
-                </a>
+    <!-- Quick-links row -->
+    <div class="contact-links">
+      <!-- Email -->
+      <a class="contact-link email" href="mailto:aryankrishnan4b@gmail.com" title="Email us" target="_blank">
+        <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
+          <rect width="24" height="24" rx="6" fill="" />
+          <path d="M6 8.5V16h12V8.5l-6 4.5-6-4.5zM18 7H6l6 4.5L18 7z" fill="var(--bg-color)" />
+        </svg>
+        Email us!
+      </a>
 
-                <!-- Twitter -->
-                <a class="contact-link twitter" href="https://twitter.com/yourhandle" title="Twitter/X" target="_blank">
-                    <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
-                        <rect width="24" height="24" rx="6" fill="" />
-                        <path d="M17.5 7.5l-7 9m0-9l7 9" stroke="var(--bg-color)" stroke-width="2"
-                            stroke-linecap="round" />
-                    </svg>
-                    Twitter/X
-                </a>
+      <!-- Twitter -->
+      <a class="contact-link twitter" href="https://twitter.com/yourhandle" title="Twitter/X" target="_blank">
+        <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
+          <rect width="24" height="24" rx="6" fill="" />
+          <path d="M17.5 7.5l-7 9m0-9l7 9" stroke="var(--bg-color)" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        Twitter/X
+      </a>
 
-                <!-- Facebook -->
-                <a class="contact-link facebook" href="https://facebook.com/yourpage" title="Facebook" target="_blank">
-                    <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
-                        <rect width="24" height="24" rx="6" fill="" />
-                        <path d="M15.5 8.5H14V7.5c0-.4.3-.5.5-.5h1V5h-2c-1.1 0-2 .9-2 2v1.5H9v2h2V19h3v-5.5h2l.5-2z"
-                            fill="var(--bg-color)" />
-                    </svg>
-                    Facebook
-                </a>
-            </div>
+      <!-- Facebook -->
+      <a class="contact-link facebook" href="https://facebook.com/yourpage" title="Facebook" target="_blank">
+        <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
+          <rect width="24" height="24" rx="6" fill="" />
+          <path d="M15.5 8.5H14V7.5c0-.4.3-.5.5-.5h1V5h-2c-1.1 0-2 .9-2 2v1.5H9v2h2V19h3v-5.5h2l.5-2z"
+                fill="var(--bg-color)" />
+        </svg>
+        Facebook
+      </a>
+    </div>
 
-            <!-- Newsletter signup -->
-            <form class="email-signup" action="#" method="post">
-                <label for="newsletter-email">Subscribe to our newsletter:</label>
-                <input id="newsletter-email" name="newsletter-email" type="email" placeholder="Enter your email address"
-                    required>
-                <button type="submit" class="subscribe-btn">Subscribe</button>
-            </form>
+    <!-- Newsletter signup -->
+    <form class="email-signup" action="#" method="post">
+      <label for="newsletter-email">Subscribe to our newsletter:</label>
+      <input id="newsletter-email" name="newsletter-email" type="email" placeholder="Enter your email address" required>
+      <button type="submit" class="subscribe-btn">Subscribe</button>
+    </form>
 
-            <p class="info-text">
-                Receive the latest news and updates directly in your inbox.
-            </p>
-        </div>
-    </section>
+    <p class="info-text">
+      Receive the latest news and updates directly in your inbox.
+    </p>
+  </div>
+</section>
 
 
     <script>
@@ -1039,10 +775,10 @@
         }
 
         // Theme toggle functionality
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const themeToggle = document.getElementById('themeToggle');
-
-            themeToggle.addEventListener('click', function () {
+            
+            themeToggle.addEventListener('click', function() {
                 if (currentTheme === 'dark') {
                     setTheme('light');
                 } else {
@@ -1055,7 +791,7 @@
         });
 
         // Navbar functionality
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const navbar = document.getElementById('navbar');
             const sentinel = document.getElementById('sentinel');
 
@@ -1078,7 +814,7 @@
             const navMenu = document.getElementById('navMenu');
 
             if (hamburgerBtn && navMenu) {
-                hamburgerBtn.addEventListener('click', function () {
+                hamburgerBtn.addEventListener('click', function() {
                     navMenu.classList.toggle('hidden');
                 });
             }
@@ -1099,7 +835,7 @@
             if (pageTitle) {
                 const path = window.location.pathname.toLowerCase();
                 let titleSet = false;
-
+                
                 for (const key in pageNameMap) {
                     if (path.includes(key)) {
                         pageTitle.textContent = pageNameMap[key];
@@ -1107,7 +843,7 @@
                         break;
                     }
                 }
-
+                
                 if (!titleSet) {
                     pageTitle.textContent = 'SEAMEI MUN';
                 }
@@ -1115,19 +851,19 @@
 
             // FAQ functionality
             const faqItems = document.querySelectorAll('.faq-item');
-
+            
             faqItems.forEach(item => {
                 const question = item.querySelector('.faq-question');
-
+                
                 if (question) {
                     question.addEventListener('click', () => {
                         const isActive = item.classList.contains('active');
-
+                        
                         // Close all other FAQ items
                         faqItems.forEach(otherItem => {
                             otherItem.classList.remove('active');
                         });
-
+                        
                         // Toggle current item
                         if (!isActive) {
                             item.classList.add('active');
@@ -1152,36 +888,36 @@
                 const initialTop1 = getInitialTop(circle1);
                 const initialTop2 = getInitialTop(circle2);
                 const initialTop3 = getInitialTop(circle3);
-
+                
                 let angle1 = 0;
                 let angle2 = 0;
                 let angle3 = 0;
                 let delay = 0;
-
+                
                 function animate() {
                     const bobAmount = 10;
                     const bobSpeed = 0.040;
-
+                    
                     const offsetY1 = Math.sin(angle1) * bobAmount;
                     circle1.style.top = `calc(10% + ${offsetY1}px)`;
                     angle1 += bobSpeed;
-
+                    
                     if (delay >= 0.3) {
                         const offsetY2 = Math.sin(angle2) * bobAmount;
                         circle2.style.top = `calc(35% + ${offsetY2}px)`;
                         angle2 += bobSpeed;
                     }
-
+                    
                     if (delay >= 0.6) {
                         const offsetY3 = Math.sin(angle3) * bobAmount;
                         circle3.style.bottom = `calc(25% + ${-offsetY3}px)`;
                         angle3 += bobSpeed;
                     }
-
+                    
                     delay += bobSpeed;
                     requestAnimationFrame(animate);
                 }
-
+                
                 animate();
             }
 
@@ -1195,11 +931,11 @@
             }
 
             // Close mobile menu when clicking outside
-            document.addEventListener('click', function (event) {
+            document.addEventListener('click', function(event) {
                 const navMenu = document.getElementById('navMenu');
                 const hamburgerBtn = document.getElementById('hamburgerBtn');
                 const navbar = document.getElementById('navbar');
-
+                
                 if (navMenu && hamburgerBtn && navbar) {
                     if (!navbar.contains(event.target) && !navMenu.classList.contains('hidden')) {
                         navMenu.classList.add('hidden');
@@ -1208,7 +944,7 @@
             });
 
             // Close mobile menu when window is resized to desktop
-            window.addEventListener('resize', function () {
+            window.addEventListener('resize', function() {
                 const navMenu = document.getElementById('navMenu');
                 if (navMenu && window.innerWidth > 1000) {
                     navMenu.classList.remove('hidden');
@@ -1217,5 +953,4 @@
         });
     </script>
 </body>
-
 </html>
