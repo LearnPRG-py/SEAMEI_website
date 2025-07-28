@@ -76,7 +76,8 @@ body {
 .mission-vision-image img {
     max-width: 100%;
     border-radius: 12px;
-    box-shadow: 0 10px 30px var(--shadow-color);;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    ;
 }
 
 /* What is SEAMEI MUN */
@@ -111,7 +112,8 @@ body {
 .what-is-image img {
     max-width: 100%;
     border-radius: 12px;
-    box-shadow: 0 10px 30px var(--shadow-color);;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    ;
 }
 
 .benefits-section {
@@ -131,7 +133,8 @@ body {
     /* background-color: var(--bg-color); */
     border-radius: 20px;
     padding: 30px 20px;
-    box-shadow: 0 10px 25px var(--shadow-color);;
+    box-shadow: 0 10px 25px var(--shadow-color);
+    ;
     transition: transform 0.3s ease;
 }
 
@@ -274,7 +277,8 @@ body {
 .oakridge-image img {
     max-width: 100%;
     border-radius: 15px;
-    box-shadow: 0 10px 30px var(--shadow-color);;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    ;
 }
 
 section {
@@ -304,4 +308,33 @@ section {
 
 .about-us-section {
     background-color: var(--section-dark);
+}
+
+.what-is-content {
+    display: flex;
+    align-items: center;
+    /* vertically align image and text */
+    gap: 40px;
+}
+
+.what-is-text {
+    flex: 1.5;
+    min-width: 300px;
+    font-size: 1.2em;
+    line-height: 1.8;
+    text-align: justify;
+    /* makes text wrap neatly */
+}
+
+.what-is-image {
+    flex: 1;
+    max-width: 400px;
+    /* prevents image from being too large */
+}
+
+.what-is-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px var(--shadow-color);
 }
