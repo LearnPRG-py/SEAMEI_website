@@ -71,7 +71,7 @@ body {
 
 .update-card p {
     margin-bottom: 0.5rem;
-    color: #444;
+    color: var(--text-color);
 }
 
 .update-card .time {

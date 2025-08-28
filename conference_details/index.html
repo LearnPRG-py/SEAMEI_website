@@ -1,1037 +1,410 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conference Details</title>
-    <link rel="stylesheet" href="../navbar/styles.css">
-    <link rel="stylesheet" href="../contact_us/styles.css">
-    <link rel="stylesheet" href="../theme_dropdown/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bg-color: ;
-            --sec-bg: ;
-            --accent-color: ;
-            --sec-accent-color: ;
-            --tert-bg: ;
-            --text-color: ;
-            --cl-color: ;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            overflow-x: hidden;
-        }
-
-        .theme-dropdown {
-            position: absolute;
-            top: 60px;
-            right: 0vh;
-            padding: 5px 30px 5px 10px;
-            font-size: 0.8rem;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            border: 1px solid var(--bg-color);
-            border-radius: 5px;
-            z-index: 3;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            outline: none;
-            box-shadow: none;
-            background-image: url("data:image/svg+xml;utf8,<svg fill='%23ccc' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
-            background-repeat: no-repeat;
-            background-position: right 8px center;
-            background-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, border 0.3s ease;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            color: var(--text-color);
-            margin-bottom: 0.5em;
-        }
-
-        p {
-            color: var(--text-color);
-            margin-bottom: 1em;
-        }
-
-        .container {
-            max-width: 90%;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        section:not(.hero-section):not(.hero-sectionxx) {
-            border-top: 2px solid var(--sec-bg);
-        }
-
-        section {
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        /* Hero Section */
-        .hero-section {
-            position: relative;
-            padding: 100px 20px;
-            background-color: var(--bg-color);
-            display: block;
-            margin-left: 3%;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 550px;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            max-width: 900px;
-            text-align: left;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-content h1 {
-            margin-top: 7%;
-            font-size: clamp(2.5rem, 5vw, 5em);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            color: var(--text-color);
-            letter-spacing: -0.02em;
-        }
-
-        .hero-content p {
-            font-size: clamp(1.1rem, 2.5vw, 1.625em);
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 60px;
-            color: var(--text-color);
-            opacity: 0.8;
-            font-weight: 400;
-        }
-
-        .circular-image-bubble {
-            border-radius: 50%;
-            overflow: hidden;
-            border: 4px solid var(--sec-bg);
-            background-color: var(--tert-bg);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-shrink: 0;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease;
-            position: absolute;
-            z-index: 1;
-        }
-
-        .circular-image-bubble:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
-            border-color: var(--accent-color);
-        }
-
-        .circular-image-bubble img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .bubble-1 {
-            width: 8vw;
-            height: 8vw;
-            top: 10%;
-            right: 25%;
-        }
-
-        .bubble-2 {
-            width: 16vw;
-            height: 16vw;
-            top: 35%;
-            right: 5%;
-        }
-
-        .bubble-3 {
-            width: 17vw;
-            height: 17vw;
-            bottom: 25%;
-            left: 65%;
-        }
-
-        /* Info Cards Section */
-        .info-cards-section {
-            padding: 60px 20px;
-            background-color: var(--bg-color);
-        }
-
-        .info-cards-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .info-card {
-            background-color: var(--tert-bg);
-            padding: 40px 30px;
-            border-radius: 12px;
-            text-align: center;
-            transition: transform 0.2s ease;
-        }
-
-        .info-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .info-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: var(--text-color);
-        }
-
-        .info-card p {
-            font-size: 1rem;
-            color: var(--text-color);
-            opacity: 0.8;
-        }
-
-        /* Timeline Section */
-        .timeline-section {
-            padding: 80px 20px;
-            background-color: var(--bg-color);
-        }
-
-        .timeline-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .timeline-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .timeline-header h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--text-color);
-            margin-bottom: 15px;
-        }
-
-        .timeline-scroll {
-            overflow-x: auto;
-            padding: 20px 0;
-        }
-
-        .timeline {
-            display: flex;
-            gap: 40px;
-            min-width: max-content;
-            padding: 20px;
-        }
-
-        .timeline-item {
-            background: var(--tert-bg);
-            border-radius: 12px;
-            padding: 30px 25px;
-            min-width: 250px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            border-left: 4px solid var(--accent-color);
-            transition: transform 0.2s ease;
-        }
-
-        .timeline-item:hover {
-            transform: translateY(-3px);
-        }
-
-        .timeline-date {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--accent-color);
-            margin-bottom: 10px;
-        }
-
-        .timeline-event {
-            font-size: 1rem;
-            color: var(--text-color);
-            font-weight: 500;
-        }
-
-        /* FAQ Section */
-        .faq-section {
-            padding: 80px 20px;
-            background-color: var(--bg-color);
-        }
-
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .faq-header h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--text-color);
-            margin-bottom: 15px;
-        }
-
-        .faq-item {
-            background: var(--tert-bg);
-            border-radius: 8px;
-            margin-bottom: 15px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .faq-question {
-            background: none;
-            border: none;
-            width: 100%;
-            padding: 25px 30px;
-            text-align: left;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-color);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background 0.2s ease;
-        }
-
-        .faq-question:hover {
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .faq-icon {
-            font-size: 1.2rem;
-            transition: transform 0.2s ease;
-        }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            padding: 0 30px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-
-        .faq-item.active .faq-answer {
-            padding: 0 30px 25px;
-            max-height: 200px;
-        }
-
-        .faq-answer p {
-            color: var(--text-color);
-            opacity: 0.8;
-            line-height: 1.6;
-        }
-
-        /* Prizes Section */
-        .prizes-section {
-            padding: 80px 20px;
-            background-color: var(--bg-color);
-        }
-
-        .prizes-container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .prizes-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .prizes-header h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--text-color);
-            margin-bottom: 15px;
-        }
-
-        .prize-card {
-            background: var(--tert-bg);
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 20px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            border-left: 4px solid var(--accent-color);
-            transition: transform 0.2s ease;
-        }
-
-        .prize-card:hover {
-            transform: translateY(-3px);
-        }
-
-        .prize-card h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--text-color);
-            margin-bottom: 10px;
-        }
-
-        .prize-card p {
-            color: var(--text-color);
-            opacity: 0.8;
-        }
-
-
-        @media (max-width: 1700px) {
-            .bubble-3 {
-                left: 60%;
-            }
-        }
-
-        @media (max-width: 1200px) {
-            .bubble-1 {
-                display: none;
-            }
-
-            .bubble-2 {
-                display: none;
-            }
-
-            .bubble-3 {
-                left: 75%;
-                top: 30%;
-            }
-        }
-
-        @media (max-width: 1100px) {
-            .bubble-3 {
-                display: none;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-section {
-                min-height: 450px;
-                padding: 60px 15px;
-                margin-left: 0;
-                text-align: center;
-            }
-
-            .hero-content {
-                text-align: center;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5em;
-                margin-top: 0;
-            }
-
-            .hero-content p {
-                font-size: 1.1em;
-                margin-bottom: 30px;
-            }
-
-            .bubble-1,
-            .bubble-2,
-            .bubble-3 {
-                display: none;
-            }
-
-            .info-cards-container {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .timeline {
-                gap: 20px;
-            }
-
-            .timeline-item {
-                min-width: 220px;
-                padding: 25px 20px;
-            }
-
-            .faq-question {
-                padding: 20px 25px;
-                font-size: 1rem;
-            }
-
-            .faq-answer {
-                padding: 0 25px;
-            }
-
-            .faq-item.active .faq-answer {
-                padding: 0 25px 20px;
-            }
-
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .email-signup {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .email-signup input {
-                min-width: 200px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-section {
-                min-height: 400px;
-                padding: 40px 10px;
-            }
-
-            .hero-content h1 {
-                font-size: 2em;
-            }
-
-            .hero-content p {
-                font-size: 1em;
-                margin-bottom: 20px;
-            }
-
-            .bubble-1,
-            .bubble-2,
-            .bubble-3 {
-                display: none;
-            }
-        }
-
-        /* Theme Toggle Styles */
-        [data-theme="dark"] {
-            --bg-color: rgb(0, 0, 0);
-            --sec-bg: rgb(53, 53, 53);
-            --accent-color: #1E96A5;
-            --sec-accent-color: #FFCB00;
-            --tert-bg: #002F52;
-            --text-color: #F7F2EC;
-            --cl-color: rgb(250, 245, 237);
-            --fadeneeded: false;
-            --dark: true;
-        }
-
-        [data-theme="light"] {
-            --bg-color: rgb(250, 245, 237);
-            --sec-bg: rgb(0, 48, 87);
-            --accent-color: rgb(30, 150, 165);
-            --sec-accent-color: rgb(255, 203, 0);
-            --tert-bg: rgb(180, 235, 245);
-            --text-color: black;
-            --cl-color: rgb(0, 48, 87);
-            --fadeneeded: true;
-            --dark: false;
-        }
-
-        .countdown-container {
-            height: 100vh;
-            background: radial-gradient(circle at center, #0f0f0f 40%, #000000 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: #ffffff;
-            font-family: 'Montserrat', sans-serif;
-            text-align: center;
-            padding: 2rem;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .countdown-heading {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        @keyframes glowPulse {
-
-            0%,
-            100% {
-                text-shadow: 0 0 15px rgba(0, 255, 225, 0.6), 0 0 30px rgba(0, 255, 225, 0.3);
-            }
-
-            50% {
-                text-shadow: 0 0 25px rgba(0, 255, 225, 0.8), 0 0 40px rgba(0, 255, 225, 0.5);
-            }
-        }
-
-        .countdown-timer {
-            font-size: 3rem;
-            padding: 1.5rem 3rem;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #ffffff;
-
-        }
-
-        @keyframes countFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conference Details</title>
+<link rel="stylesheet" href="../navbar/styles.css">
+  <link rel="stylesheet" href="../contact_us/styles.css" />
+  <link rel="stylesheet" href="../theme_dropdown/styles.css" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{--bg-color:;--sec-bg:;--accent-color:;--sec-accent-color:;--tert-bg:;--text-color:;--cl-color:}
+    body{background-color:var(--bg-color);color:var(--text-color);overflow-x:hidden}
+    .theme-dropdown{position:absolute;top:60px;right:0vh;padding:5px 30px 5px 10px;font-size:.8rem;background-color:var(--bg-color);color:var(--text-color);border:1px solid var(--bg-color);border-radius:5px;z-index:3;appearance:none;-webkit-appearance:none;-moz-appearance:none;outline:none;box-shadow:none;background-image:url("data:image/svg+xml;utf8,<svg fill='%23ccc' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");background-repeat:no-repeat;background-position:right 8px center;background-size:16px;cursor:pointer;transition:background-color .3s ease,border .3s ease}
+    h1,h2,h3,h4,h5,h6{color:var(--text-color);margin-bottom:.5em}
+    p{color:var(--text-color);margin-bottom:1em}
+    .container{max-width:90%;margin:0 auto;padding:20px}
+    section:not(.hero-section):not(.hero-sectionxx){border-top:2px solid var(--sec-bg)}
+    section{padding:80px 0;text-align:center}
+    /* Hero */
+    .hero-section{position:relative;padding:100px 20px;background-color:var(--bg-color);display:block;margin-left:3%;justify-content:center;align-items:flex-start;min-height:550px;overflow:hidden}
+    .hero-content{max-width:900px;text-align:left;position:relative;z-index:2}
+    .hero-content h1{margin-top:7%;font-size:clamp(2.5rem,5vw,5em);font-weight:700;line-height:1.1;margin-bottom:20px;color:var(--text-color);letter-spacing:-.02em}
+    .hero-content p{font-size:clamp(1.1rem,2.5vw,1.625em);max-width:700px;margin-left:auto;margin-right:auto;margin-bottom:60px;color:var(--text-color);opacity:.8;font-weight:400}
+    .circular-image-bubble{border-radius:50%;overflow:hidden;border:4px solid var(--sec-bg);background-color:var(--tert-bg);box-shadow:0 8px 20px rgba(0,0,0,.15);display:flex;justify-content:center;align-items:center;flex-shrink:0;transition:transform .3s ease-in-out,box-shadow .3s ease-in-out,border-color .3s ease;position:absolute;z-index:1}
+    .circular-image-bubble:hover{transform:translateY(-8px);box-shadow:0 12px 25px rgba(0,0,0,.2);border-color:var(--accent-color)}
+    .circular-image-bubble img{width:100%;height:100%;object-fit:cover;display:block}
+    .bubble-1{width:8vw;height:8vw;top:10%;right:25%}
+    .bubble-2{width:16vw;height:16vw;top:35%;right:5%}
+    .bubble-3{width:17vw;height:17vw;bottom:25%;left:65%}
+    /* Info cards */
+    .info-cards-section{padding:60px 20px;background-color:var(--bg-color)}
+    .info-cards-container{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
+    .info-card{background-color:var(--tert-bg);padding:40px 30px;border-radius:12px;text-align:center;transition:transform .2s ease}
+    .info-card:hover{transform:translateY(-5px)}
+    .info-card h3{font-size:1.5rem;font-weight:600;margin-bottom:15px;color:var(--text-color)}
+    .info-card p{font-size:1rem;color:var(--text-color);opacity:.8}
+    /* NEW: Schedule (self-contained, non-intrusive) */
+    .schedule-section{padding:80px 20px;background-color:var(--bg-color)}
+    .schedule-wrap{max-width:900px;margin:0 auto;text-align:left}
+    .schedule-section h2{font-size:2.2rem;font-weight:700;margin-bottom:10px}
+    .schedule-note{opacity:.8;margin-bottom:25px}
+    .schedule-day{background:var(--tert-bg);border-left:4px solid var(--accent-color);border-radius:12px;padding:24px;margin-bottom:24px}
+    .schedule-day h3{margin-bottom:12px;font-size:1.25rem}
+    .schedule-list{list-style:disc;padding-left:1.25rem}
+    .schedule-list li{margin:8px 0;color:var(--text-color)}
+    .schedule-time{font-weight:700}
+    /* Timeline */
+    .timeline-section{padding:80px 20px;background-color:var(--bg-color)}
+    .timeline-container{max-width:1200px;margin:0 auto}
+    .timeline-header{text-align:center;margin-bottom:50px}
+    .timeline-header h2{font-size:2.5rem;font-weight:700;color:var(--text-color);margin-bottom:15px}
+    .timeline-scroll{overflow-x:auto;padding:20px 0}
+    .timeline{display:flex;gap:40px;min-width:max-content;padding:20px}
+    .timeline-item{background:var(--tert-bg);border-radius:12px;padding:30px 25px;min-width:250px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.1);border-left:4px solid var(--accent-color);transition:transform .2s ease}
+    .timeline-item:hover{transform:translateY(-3px)}
+    .timeline-date{font-size:1.1rem;font-weight:600;color:var(--accent-color);margin-bottom:10px}
+    .timeline-event{font-size:1rem;color:var(--text-color);font-weight:500}
+    /* FAQ */
+    .faq-section{padding:80px 20px;background-color:var(--bg-color)}
+    .faq-container{max-width:800px;margin:0 auto}
+    .faq-header{text-align:center;margin-bottom:50px}
+    .faq-header h2{font-size:2.5rem;font-weight:700;color:var(--text-color);margin-bottom:15px}
+    .faq-item{background:var(--tert-bg);border-radius:8px;margin-bottom:15px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+    .faq-question{background:none;border:none;width:100%;padding:25px 30px;text-align:left;font-size:1.1rem;font-weight:600;color:var(--text-color);cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .2s ease}
+    .faq-question:hover{background:rgba(255,255,255,.05)}
+    .faq-icon{font-size:1.2rem;transition:transform .2s ease}
+    .faq-item.active .faq-icon{transform:rotate(45deg)}
+    .faq-answer{padding:0 30px;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease}
+    .faq-item.active .faq-answer{padding:0 30px 25px;max-height:200px}
+    .faq-answer p{color:var(--text-color);opacity:.8;line-height:1.6}
+    /* Prizes */
+    .prizes-section{padding:80px 20px;background-color:var(--bg-color)}
+    .prizes-container{max-width:600px;margin:0 auto}
+    .prizes-header{text-align:center;margin-bottom:50px}
+    .prizes-header h2{font-size:2.5rem;font-weight:700;color:var(--text-color);margin-bottom:15px}
+    .prize-card{background:var(--tert-bg);border-radius:12px;padding:30px;margin-bottom:20px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.1);border-left:4px solid var(--accent-color);transition:transform .2s ease}
+    .prize-card:hover{transform:translateY(-3px)}
+    .prize-card h3{font-size:1.4rem;font-weight:600;color:var(--text-color);margin-bottom:10px}
+    .prize-card p{color:var(--text-color);opacity:.8}
+    @media (max-width:1700px){.bubble-3{left:60%}}
+    @media (max-width:1200px){.bubble-1,.bubble-2{display:none}.bubble-3{left:75%;top:30%}}
+    @media (max-width:1100px){.bubble-3{display:none}}
+    @media (max-width:768px){
+      .hero-section{min-height:450px;padding:60px 15px;margin-left:0;text-align:center}
+      .hero-content{text-align:center}
+      .hero-content h1{font-size:2.5em;margin-top:0}
+      .hero-content p{font-size:1.1em;margin-bottom:30px}
+      .bubble-1,.bubble-2,.bubble-3{display:none}
+      .info-cards-container{grid-template-columns:1fr;gap:20px}
+      .timeline{gap:20px}
+      .timeline-item{min-width:220px;padding:25px 20px}
+      .faq-question{padding:20px 25px;font-size:1rem}
+      .faq-answer{padding:0 25px}
+      .faq-item.active .faq-answer{padding:0 25px 20px}
+      .contact-links{flex-direction:column;align-items:center}
+      .email-signup{flex-direction:column;align-items:center}
+      .email-signup input{min-width:200px}
+    }
+    @media (max-width:480px){
+      .hero-section{min-height:400px;padding:40px 10px}
+      .hero-content h1{font-size:2em}
+      .hero-content p{font-size:1em;margin-bottom:20px}
+      .bubble-1,.bubble-2,.bubble-3{display:none}
+    }
+    .sentinel {
+    height: 0;
+    width: 0;
+}
+
+.navbar {
+    height: 70px;
+    position: relative;
+    z-index: 1000;
+}
+
+.nav-inner {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 60px;
+    background-color: var(--sec-bg);
+    padding: 0 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:
+        top 0.4s ease,
+        width 0.4s ease,
+        height 0.4s ease,
+        padding 0.4s ease,
+        box-shadow 0.4s ease,
+        border-radius 0.4s ease,
+        transform 0.4s ease;
+    box-shadow: none;
+}
+
+.navbar.dock .nav-inner {
+    top: 15px;
+    width: 44%;
+    min-width: fit-content;
+    height: 60px;
+    padding: 0 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 10rem;
+    transform: translateX(-50%) scale(1);
+}
+
+
+.nav-inner ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-inner a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-inner a:hover {
+    color: #30cdd7;
+}
+    
+    /* Themes */
+    [data-theme="dark"]{--bg-color:#121212;--sec-bg:#353535;--accent-color:#1E96A5;--sec-accent-color:#FFCB00;--tert-bg:#002F52;--text-color:#F7F2EC;--cl-color:rgb(250,245,237);--fadeneeded:false;--dark:true}
+    [data-theme="light"]{--bg-color:rgb(250,245,237);--sec-bg:rgb(0,48,87);--accent-color:rgb(30,150,165);--sec-accent-color:rgb(255,203,0);--tert-bg:rgb(180,235,245);--text-color:#000;--cl-color:rgb(0,48,87);--fadeneeded:true;--dark:false}
+  </style>
 </head>
-
 <body>
-    <div id="sentinel" class="sentinel" style="height:0px;"></div>
-
-    <!-- Theme Toggle Button -->
-    <button id="themeToggle" aria-label="Toggle theme" style="display: none;">🌙</button>
-
-    <header class="navbar" id="navbar">
-        <div class="nav-inner" id="navInner">
-            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">☰</button>
-            <span class="page-title" id="pageTitle">Conference Details</span>
-            <ul id="navMenu" class="nav-menu hidden">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../about_us/index.html">About Us</a></li>
-                <li><a href="../committees/index.html">Committees</a></li>
-                <li><a href="../conference_details/index.html">Conference Details</a></li>
-                <li><a href="../resources/index.html">Resources</a></li>
-                <li><a href="../reg_page/index.html">Register</a></li>
-            </ul>
-        </div>
-    </header>
-    <div class="countdown-container">
-        <h1 class="countdown-heading">Conference details to be revealed...</h1>
+  <div id="sentinel" class="sentinel" style="height:0px;"></div>
+  <header class="navbar" id="navbar">
+    <div class="nav-inner" id="navInner">
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">☰</button>
+      <span class="page-title" id="pageTitle">Conference Details</span>
+      <ul id="navMenu" class="nav-menu hidden">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about_us/index.html">About Us</a></li>
+        <li><a href="../committees/index.html">Committees</a></li>
+        <li><a href="../conference_details/index.html">Conference Details</a></li>
+        <li><a href="../resources/index.html">Resources</a></li>
+        <li><a href="../reg_page/index.html">Register</a></li>
+      </ul>
     </div>
+  </header>
+<button id="themeToggle" aria-label="Toggle theme">🌙</button>
+  <!-- REMOVED: countdown-container (per request) -->
 
-    <!-- Hero Section 
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1 style="text-align: center;">SEAMEI OAKMUN 2025</h1>
-            <p style="text-align: center;">10/09/25 to 12/09/25</p>
-        </div>
-        <div class="circular-image-bubble bubble-1" id="bubble-1">
-            <img src="https://via.placeholder.com/150" alt="MUN Image 1">
-        </div>
-        <div class="circular-image-bubble bubble-2" id="bubble-2">
-            <img src="https://via.placeholder.com/150" alt="MUN Image 2">
-        </div>
-        <div class="circular-image-bubble bubble-3" id="bubble-3" style="display: none;">
-            <img src="https://via.placeholder.com/150" alt="MUN Image 3">
-        </div>
-    </section>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 style="text-align: center;">SEAMEI OAKMUN 2025</h1>
+      <p style="text-align: center;">19/09/25 to 20/09/25</p>
+    </div>
+    <div class="circular-image-bubble bubble-1" id="bubble-1">
+      <img src="../picture_assets/i8.jpg" alt="MUN Image 1" />
+    </div>
+    <div class="circular-image-bubble bubble-2" id="bubble-2">
+      <img src="../picture_assets/i4.jpg" alt="MUN Image 2" />
+    </div>
+    <div class="circular-image-bubble bubble-3" id="bubble-3" style="display: none;">
+      <img src="https://via.placeholder.com/150" alt="MUN Image 3" />
+    </div>
+  </section>
 
-    Info Cards Section 
-    <section class="info-cards-section">
-        <div class="info-cards-container">
-            <div class="info-card">
-                <h3>Food Info</h3>
-                <p>Nutritious meals and refreshments will be provided throughout the conference to keep delegates
-                    energized and focused during sessions.</p>
-            </div>
-            <div class="info-card">
-                <h3>Accommodation Info</h3>
-                <p>Comfortable lodging options are available for out-of-town participants, with convenient
-                    transportation to the conference venue.</p>
-            </div>
-            <div class="info-card">
-                <h3>More Info</h3>
-                <p>Additional resources, schedules, and important updates will be shared with registered participants
-                    via email and our website.</p>
-            </div>
-        </div>
-    </section>
+  <!-- Info Cards Section -->
+  <section class="info-cards-section">
+    <div class="info-cards-container">
+      <div class="info-card">
+        <h3>Food Info</h3>
+        <p>Nutritious meals and refreshments will be provided throughout the conference to keep delegates energized and focused during sessions.</p>
+      </div>
+      <div class="info-card">
+        <h3>Accommodation Info</h3>
+        <p>Comfortable lodging options are available for out-of-town participants, with convenient transportation to the conference venue.</p>
+      </div>
+      <div class="info-card">
+        <h3>More Info</h3>
+        <p>Additional resources, schedules, and important updates will be shared with registered participants via email and our website.</p>
+      </div>
+    </div>
+  </section>
 
-    Timeline Section 
-    <section class="timeline-section">
-        <div class="timeline-container">
-            <div class="timeline-header">
-                <h2>Conference Timeline</h2>
-            </div>
-            <div class="timeline-scroll">
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">Day 1</div>
-                        <div class="timeline-event">Registration & Opening Ceremony</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">Day 2</div>
-                        <div class="timeline-event">Committee Sessions Begin</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">Day 3</div>
-                        <div class="timeline-event">Crisis Simulations</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">Day 4</div>
-                        <div class="timeline-event">Final Resolutions</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">Day 5</div>
-                        <div class="timeline-event">Closing Ceremony</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- NEW: Schedule Section (bullet lists; non-interfering) -->
+  <section class="schedule-section" aria-labelledby="schedule-title">
+    <div class="schedule-wrap">
+      <h2 id="schedule-title">Conference Schedule</h2>
 
-    FAQ Section 
-    <section class="faq-section">
-        <div class="faq-container">
-            <div class="faq-header">
-                <h2>Frequently Asked Questions</h2>
-            </div>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        What is the registration deadline?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Registration closes two weeks before the conference date. Early registration is recommended
-                            as spots are limited.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        What should I bring to the conference?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Please bring formal business attire, notebooks, pens, and any research materials. All other
-                            conference materials will be provided.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Is prior MUN experience required?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>No prior experience is necessary. We welcome both novice and experienced delegates, with
-                            training sessions available for beginners.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        How are committee assignments made?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Committee assignments are based on your preferences indicated during registration, experience
-                            level, and availability in each committee.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+      <div class="schedule-day">
+        <h3>Day 1 — 19th September</h3>
+        <ul class="schedule-list">
+          <li><span class="schedule-time">7:30 – 8:15 AM</span> — Delegate Registrations</li>
+          <li><span class="schedule-time">8:15 – 9:30 AM</span> — Opening Ceremony</li>
+          <li><span class="schedule-time">9:30 – 9:45 AM</span> — Snack Break</li>
+          <li><span class="schedule-time">9:45 – 12:15 PM</span> — Committee Session 1</li>
+          <li><span class="schedule-time">12:15 – 12:45 PM</span> — Lunch 1 (IPC, UNODC UNHRC, UNSC, AIPPM)</li>
+          <li><span class="schedule-time">12:45 – 1:15 PM</span> — Lunch 2 (UNGA, DISEC, HCC, ECOSOC, ICJ)</li>
+          <li><span class="schedule-time">1:15 – 4:00 PM</span> — Committee Session 2</li>
+          <li><span class="schedule-time">4:00 – 4:15 PM</span> — Snack Break</li>
+          <li><span class="schedule-time">4:15 – 6:00 PM</span> — Committee Session 3</li>
+          <li><span class="schedule-time">6:00 – 6:30 PM</span> — Dinner (Only for Night Crisis Delegates)</li>
+          <li><span class="schedule-time">6:30 – 9:00 PM</span> — Night Crisis</li>
+        </ul>
+      </div>
 
-    Prizes Section 
-    <section class="prizes-section">
-        <div class="prizes-container">
-            <div class="prizes-header">
-                <h2>Prizes</h2>
-            </div>
-            <div class="prize-card">
-                <h3>Best Delegate</h3>
-                <p>Awarded to the delegate who demonstrates exceptional diplomacy, leadership, and contribution to their
-                    committee's success.</p>
-            </div>
-            <div class="prize-card">
-                <h3>Outstanding Delegate</h3>
-                <p>Recognizes delegates who show remarkable debate skills, collaboration, and understanding of their
-                    country's position.</p>
-            </div>
-            <div class="prize-card">
-                <h3>Commendable Delegate</h3>
-                <p>Honors delegates who display good participation, research quality, and positive contribution to
-                    committee discussions.</p>
-            </div>
-            <div class="prize-card">
-                <h3>Special Mentions</h3>
-                <p>Acknowledges delegates who demonstrate unique insights, creativity, or significant improvement
-                    throughout the conference.</p>
-            </div>
-        </div>
-    </section> -->
+      <div class="schedule-day">
+        <h3>Day 2 — 20th September</h3>
+        <ul class="schedule-list">
+          <li><span class="schedule-time">7:30 – 8:00 AM</span> — Bag Checks</li>
+          <li><span class="schedule-time">8:00 – 10:00 AM</span> — Committee Session 4</li>
+          <li><span class="schedule-time">10:00 – 10:15 AM</span> — Snack Break</li>
+          <li><span class="schedule-time">10:15 – 12:30 PM</span> — Committee Session 5</li>
+          <li><span class="schedule-time">12:30 – 1:00 PM</span> — Lunch 1 (IPC, UNODC UNHRC, UNSC, AIPPM)</li>
+          <li><span class="schedule-time">1:00 – 1:30 PM</span> — Lunch 2 (UNGA, DISEC, HCC, ECOSOC, ICJ)</li>
+          <li><span class="schedule-time">1:30 – 4:00 PM</span> — Committee Session 6</li>
+          <li><span class="schedule-time">4:00 – 6:00 PM</span> — Closing Ceremony</li>
+          <li><span class="schedule-time">6:00 – 8:00 PM</span> — Socials</li>
+          <li><span class="schedule-time">8:00 – 9:00 PM</span> — Dispersal</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    <!--Contact Section
-    <section class="contact-section" id="contact">
+  <!-- Timeline Section -->
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="faq-container">
+      <div class="faq-header">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">What is the registration deadline? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>Registration closes two weeks before the conference date. Early registration is recommended as spots are limited.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What should I bring to the conference? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>Please bring formal business attire, notebooks, pens, and any research materials. All other conference materials will be provided.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Is prior MUN experience required? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>No prior experience is necessary. We welcome both novice and experienced delegates, with training sessions available for beginners.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">How are committee assignments made? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>Committee assignments are based on your preferences indicated during registration, experience level, and availability in each committee.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prizes Section -->
+  <section class="prizes-section">
+    <div class="prizes-container">
+      <div class="prizes-header">
+        <h2>Prizes</h2>
+      </div>
+      <div class="prize-card">
+        <h3>Best Delegate</h3>
+        <p>Awarded to the delegate who demonstrates exceptional diplomacy, leadership, and contribution to their committee's success.</p>
+      </div>
+      <div class="prize-card">
+        <h3>Outstanding Delegate</h3>
+        <p>Recognizes delegates who show remarkable debate skills, collaboration, and understanding of their country's position.</p>
+      </div>
+      <div class="prize-card">
+        <h3>Commendable Delegate</h3>
+        <p>Honors delegates who display good participation, research quality, and positive contribution to committee discussions.</p>
+      </div>
+      <div class="prize-card">
+        <h3>Special Mentions</h3>
+        <p>Acknowledges delegates who demonstrate unique insights, creativity, or significant improvement throughout the conference.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section (left exactly as you had it, including the trailing comment) -->
+ <section class="contact-section" id="contact">
         <div class="contact-content-wrapper">
-            <h2>Contact Us!</h2>
 
+            <h1>Contact Us!</h1>
+
+            <!-- Contact links (email, instagram) -->
             <div class="contact-links">
-                <a class="contact-link email" href="mailto:aryankrishnan4b@gmail.com" title="Email us" target="_blank">
+                <!-- Email -->
+                <a class="contact-link email" href="mailto:oakmun@oakridge.in" title="Email us" target="_blank">
                     <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
                         <rect width="24" height="24" rx="6" fill="" />
                         <path d="M6 8.5V16h12V8.5l-6 4.5-6-4.5zM18 7H6l6 4.5L18 7z" fill="var(--bg-color)" />
                     </svg>
                     Email us!
                 </a>
-
-                <a class="contact-link twitter" href="https://twitter.com/yourhandle" title="Twitter/X" target="_blank">
-                    <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
-                        <rect width="24" height="24" rx="6" fill="" />
-                        <path d="M17.5 7.5l-7 9m0-9l7 9" stroke="var(--bg-color)" stroke-width="2"
-                            stroke-linecap="round" />
+                <!-- Instagram -->
+                <a class="contact-link facebook" href="https://www.instagram.com/oak.mun/" title="Instagram"
+                    target="_blank">
+                    <svg class="icon" viewBox="0 0 16 16" width="28" height="28" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect width="16" height="16" rx="3" fill="none" />
+                        <path
+                            d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
+                            fill="var(--bg-color)" style="transform: scale(0.7); transform-origin: center;" />
                     </svg>
-                    Twitter/X
-                </a>
-
-
-                <a class="contact-link facebook" href="https://facebook.com/yourpage" title="Facebook" target="_blank">
-                    <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
-                        <rect width="24" height="24" rx="6" fill="" />
-                        <path d="M15.5 8.5H14V7.5c0-.4.3-.5.5-.5h1V5h-2c-1.1 0-2 .9-2 2v1.5H9v2h2V19h3v-5.5h2l.5-2z"
-                            fill="var(--bg-color)" />
-                    </svg>
-                    Facebook
+                    Instagram
                 </a>
             </div>
 
+            <!-- Spacer -->
+            <div class="location-spacer"></div>
 
-            <form class="email-signup" action="#" method="post">
-                <label for="newsletter-email">Subscribe to our newsletter:</label>
-                <input id="newsletter-email" name="newsletter-email" type="email" placeholder="Enter your email address"
-                    required>
-                <button type="submit" class="subscribe-btn">Subscribe</button>
-            </form>
+            <!-- Location section -->
+            <div class="location-section">
+                <div class="location-header">
+                    <h3>Find Us Here</h3>
+                    <p>Visit us at our campus location</p>
+                </div>
 
-            <p class="info-text">
-                Receive the latest news and updates directly in your inbox.
-            </p>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9551.100551811329!2d77.74924867584872!3d12.887545716713941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae0d539b9bf9ef%3A0x8173c2437f9bc14d!2sOakridge%20International%20School%20Bangalore!5e1!3m2!1sen!2sin!4v1753631640931!5m2!1sen!2sin"
+                        width="400" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
         </div>
-    </section>-->
+    </section>
 
-
-    <script>
-        // Current theme state
-        let currentTheme = 'dark';
-
-        // Initialize default theme
-        function setTheme(theme) {
-            if (theme === 'light') {
-                document.body.setAttribute('data-theme', 'light');
-                document.getElementById('themeToggle').textContent = '🌙';
-            } else {
-                document.body.setAttribute('data-theme', 'dark');
-                document.getElementById('themeToggle').textContent = '☀️';
-            }
-            currentTheme = theme;
+  <script>
+      const faqItems=document.querySelectorAll('.faq-item');
+      faqItems.forEach(item=>{
+        const q=item.querySelector('.faq-question');
+        if(q){q.addEventListener('click',()=>{const isActive=item.classList.contains('active');faqItems.forEach(x=>x.classList.remove('active'));if(!isActive){item.classList.add('active');}});}
+      });
+      const circle1=document.getElementById('bubble-1');
+      const circle2=document.getElementById('bubble-2');
+      const circle3=document.getElementById('bubble-3');
+      if(circle1&&circle2&&circle3){
+        let angle1=0,angle2=0,angle3=0,delay=0;
+        function animate(){
+          const bobAmount=10,bobSpeed=0.040;
+          const offsetY1=Math.sin(angle1)*bobAmount; circle1.style.top=`calc(10% + ${offsetY1}px)`; angle1+=bobSpeed;
+          if(delay>=0.3){const o2=Math.sin(angle2)*bobAmount; circle2.style.top=`calc(35% + ${o2}px)`; angle2+=bobSpeed;}
+          if(delay>=0.6){const o3=Math.sin(angle3)*bobAmount; circle3.style.bottom=`calc(25% + ${-o3}px)`; angle3+=bobSpeed;}
+          delay+=bobSpeed; requestAnimationFrame(animate);
         }
-
-        // Theme toggle functionality
-        document.addEventListener('DOMContentLoaded', function () {
-            const themeToggle = document.getElementById('themeToggle');
-
-            themeToggle.addEventListener('click', function () {
-                if (currentTheme === 'dark') {
-                    setTheme('light');
-                } else {
-                    setTheme('dark');
-                }
-            });
-
-            // Initialize with dark theme
-            setTheme('dark');
-        });
-
-        // Navbar functionality
-        document.addEventListener('DOMContentLoaded', function () {
-            const navbar = document.getElementById('navbar');
-            const sentinel = document.getElementById('sentinel');
-
-            // Intersection Observer for navbar docking
-            if (navbar && sentinel) {
-                new IntersectionObserver(
-                    ([e]) => {
-                        if (!e.isIntersecting) {
-                            navbar.classList.add('dock');
-                        } else {
-                            navbar.classList.remove('dock');
-                        }
-                    },
-                    { root: null, threshold: 0 }
-                ).observe(sentinel);
-            }
-
-            // Hamburger menu functionality
-            const hamburgerBtn = document.getElementById('hamburgerBtn');
-            const navMenu = document.getElementById('navMenu');
-
-            if (hamburgerBtn && navMenu) {
-                hamburgerBtn.addEventListener('click', function () {
-                    navMenu.classList.toggle('hidden');
-                });
-            }
-
-            // Page title mapping
-            const pageTitle = document.getElementById('pageTitle');
-            const pageNameMap = {
-                'index.html': 'Home',
-                'main': 'Home',
-                'about_us': 'About Us',
-                'committees': 'Committees',
-                'prizes': 'Prizes',
-                'register': 'Register',
-                'conference_details': 'Conference Details',
-                'resources': 'Resources'
-            };
-
-            // FAQ functionality
-            const faqItems = document.querySelectorAll('.faq-item');
-
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-
-                if (question) {
-                    question.addEventListener('click', () => {
-                        const isActive = item.classList.contains('active');
-
-                        // Close all other FAQ items
-                        faqItems.forEach(otherItem => {
-                            otherItem.classList.remove('active');
-                        });
-
-                        // Toggle current item
-                        if (!isActive) {
-                            item.classList.add('active');
-                        }
-                    });
-                }
-            });
-
-            // Floating bubbles animation
-            const circle1 = document.getElementById('bubble-1');
-            const circle2 = document.getElementById('bubble-2');
-            const circle3 = document.getElementById('bubble-3');
-
-            if (circle1 && circle2 && circle3) {
-                // Get initial positions
-                const getInitialTop = (element) => {
-                    const rect = element.getBoundingClientRect();
-                    const style = window.getComputedStyle(element);
-                    return parseFloat(style.top) || rect.top;
-                };
-
-                const initialTop1 = getInitialTop(circle1);
-                const initialTop2 = getInitialTop(circle2);
-                const initialTop3 = getInitialTop(circle3);
-
-                let angle1 = 0;
-                let angle2 = 0;
-                let angle3 = 0;
-                let delay = 0;
-
-                function animate() {
-                    const bobAmount = 10;
-                    const bobSpeed = 0.040;
-
-                    const offsetY1 = Math.sin(angle1) * bobAmount;
-                    circle1.style.top = `calc(10% + ${offsetY1}px)`;
-                    angle1 += bobSpeed;
-
-                    if (delay >= 0.3) {
-                        const offsetY2 = Math.sin(angle2) * bobAmount;
-                        circle2.style.top = `calc(35% + ${offsetY2}px)`;
-                        angle2 += bobSpeed;
-                    }
-
-                    if (delay >= 0.6) {
-                        const offsetY3 = Math.sin(angle3) * bobAmount;
-                        circle3.style.bottom = `calc(25% + ${-offsetY3}px)`;
-                        angle3 += bobSpeed;
-                    }
-
-                    delay += bobSpeed;
-                    requestAnimationFrame(animate);
-                }
-
-                animate();
-            }
-
-            // Timeline scroll behavior
-            const timelineScroll = document.querySelector('.timeline-scroll');
-            if (timelineScroll) {
-                timelineScroll.addEventListener('wheel', (e) => {
-                    e.preventDefault();
-                    timelineScroll.scrollLeft += e.deltaY;
-                });
-            }
-
-            // Close mobile menu when clicking outside
-        });
-        const startTime = new Date("2025-08-11T24:00:00").getTime();
-
-        const countdownEnd = startTime + (
-            (12 * 24 * 60 * 60 * 1000) + // 12 days
-            (11 * 60 * 60 * 1000) +     // 11 hours
-            (10 * 60 * 1000) +          // 10 minutes
-            (9 * 1000)                  // 9 seconds
-        );
-
-        const countdownEl = document.getElementById("countdown");
-
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = countdownEnd - now;
-
-            if (distance <= 0) {
-                countdownEl.innerHTML = "🔥 The Committees Are Live 🔥";
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            countdownEl.innerHTML =
-                `${days}d  : ${hours}h : ${minutes}m : ${seconds}s`;
-        }
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-    </script>
+        animate();
+      }
+      const timelineScroll=document.querySelector('.timeline-scroll');
+      if(timelineScroll){timelineScroll.addEventListener('wheel',(e)=>{e.preventDefault();timelineScroll.scrollLeft+=e.deltaY;});}
+  </script>
+  <script src="../navbar/script.js"></script>
+  <script src="../theme_dropdown/script.js"></script>
 </body>
-
 </html>
