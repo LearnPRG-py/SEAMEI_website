@@ -4,13 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Links</title>
+    <title>MUN Media</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../main/styles.css">
     <link rel="stylesheet" href="../navbar/styles.css">
     <link rel="stylesheet" href="../contact_us/styles.css">
     <link rel="stylesheet" href="../theme_dropdown/styles.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -18,7 +20,7 @@
     <header class="navbar" id="navbar">
         <div class="nav-inner" id="navInner">
             <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">☰</button>
-            <span class="page-title" id="pageTitle">Registration</span>
+            <span class="page-title" id="pageTitle">Media</span>
             <ul id="navMenu" class="nav-menu hidden">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../about_us/index.html">About Us</a></li>
@@ -30,18 +32,16 @@
             </ul>
         </div>
     </header>
-    <section class="delegate-resources">
-        <div class="container">
-            <h2>Registration links</h2>
-            <div class="resource-buttons">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdrh3zL8ikAwE9Lks8SVEdhjMo-FyE7uxYzRY9rT74Wc2W4wA/viewform?usp=header"
-                    class="resource-button">Individual</a>
-                <a href="https://forms.gle/EgrykFTpAR6JtMAf6" class="resource-button">Delegation</a>
-            </div>
-            <div class="resource-buttons">
-                <a href="registration_guide.pdf" class="resource-button"
-                    download="OakMUN_Registration_Guide.pdf">Registration Guide</a>
-            </div>
+    <button id="themeToggle" aria-label="Toggle theme">🌙</button>
+
+    <section class="updates-section">
+        <div class="updates-header">
+            <h1>MUN Media</h1>
+            <p>Stay tuned with the latest media from before, during and post the conference</p>
+        </div>
+
+        <div id="updates-feed" class="updates-feed">
+            <!-- JS will inject update cards here -->
         </div>
     </section>
 
@@ -53,7 +53,7 @@
             <!-- Contact links (email, instagram) -->
             <div class="contact-links">
                 <!-- Email -->
-                <a class="contact-link email" href="mailto:oakmun@oakridge.in" title="Email us" target="_blank">
+                <a class="contact-link email" href="mailto:aryankrishnan4b@gmail.com" title="Email us" target="_blank">
                     <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
                         <rect width="24" height="24" rx="6" fill="" />
                         <path d="M6 8.5V16h12V8.5l-6 4.5-6-4.5zM18 7H6l6 4.5L18 7z" fill="var(--bg-color)" />
@@ -94,12 +94,9 @@
 
         </div>
     </section>
-
-    <button id="themeToggle" aria-label="Toggle theme">🌙</button>
     <script src="script.js"></script>
     <script src="../navbar/script.js"></script>
     <script src="../theme_dropdown/script.js"></script>
-
 </body>
 
 </html>

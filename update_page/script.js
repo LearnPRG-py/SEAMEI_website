@@ -47,4 +47,3 @@ updatesData.forEach(update => {
 
     feed.appendChild(card);
 });
-

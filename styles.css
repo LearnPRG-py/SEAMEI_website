@@ -300,6 +300,13 @@ section:nth-child(odd) {
     color: var(--text-color);
 }
 
+.updates h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+
+
 #countdown-timer {
     display: flex;
     justify-content: center;
@@ -560,6 +567,46 @@ section:nth-child(odd) {
     border-top: 2px solid var(--sec-bg);
 }
 
+.container h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+
+.resource-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    flex-wrap: wrap;
+}
+
+.resource-button {
+    display: block;
+    padding: 18px 30px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 6px 15px var(--box-shadow-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    min-width: 200px;
+    text-align: center;
+}
+
+.resource-button:hover {
+    background-color: color-mix(in srgb, var(--accent-color) 90%, black);
+    transform: translateY(-3px);
+    box-shadow: 0 9px 20px rgba(0, 0, 0, 0.05);
+}
+
 .find-out-more-section h2 {
     font-size: 2.5em;
     margin-bottom: 50px;
@@ -657,7 +704,11 @@ section:nth-child(odd) {
         top: 15%;
     }
 }
-
+@media (max-width: 1600px) {
+    .letters-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 @media (max-width: 1200px) {
     .bubble-1 {
         display: none;
@@ -709,7 +760,7 @@ section:nth-child(odd) {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     section {
         padding: 60px 15px;
     }
