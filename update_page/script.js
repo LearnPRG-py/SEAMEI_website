@@ -1,6 +1,12 @@
 // Example JSON (in reality you’d load this from a file or API)
 const updatesData = [
     {
+        title: "EBs for Commitees have been revealed!",
+        caption: "View EB information on our social media or the committee pages.",
+        time: "September 10th, 2025",
+        image: "im6.png"
+    },
+    {
         title: "Early bird registrations closes today!",
         caption: "Sign up now to save money before normal registrations open!",
         time: "August 28th, 2025",

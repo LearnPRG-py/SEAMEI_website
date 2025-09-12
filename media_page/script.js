@@ -1,35 +1,11 @@
 // Example JSON (in reality you’d load this from a file or API)
 const updatesData = [
     {
-        title: "Blog 1",
-        caption: "Add your description here",
+        title: "What is OAKMUN?",
+        caption: "An Introduction to OAKMUN",
         href: "../media/blog1.html",
-        image: "im3.jpeg"
-    },
-    {
-        title: "Blog 2",
-        caption: "Add your description here",
-        href: "../media/blog2.html",
-        image: "im3.jpeg"
-    },
-    {
-        title: "Blog 3",
-        caption: "Add your description here",
-        href: "../media/blog3.html",
-        image: "im3.jpeg"
-    },
-    {
-        title: "Blog 4",
-        caption: "Add your description here",
-        href: "../media/blog4.html",
-        image: "im3.jpeg"
-    },
-    {
-        title: "Blog 5",
-        caption: "Add your description here",
-        href: "../media/blog5.html",
-        image: "im3.jpeg"
-    },
+        image: "im2.jpeg"
+    }
 ];
 
 const feed = document.getElementById("updates-feed");
