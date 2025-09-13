@@ -207,6 +207,17 @@
 
         .background-guide {
             display: inline-block;
+            background: linear-gradient(135deg, rgb(30, 150, 165), rgb(0, 47, 82));
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        .background-guide-greyed {
+            display: inline-block;
             background: gray;
             /* linear-gradient(135deg, rgb(30, 150, 165), rgb(0, 47, 82)); */
             color: white;
@@ -218,10 +229,11 @@
             font-size: 0.95rem;
         }
 
-        /* .background-guide:hover {
+
+        .background-guide:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(0, 47, 82, 0.3);
-        } */
+        }
 
         .executive-board {
             margin-top: 30px;
@@ -515,8 +527,10 @@
                         </div>
                     </div>
                 `).join('');
-
-                const overlayHTML = `
+                let overlayHTML = "";
+                if(committee.backgroundGuideLink === "#") {
+                    committee.backgroundGuideLink = "javascript:void(0)";
+                    overlayHTML = `
                     <div class="detail-overlay" id="overlay-${committee.id}">
                         <div class="detail-panel">
                             <button class="close-btn">&times;</button>
@@ -525,8 +539,7 @@
                             <div class="agenda-section">
                                 <div class="agenda-title">Agenda - ${committee.agenda}</div>
                                 <div class="agenda-text">${committee.agendaText}</div>
-                                <a class="background-guide">Background guides: Coming Soon!</a>
-                                <!-- href="${committee.backgroundGuideLink}" --!>
+                                <a class="background-guide-greyed" href="${committee.backgroundGuideLink}">Background guide (coming soon)</a>
                             </div>
                             <div class="executive-board">
                                 <div class="board-title">Executive board</div>
@@ -537,6 +550,28 @@
                         </div>
                     </div>
                 `; //remove the comment to show the executive board information
+                } else {
+                    overlayHTML = `
+                    <div class="detail-overlay" id="overlay-${committee.id}">
+                        <div class="detail-panel">
+                            <button class="close-btn">&times;</button>
+                            <h2 class="panel-title">${committee.title}</h2>
+                            <p class="panel-subtitle">${committee.subtitle}</p>
+                            <div class="agenda-section">
+                                <div class="agenda-title">Agenda - ${committee.agenda}</div>
+                                <div class="agenda-text">${committee.agendaText}</div>
+                                <a class="background-guide" href="${committee.backgroundGuideLink}">Background guide</a>
+                            </div>
+                            <div class="executive-board">
+                                <div class="board-title">Executive board</div>
+                                <div class="board-grid">
+                                    ${executiveBoardHTML}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `; //remove the comment to show the executive board information
+                }
                 container.innerHTML += overlayHTML;
             });
         }

@@ -5,7 +5,7 @@
     "subtitle": "United Nations Human Rights Council (Junior - Grade 6 to 8)",
     "agenda": "Evaluating Human Rights Violations and Exploring Measures to Safeguard Civilians amid the Israel-Hamas Conflict",
     "agendaText": "The ongoing Israel-Hamas conflict has resulted in devastating civilian casualties and widespread human rights violations on both sides. As international law continues to be challenged and innocent lives hang in the balance, the Human Rights Council faces an urgent mandate to investigate these violations and establish concrete mechanisms for civilian protection. In times when diplomatic solutions seem distant, the HRC must serve as a beacon of accountability and justice for all affected populations.",
-    "backgroundGuideLink": "#",
+    "backgroundGuideLink": "../BG Guides/UNHRC.pdf",
     "backgroundImage": "c1.jpg",
     "first": true,
     "executiveBoard": [
@@ -65,7 +65,7 @@
     "subtitle": "United Nations Security Council",
     "agenda": "Operation Rising Lion: Addressing the Escalation of Hostilities Between Iran and Israel with special emphasis on regional stability, nuclear non-proliferation, and operation Rising Lion. (Freeze Date: June 15th, 2025)",
     "agendaText": "The escalating tensions between Iran and Israel have reached a critical juncture, threatening regional stability and global security. Operation Rising Lion represents a significant escalation in Middle Eastern hostilities, with implications for nuclear non-proliferation efforts and international peace. The Security Council must navigate complex geopolitical dynamics while addressing immediate security concerns and preventing further regional destabilization. With a freeze date of June 15, 2025, the Council faces urgent pressure to implement effective de-escalation measures and protective mechanisms for civilian populations caught in the crossfire.",
-    "backgroundGuideLink": "#",
+    "backgroundGuideLink": "../BG Guides/UNSC.pdf",
     "backgroundImage": "c3.jpg",
     "first": false,
     "executiveBoard": [
@@ -125,7 +125,7 @@
     "subtitle": "Disarmament & International Security Committee",
     "agenda": "The Status of Private Military Companies in Armed Conflict: Accountability and Regulation",
     "agendaText": "The proliferation of private military companies (PMCs) in contemporary armed conflicts has created a complex web of accountability challenges and regulatory gaps in international law. As these private actors increasingly operate in conflict zones worldwide, DISEC must address the legal ambiguities surrounding their status, conduct, and oversight. The committee faces the critical task of establishing clear frameworks for PMC accountability while balancing state sovereignty, operational effectiveness, and the protection of civilian populations. The growing influence of these entities in global security architecture demands urgent attention to prevent potential abuses and ensure compliance with international humanitarian law.",
-    "backgroundGuideLink": "#",
+    "backgroundGuideLink": "../BG Guides/DISEC.pdf",
     "backgroundImage": "c5.jpg",
     "first": false,
     "executiveBoard": [
@@ -155,7 +155,7 @@
     "subtitle": "All India Political Parties Meet",
     "agenda": "Discussing the Functioning of Enforcement Directorate (ED), CBI, and Alleged Political Vendetta",
     "agendaText": "India's premier investigative agencies, the Enforcement Directorate and Central Bureau of Investigation, face mounting scrutiny over allegations of political misuse and selective enforcement. As questions arise about the independence and impartiality of these crucial institutions, political parties must address concerns about their functioning while maintaining the integrity of India's democratic processes. The committee must navigate sensitive issues of institutional autonomy, accountability mechanisms, and the balance between law enforcement and political neutrality. The challenge lies in strengthening these agencies' credibility while ensuring they serve justice rather than political interests.",
-    "backgroundGuideLink": "#",
+    "backgroundGuideLink": "../BG Guides/AIPPM.pdf",
     "backgroundImage": "c6.jpg",
     "first": false,
     "executiveBoard": [
