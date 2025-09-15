@@ -35,7 +35,7 @@
     "subtitle": "Economic and Social Council (Junior - Grade 6 to 8)",
     "agenda": "Discussing the Regulation of Cryptocurrencies in Light of Their Role in Money Laundering, Tax Evasion, and Terror Financing",
     "agendaText": "The rapid proliferation of cryptocurrencies has created unprecedented challenges for global financial systems and regulatory frameworks. As digital currencies become increasingly utilized for illicit activities including money laundering, tax evasion, and terror financing, ECOSOC must develop comprehensive regulatory mechanisms that balance innovation with security. The Council faces the complex task of establishing international standards that prevent criminal exploitation while fostering legitimate digital financial growth and inclusion.",
-    "backgroundGuideLink": "#",
+    "backgroundGuideLink": "../BG Guides/ECOSOC.pdf",
     "backgroundImage": "c2.jpg",
     "first": false,
     "executiveBoard": [
@@ -95,7 +95,7 @@
     "subtitle": "Historical Crisis Committee",
     "agenda": "Addressing the Escalation of the Six-Day War",
     "agendaText": "Freeze Date: June 5, 1967 — The opening day of the war, marked by Israel's surprise airstrikes against Egyptian airfields, rapid mobilization across multiple fronts, and the beginning of a conflict whose outcome and territorial consequences remain uncertain.",
-    "backgroundGuideLink": "#",
+    "backgroundGuideLink": "../BG Guides/HCC.pdf",
     "backgroundImage": "c4.jpg",
     "first": false,
     "executiveBoard": [
@@ -179,7 +179,7 @@
     "subtitle": "United Nations Office on Drugs and Crime",
     "agenda": "Reassessing Global Counter-Narcotics Strategy in Light of the Expanding Power and Transnational Reach of South and North American Drug Cartels",
     "agendaText": "The exponential growth and sophistication of drug cartels across the Americas has fundamentally altered the global narcotics landscape, challenging traditional counter-narcotics approaches and threatening regional stability. These transnational criminal organizations now wield unprecedented power, corrupting institutions and destabilizing entire regions while expanding their operations across continents. UNODC must reassess and reformulate global counter-narcotics strategies to address the evolving nature of these criminal enterprises, their technological capabilities, and their increasing influence on legitimate economies and governance structures. The challenge requires unprecedented international cooperation and innovative approaches to dismantle these networks while addressing root causes of the drug trade.",
-    "backgroundGuideLink": "#",
+    "backgroundGuideLink": "../BG Guides/UNODC.pdf",
     "backgroundImage": "c7.jpg",
     "first": false,
     "executiveBoard": [
