@@ -1,3 +1,168 @@
+:root {
+            --section-highlight-dark: #1a1a2e;
+            --accent-color: #ff6b6b;
+            --shadow-color: rgba(0,0,0,0.2);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #0f0f23;
+        }
+
+        /* Sponsors Section */
+        .sponsors-section {
+            padding: 80px 40px;
+            background: var(--section-highlight-dark);
+            text-align: center;
+        }
+
+        .sponsors-title {
+            font-size: 2.7em;
+            font-weight: 900;
+            color: var(--accent-color);
+            margin-bottom: 40px;
+            letter-spacing: -0.02em;
+        }
+
+        .sponsor-tier {
+            margin-bottom: 50px;
+        }
+
+        .tier-title {
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 25px;
+            letter-spacing: -0.01em;
+        }
+
+        .platinum-title {
+            color: #e5c100;
+            text-shadow: 0 2px 10px rgba(229,193,0,0.2);
+            font-size: 2.5em;
+        }
+
+        .gold-title {
+            color: #d4af37;
+            text-shadow: 0 2px 10px rgba(212,175,55,0.2);
+            font-size: 2.2em;
+        }
+
+        .silver-title {
+            color: #888888;
+            text-shadow: 0 2px 10px rgba(136,136,136,0.18);
+            font-size: 1.8em;
+        }
+
+        .sponsor-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .sponsor-logo {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            box-shadow: 0 6px 18px var(--shadow-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .sponsor-logo img {
+            object-fit: contain;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.12));
+        }
+
+        /* PLATINUM - BIGGEST */
+        .platinum-logo {
+            min-width: 280px;
+            min-height: 200px;
+            padding: 30px 40px;
+        }
+
+        .platinum-logo img {
+            max-width: 260px;
+            max-height: 180px;
+        }
+
+        /* GOLD - MEDIUM */
+        .gold-logo {
+            min-width: 200px;
+            min-height: 140px;
+            padding: 20px 30px;
+        }
+
+        .gold-logo img {
+            max-width: 180px;
+            max-height: 120px;
+        }
+
+        /* SILVER - SMALLEST */
+        .silver-logo {
+            min-width: 140px;
+            min-height: 100px;
+            padding: 12px 16px;
+        }
+
+        .silver-logo img {
+            max-width: 120px;
+            max-height: 80px;
+        }
+
+        .sponsor-logo:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 12px 32px var(--shadow-color);
+        }
+
+        @media (max-width: 900px) {
+            .sponsors-section {
+                padding: 40px 10px;
+            }
+            
+            .sponsor-logos {
+                gap: 20px;
+            }
+            
+            /* Mobile - Platinum */
+            .platinum-logo {
+                min-width: 220px;
+                min-height: 160px;
+                padding: 20px 25px;
+            }
+            
+            .platinum-logo img {
+                max-width: 200px;
+                max-height: 140px;
+            }
+            
+            /* Mobile - Gold */
+            .gold-logo {
+                min-width: 160px;
+                min-height: 110px;
+                padding: 15px 20px;
+            }
+            
+            .gold-logo img {
+                max-width: 140px;
+                max-height: 90px;
+            }
+            
+            /* Mobile - Silver */
+            .silver-logo {
+                min-width: 120px;
+                min-height: 80px;
+                padding: 10px 12px;
+            }
+            
+            .silver-logo img {
+                max-width: 100px;
+                max-height: 60px;
+            }
+        }
 * {
     margin: 0;
     padding: 0;
